@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070a0f" />
+  <meta name="description" content="Mark Jhollan Bricia — developer, IT problem solver, and digital builder. Recruiter-first portfolio featuring software, IT support, and shipped web products." />
+  <meta property="og:title" content="Mark Jhollan Bricia — Developer · IT · Builder" />
+  <meta property="og:description" content="Recruiter-first portfolio featuring software systems, IT support, and shipped web products." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/meta/og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="assets/meta/favicon.svg" />
+  <title>Mark Jhollan Bricia — Developer · IT · Builder</title>
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem('portfolio-theme');
+        const systemLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        document.documentElement.dataset.theme = saved || (systemLight ? 'light' : 'dark');
+      } catch (_) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <div class="ambient-grid" aria-hidden="true"></div>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Portfolio navigation">
+      <a class="brand" href="#overview" data-route="overview" aria-label="Portfolio overview">
+        <span class="brand-mark">MJ</span>
+        <span class="brand-copy"><strong>MARK.JB</strong><small>developer.system</small></span>
+      </a>
+
+      <nav class="side-nav" id="sideNav">
+        <button class="nav-item is-active" type="button" data-route="overview"><span>01</span><b>Overview</b><kbd>O</kbd></button>
+        <button class="nav-item" type="button" data-route="work"><span>02</span><b>Work</b><kbd>W</kbd></button>
+        <button class="nav-item nav-highlight" type="button" data-route="capstone"><span>03</span><b>Foundations</b><em>2018–2019</em></button>
+        <button class="nav-item" type="button" data-route="systems"><span>04</span><b>Systems</b><kbd>S</kbd></button>
+        <button class="nav-item" type="button" data-route="credentials"><span>05</span><b>Credentials</b><kbd>C</kbd></button>
+        <button class="nav-item" type="button" data-route="about"><span>06</span><b>About</b><kbd>A</kbd></button>
+        <button class="nav-item" type="button" data-route="contact"><span>07</span><b>Contact</b><kbd>X</kbd></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="command-button" id="commandTrigger" type="button"><span>⌘</span> Command <kbd>K</kbd></button>
+        <div class="system-mini"><span class="status-dot"></span><div><strong>OPEN TO OPPORTUNITIES</strong><small>Philippines · UTC+8</small></div></div>
+      </div>
+    </aside>
+
+    <section class="app-main">
+      <header class="topbar">
+        <div class="crumb"><span>~/portfolio/</span><strong id="routeLabel">overview</strong><i class="cursor-block"></i></div>
+        <div class="topbar-actions">
+          <span class="local-time" id="localTime">--:--:-- PHT</span>
+          <a class="icon-link icon-link-cv" href="Mark-Jhollan-Bricia-CV.pdf" target="_blank" rel="noreferrer" aria-label="Download CV">Download CV ↓</a>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">☾</span><span class="theme-toggle-label">Dark</span></button>
+          <a class="icon-link" href="https://github.com/mbricia" target="_blank" rel="noreferrer" aria-label="GitHub profile">GH ↗</a>
+          <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation">MENU</button>
+        </div>
+      </header>
+
+      <main class="workspace" id="workspace" tabindex="-1">
+        <!-- OVERVIEW -->
+        <section class="view is-active" data-view="overview" aria-labelledby="overview-title">
+          <div class="overview-layout">
+            <div class="hero-panel panel">
+              <div class="eyebrow"><span class="status-dot"></span> Developer · IT Problem Solver · Digital Builder</div>
+              <div class="hero-title-row">
+                <div class="hero-title-copy">
+                  <p class="terminal-prompt">&gt; whoami</p>
+                  <h1 id="overview-title">Mark Jhollan<br /><span>Bricia.</span></h1>
+                </div>
+                <figure class="hero-portrait" aria-label="Professional portrait">
+                  <span class="hero-portrait-halo" aria-hidden="true"></span>
+                  <img src="assets/profile/mark-jhollan.png" alt="Professional portrait of Mark Jhollan Bricia" />
+                  <figcaption><span class="status-dot"></span> AVAILABLE</figcaption>
+                </figure>
+              </div>
+              <p class="hero-copy">I build practical software and web experiences, troubleshoot the systems behind them, and use modern tools without outsourcing the fundamentals.</p>
+              <div class="recruiter-tech" aria-label="Core technologies"><span>JavaScript</span><span>React / React Native</span><span>Firebase / Firestore</span><span>C#</span><span>Java</span><span>HTML / CSS</span><span>Git</span></div>
+              <p class="availability-line"><span class="status-dot"></span> OPEN TO OPPORTUNITIES · PHILIPPINES / UTC+8</p>
+              <div class="hero-actions">
+                <button class="btn btn-primary" type="button" data-route="work">View selected work <span>↗</span></button>
+                <button class="btn btn-ghost" type="button" data-route="contact">Contact</button>
+                <a class="btn btn-ghost" href="Mark-Jhollan-Bricia-CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+              </div>
+              <div class="identity-grid">
+                <div><span>EDUCATION</span><strong>BS Information Technology</strong><small>Major in Software Engineering</small></div>
+                <div><span>CORE</span><strong>Build · Debug · Improve</strong><small>Readable systems over clever code</small></div>
+                <div><span>WORKFLOW</span><strong>Fundamentals + AI</strong><small>AI-assisted, human-owned</small></div>
+              </div>
+            </div>
+
+            <div class="overview-stack">
+              <article class="recruiter-snapshot panel">
+                <div class="snapshot-head"><span>RECRUITER SNAPSHOT</span><em>30-SECOND VIEW</em></div>
+                <div class="snapshot-grid">
+                  <div><span>TARGET</span><strong>Developer / IT Support</strong><small>Technical operations also welcome</small></div>
+                  <div><span>STRONGEST CURRENT PROOF</span><strong>Kopi Brews App</strong><small>React Native · Firebase · Firestore</small></div>
+                  <div><span>FOUNDATION</span><strong>Software Engineering</strong><small>C# · Java · database-backed capstone</small></div>
+                  <div><span>SHIPPED WEB</span><strong>3 AVENLO products</strong><small>Live demos · docs · Git workflow</small></div>
+                </div>
+                <button class="snapshot-link" type="button" data-route="work">Review selected evidence →</button>
+              </article>
+
+              <article class="principle-panel panel">
+                <p class="mini-kicker">ENGINEERING PRINCIPLE</p>
+                <blockquote>“The tools changed. The responsibility didn’t.”</blockquote>
+                <p>I learned through docs, research, Stack Overflow, errors, testing, and iteration. AI makes parts of that loop faster; it does not remove the need to understand what ships.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="overview-bottom">
+            <button class="signal-card panel signal-primary" type="button" data-route="kopi-app"><span>CURRENT SOFTWARE / 2026</span><strong>Kopi Brews Operations App</strong><small>React Native · Firebase · Firestore · multi-user workflows</small><i>OPEN APPLICATION CASE STUDY →</i></button>
+            <button class="signal-card panel" type="button" data-route="capstone"><span>FOUNDATIONS / 2018–2019</span><strong>Eleventh28 POS + Kitchen Display</strong><small>C# · WinForms · MySQL · Crystal Reports</small><i>OPEN FOUNDATIONS CASE STUDY →</i></button>
+            <button class="signal-card panel" type="button" data-route="work"><span>SHIPPED WEB PRODUCTS</span><strong>AVENLO Product Line</strong><small>SaaS · Café · Portfolio · live demos</small><i>VIEW ALL SELECTED WORK →</i></button>
+          </div>
+        </section>
+
+        <!-- WORK -->
+        <section class="view" data-view="work" aria-labelledby="work-title">
+          <div class="view-heading recruiter-heading">
+            <div><p class="section-index">02 / SELECTED WORK</p><h2 id="work-title">Proof before promises.</h2></div>
+            <p>Software systems first, then shipped web products. Each item shows what it does, the stack behind it, and what I was responsible for.</p>
+          </div>
+
+          <div class="work-group">
+            <div class="work-group-title"><span>01</span><div><p>Software Systems</p><small>Application logic · data · operations</small></div></div>
+            <div class="system-projects">
+              <button class="system-project feature-project panel" type="button" data-route="kopi-app">
+                <div class="project-top"><span>CURRENT APPLICATION</span><em>PRIVATE PROTOTYPE</em></div>
+                <div class="system-project-copy">
+                  <p class="project-kicker">FOUNDER / DEVELOPER</p>
+                  <h3>Kopi Brews Operations App</h3>
+                  <p>Multi-user Android prototype connecting administrator, cashier, and customer workflows with orders, inventory, sales insights, loyalty, rewards, promotions, and customer history.</p>
+                  <div class="tag-row"><span>React Native</span><span>Firebase</span><span>Firestore</span><span>Android</span></div>
+                </div>
+                <span class="project-open">Open application case study →</span>
+              </button>
+
+              <button class="system-project panel" type="button" data-route="capstone">
+                <div class="project-top"><span>FOUNDATIONS / TEAM CAPSTONE</span><em>2018–2019</em></div>
+                <div class="system-project-copy">
+                  <p class="project-kicker">ACADEMIC SOFTWARE SYSTEM</p>
+                  <h3>POS + Kitchen Display</h3>
+                  <p>Restaurant desktop system covering role-based access, cashier transactions, kitchen workflow, ingredient inventory, reporting, logs, and database utilities.</p>
+                  <div class="tag-row"><span>C#</span><span>WinForms</span><span>MySQL</span><span>Crystal Reports</span></div>
+                </div>
+                <span class="project-open">Open foundations case study →</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="work-group web-products-group">
+            <div class="work-group-title"><span>02</span><div><p>Shipped Web Products</p><small>Independent AVENLO products · live demos</small></div></div>
+            <div class="web-product-grid">
+              <article class="web-product panel">
+                <div class="project-top"><span>STATIC WEB PRODUCT</span><em>LIVE</em></div>
+                <figure class="web-product-media"><img src="assets/projects/avenlo-saas.png" alt="AVENLO SaaS template preview showing responsive desktop and mobile layouts" /></figure>
+                <h3>AVENLO SaaS</h3>
+                <p>Responsive SaaS landing-page product built with organized HTML, CSS, vanilla JavaScript, buyer documentation, and no build process.</p>
+                <div class="tag-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+                <a href="https://avenlo-saas.netlify.app/" target="_blank" rel="noreferrer">Live demo ↗</a>
+              </article>
+              <article class="web-product panel">
+                <div class="project-top"><span>STATIC WEB PRODUCT</span><em>LIVE</em></div>
+                <figure class="web-product-media"><img src="assets/projects/avenlo-cafe.png" alt="AVENLO Café template preview showing café homepage and responsive mobile layouts" /></figure>
+                <h3>AVENLO Café</h3>
+                <p>Five-page café and restaurant product with menu filtering, responsive navigation, reservation/contact validation, and beginner-friendly customization.</p>
+                <div class="tag-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+                <a href="https://avenlo-cafe.netlify.app/" target="_blank" rel="noreferrer">Live demo ↗</a>
+              </article>
+              <article class="web-product panel">
+                <div class="project-top"><span>STATIC WEB PRODUCT</span><em>LIVE</em></div>
+                <figure class="web-product-media"><img src="assets/projects/avenlo-family.png" alt="AVENLO Studio product-family preview including the portfolio web product" /></figure>
+                <h3>AVENLO Portfolio</h3>
+                <p>Editorial portfolio product with filtering, dynamic project detail content, responsive interactions, accessibility states, and documentation.</p>
+                <div class="tag-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+                <a href="https://avenlo-portfolio.netlify.app/" target="_blank" rel="noreferrer">Live demo ↗</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- KOPI BREWS APP -->
+        <section class="view" data-view="kopi-app" aria-labelledby="kopi-title">
+          <div class="case-header panel kopi-case-header">
+            <div class="case-meta"><span>CURRENT APPLICATION / PRIVATE PROTOTYPE</span><em>2026</em></div>
+            <div class="case-title-grid">
+              <div><p class="terminal-prompt">&gt; inspect application</p><h2 id="kopi-title">Kopi Brews<br /><span>Operations App</span></h2></div>
+              <p>A multi-user Android prototype I built to connect day-to-day coffee operations with ordering, inventory, customer engagement, and business visibility. It is not publicly released and demo balances, points, and transactions are not production data.</p>
+            </div>
+            <div class="case-specs">
+              <div><span>ROLE</span><strong>Founder / Developer</strong></div>
+              <div><span>STACK</span><strong>React Native · Firebase</strong></div>
+              <div><span>DATA</span><strong>Cloud Firestore</strong></div>
+              <div><span>STATUS</span><strong>Private prototype</strong></div>
+            </div>
+          </div>
+
+          <div class="kopi-showcase panel">
+            <div class="kopi-showcase-copy">
+              <p class="mini-kicker">THREE USER SURFACES</p>
+              <h3>One operating system for the shop.</h3>
+              <p>The prototype separates permissions and workflows instead of forcing one interface to do everything. Administrator tools manage the business, Cashier focuses on order execution, and Customer features handle discovery, loyalty, rewards, and history.</p>
+              <button class="btn btn-ghost" type="button" data-route="work">← Back to selected work</button>
+            </div>
+            <div class="phone-gallery" aria-label="Kopi Brews application screenshots">
+              <figure class="phone-shot phone-shot-main"><img src="assets/projects/kopi-admin.png" alt="Kopi Brews administrator dashboard prototype showing order, inventory, menu, user, sales, and promotion tools" /><figcaption>Administrator</figcaption></figure>
+              <figure class="phone-shot"><img src="assets/projects/kopi-cashier.png" alt="Kopi Brews cashier point-of-sale prototype with menu items, current order, and recent orders" /><figcaption>Cashier POS</figcaption></figure>
+              <figure class="phone-shot"><img src="assets/projects/kopi-loyalty.png" alt="Kopi Brews customer loyalty prototype showing points, tier progress, and digital stamps" /><figcaption>Customer loyalty</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="case-grid kopi-case-grid">
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>01</span><h3>User surfaces</h3><small>Role-focused workflows</small></div>
+              <div class="role-surface-grid">
+                <div><span>ADMINISTRATOR</span><strong>Run operations</strong><p>Orders, inventory, menu, categories, users, updates, promotions, price calculations, loyalty scanning, and sales insights.</p></div>
+                <div><span>CASHIER</span><strong>Execute transactions</strong><p>Browse menu groups, build orders, review totals, place orders, inspect recent orders, and handle cashier-facing transaction flow.</p></div>
+                <div><span>CUSTOMER</span><strong>Engage and return</strong><p>Menu discovery, account navigation, order history, digital loyalty stamps, points, missions, rewards, referrals, and QR functions.</p></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>02</span><h3>Operational data loop</h3><small>From transaction to decision</small></div>
+              <div class="data-loop" aria-label="Kopi Brews operational data flow">
+                <div><span>01</span><strong>Order</strong><small>Customer / cashier transaction</small></div><i>→</i>
+                <div><span>02</span><strong>Inventory</strong><small>Stock and ingredient records</small></div><i>→</i>
+                <div><span>03</span><strong>Logs</strong><small>Adjustments, waste, history</small></div><i>→</i>
+                <div><span>04</span><strong>Insights</strong><small>Sales and operational visibility</small></div><i>→</i>
+                <div><span>05</span><strong>Retention</strong><small>Loyalty, rewards, promotions</small></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>03</span><h3>Source-backed inventory logic</h3><small>Current implementation evidence</small></div>
+              <div class="evidence-list">
+                <div><b>Real-time Firestore listeners</b><p>Inventory data is subscribed to through Firestore snapshot listeners instead of being treated as static mock data.</p></div>
+                <div><b>Automated vs manual items</b><p>The inventory model distinguishes automated and manual calculation modes.</p></div>
+                <div><b>Sourcing and costing</b><p>Fields include harvest region, roast date, package price, surcharge, package weight, and computed unit cost.</p></div>
+                <div><b>Waste / adjustment logs</b><p>Inventory changes include adjustment amounts, reasons, timestamps, and recent item-log history.</p></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>04</span><h3>Why I built it</h3><small>Business problem → software response</small></div>
+              <p class="case-lead">Kopi Brews exposed operational problems that spreadsheets and memory alone do not solve well: inconsistent demand, perishable inventory, menu costing, transaction visibility, and repeat-customer tracking.</p>
+              <div class="problem-solution-list">
+                <div><span>PROBLEM</span><b>Inventory can spoil before demand catches up.</b><small>Response: par-level thinking, stock visibility, adjustments, and waste logging.</small></div>
+                <div><span>PROBLEM</span><b>Different users need different tools.</b><small>Response: separate Administrator, Cashier, and Customer experiences.</small></div>
+                <div><span>PROBLEM</span><b>Repeat behavior is hard to track manually.</b><small>Response: loyalty stamps, points, missions, rewards, referrals, and history.</small></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide code-evidence">
+              <div class="case-section-head"><span>05</span><h3>What this proves</h3><small>More than interface work</small></div>
+              <div class="proof-columns">
+                <div><span>APPLICATION</span><strong>Role-aware product thinking</strong><p>Separate workflows are shaped around what each user actually needs to accomplish.</p></div>
+                <div><span>DATA</span><strong>Persistent operational state</strong><p>Firestore-backed inventory, logs, orders, and customer-facing data connect screens to business records.</p></div>
+                <div><span>OPERATIONS</span><strong>Software tied to a real business</strong><p>The application was designed around problems I encountered while operating Kopi Brews, not around a fictional tutorial brief.</p></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- CAPSTONE -->
+        <section class="view" data-view="capstone" aria-labelledby="capstone-title">
+          <div class="case-header panel">
+            <div class="case-meta"><span>FOUNDATIONS / ACADEMIC CAPSTONE</span><em>DEVELOPED 2018–2019</em></div>
+            <div class="case-title-grid">
+              <div><p class="terminal-prompt">&gt; open legacy_project</p><h2 id="capstone-title">POS with Kitchen Display<br /><span>for Eleventh28</span></h2></div>
+              <p>A Windows desktop restaurant operations system built as a team capstone before generative AI became part of the development workflow.</p>
+            </div>
+            <div class="case-specs">
+              <div><span>STACK</span><strong>C# · .NET Framework 4.0</strong></div>
+              <div><span>DATABASE</span><strong>MySQL</strong></div>
+              <div><span>REPORTING</span><strong>SAP Crystal Reports</strong></div>
+              <div><span>INTERFACE</span><strong>Windows Forms</strong></div>
+            </div>
+          </div>
+
+          <div class="case-grid">
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>01</span><h3>System map</h3><small>Restaurant workflow</small></div>
+              <div class="architecture" aria-label="System architecture diagram">
+                <div class="arch-node arch-db"><span>DATABASE</span><strong>MySQL</strong><small>products · ingredients · users · orders · logs</small></div>
+                <div class="arch-connector arch-down"></div>
+                <div class="arch-row">
+                  <div class="arch-node"><span>ROLE</span><strong>Administrator</strong><small>products · inventory · users · reports</small></div>
+                  <div class="arch-node"><span>ROLE</span><strong>Cashier</strong><small>orders · payment · receipt</small></div>
+                  <div class="arch-node"><span>ROLE</span><strong>Cook</strong><small>queue · cooking · serving status</small></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>02</span><h3>Core workflow</h3><small>Order → kitchen</small></div>
+              <ol class="flow-list">
+                <li><span>01</span><div><strong>Cashier receives order</strong><small>Products are selected inside the POS flow.</small></div></li>
+                <li><span>02</span><div><strong>Transaction is processed</strong><small>Payment, change, receipt, and order data are handled.</small></div></li>
+                <li><span>03</span><div><strong>Kitchen receives the order</strong><small>Queue/status supports Pending → Cooking → Serving.</small></div></li>
+                <li><span>04</span><div><strong>Inventory reflects usage</strong><small>Linked ingredients support costing and stock deduction logic.</small></div></li>
+              </ol>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>03</span><h3>Business logic</h3><small>Beyond CRUD</small></div>
+              <div class="logic-box">
+                <span>PRODUCT</span><strong>Menu Item</strong>
+                <i>↓ composition</i>
+                <div class="logic-ingredients"><b>Ingredient A × qty</b><b>Ingredient B × qty</b><b>Ingredient C × qty</b></div>
+                <i>↓</i>
+                <div class="logic-result"><span>costing</span><span>stock deduction</span><span>availability</span></div>
+              </div>
+              <p class="case-note">The source includes product-to-ingredient linking and automatic ingredient costing / stock deduction logic—useful proof that the project contained real operational rules, not just form screens.</p>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>04</span><h3>What the system covered</h3><small>Recovered from the legacy project</small></div>
+              <div class="feature-matrix">
+                <div><strong>ACCESS</strong><span>Administrator</span><span>Cashier</span><span>Cook</span><span>Account creation</span></div>
+                <div><strong>POS</strong><span>Order entry</span><span>Payment / change</span><span>Receipt flow</span><span>Transaction records</span></div>
+                <div><strong>KITCHEN</strong><span>Order queue</span><span>Pending</span><span>Cooking</span><span>Serving</span></div>
+                <div><strong>INVENTORY</strong><span>Products</span><span>Ingredients</span><span>Composition links</span><span>Stock monitoring</span></div>
+                <div><strong>OPERATIONS</strong><span>Sales reports</span><span>Activity logs</span><span>User logs</span><span>Database backup</span></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>05</span><h3>Then</h3><small>How I learned</small></div>
+              <div class="then-now then">
+                <strong>2018–2019</strong>
+                <ul><li>Search one problem at a time</li><li>Read documentation</li><li>Stack Overflow threads</li><li>Trace errors manually</li><li>Test, break, fix, repeat</li></ul>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>06</span><h3>Now</h3><small>Same responsibility, faster tools</small></div>
+              <div class="then-now now">
+                <strong>2026</strong>
+                <ul><li>AI-assisted research</li><li>Faster implementation loops</li><li>Code review and verification</li><li>Debugging still required</li><li>Ownership still required</li></ul>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide modern-review">
+              <div class="case-section-head"><span>07</span><h3>What I would change today</h3><small>Legacy code review</small></div>
+              <div class="review-grid">
+                <div><span>SECURITY</span><strong>Hash passwords</strong><p>Replace plaintext credential storage and remove hardcoded fallback credentials.</p></div>
+                <div><span>DATABASE</span><strong>Parameterize queries</strong><p>Use parameterized commands instead of string-concatenated SQL.</p></div>
+                <div><span>CONFIG</span><strong>Move secrets out of code</strong><p>Use environment/config-based database credentials and safer secret handling.</p></div>
+                <div><span>ARCHITECTURE</span><strong>Separate responsibilities</strong><p>Extract data access and business logic from large UI form classes.</p></div>
+                <div><span>QUALITY</span><strong>Add automated tests</strong><p>Cover critical transaction, inventory, and status workflows with repeatable tests.</p></div>
+                <div><span>DELIVERY</span><strong>Version the database</strong><p>Introduce migrations and a reproducible setup instead of relying on a static database state.</p></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="case-footer panel">
+            <p><span class="status-dot"></span> FOUNDATION PRESERVED</p>
+            <blockquote>AI can accelerate implementation. It cannot replace the responsibility to understand, verify, debug, and own the system.</blockquote>
+            <small>Team capstone project. Individual contributions should be described only where verified.</small>
+          </div>
+        </section>
+
+        <!-- SYSTEMS -->
+        <section class="view" data-view="systems" aria-labelledby="systems-title">
+          <div class="view-heading"><div><p class="section-index">04 / SYSTEMS</p><h2 id="systems-title">Code is only part of the computer.</h2></div><p>A broader technical profile: front-end development, application work, operating systems, hardware, networking, and practical troubleshooting.</p></div>
+          <div class="capability-grid">
+            <article class="panel capability"><span>01 / FRONTEND</span><h3>Web development</h3><div class="cap-list"><b>HTML</b><b>CSS</b><b>JavaScript</b><b>React</b><b>Responsive UI</b><b>Semantic structure</b></div><p>Building readable, maintainable front-end experiences without unnecessary dependencies.</p></article>
+            <article class="panel capability"><span>02 / APPLICATION</span><h3>Programming</h3><div class="cap-list"><b>C#</b><b>Java</b><b>PHP</b><b>React Native</b><b>Firebase</b><b>Firestore</b></div><p>Academic foundations plus current application prototyping and data-backed business workflows.</p></article>
+            <article class="panel capability"><span>03 / IT SYSTEMS</span><h3>Hands-on support</h3><div class="cap-list"><b>Windows</b><b>OS installs</b><b>Hardware</b><b>Drivers</b><b>Peripherals</b><b>Troubleshooting</b></div><p>Practical PC problem solving from software failures to component and peripheral issues.</p></article>
+            <article class="panel capability"><span>04 / NETWORKING</span><h3>Connectivity</h3><div class="cap-list"><b>RJ45</b><b>Ethernet</b><b>Basic LAN</b><b>Router setup</b><b>Diagnostics</b><b>Cabling</b></div><p>Foundational networking and physical connectivity knowledge for small systems and support work.</p></article>
+            <article class="panel capability"><span>05 / WORKFLOW</span><h3>Tools</h3><div class="cap-list"><b>Git</b><b>GitHub</b><b>VS Code</b><b>Android Studio</b><b>Netlify</b><b>Photoshop</b></div><p>From source control and deployment to design implementation and production support.</p></article>
+            <article class="panel capability capability-principle"><span>06 / METHOD</span><h3>How I work</h3><ol><li>Understand the actual problem.</li><li>Inspect before replacing.</li><li>Prefer readable over clever.</li><li>Reproduce bugs before fixing.</li><li>Verify generated code.</li><li>Leave the system easier to maintain.</li></ol></article>
+          </div>
+        </section>
+
+        <!-- CREDENTIALS -->
+        <section class="view" data-view="credentials" aria-labelledby="credentials-title">
+          <div class="view-heading"><div><p class="section-index">05 / CREDENTIALS</p><h2 id="credentials-title">Formal foundation. Practical range.</h2></div><p>The portfolio should support the résumé—not repeat it. This view keeps the important credentials close to the work that proves them.</p></div>
+          <div class="credentials-layout">
+            <article class="panel credential-primary">
+              <p>EDUCATION / VERIFIED</p><h3>Bachelor of Science in<br />Information Technology</h3><strong>Major in Software Engineering</strong>
+              <div class="credential-meta"><span>STI College Global City</span><span>Graduated 2019</span></div>
+              <div class="credential-code"><span>foundation:</span> programming + software engineering + capstone development</div>
+            </article>
+            <article class="panel credential-card"><span>DEVELOPMENT</span><h3>Front-end & application</h3><p>HTML · CSS · JavaScript · React · React Native · C# · Java · PHP · Firebase</p></article>
+            <article class="panel credential-card"><span>IT SUPPORT</span><h3>Computer systems</h3><p>Windows · hardware · OS installation · peripherals · networking · RJ45 / Ethernet · troubleshooting</p></article>
+            <article class="panel credential-card"><span>CURRENT BUILDING</span><h3>AVENLO Studio</h3><p>Independent commercial web products with live demos, documentation, version control, and marketplace publishing.</p></article>
+            <article class="panel credential-card"><span>PROOF OF FOUNDATION</span><h3>2018–2019 Capstone</h3><p>C# WinForms restaurant system with MySQL, roles, POS, kitchen workflow, inventory, reporting, and database operations.</p><button type="button" data-route="capstone">Inspect case study →</button></article>
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="view" data-view="about" aria-labelledby="about-title">
+          <div class="view-heading"><div><p class="section-index">06 / ABOUT</p><h2 id="about-title">How I became a builder.</h2></div><p>Software engineering fundamentals, hands-on computer work, and a habit of learning by diagnosing real problems.</p></div>
+          <div class="about-layout">
+            <article class="panel story-card">
+              <p class="lead">My relationship with computers started long before it became a professional direction. That familiarity eventually became formal software engineering study, programming work, hands-on troubleshooting, and independent product building.</p>
+              <p>I learned programming through documentation, research, Stack Overflow, errors, testing, and iteration. Today I also use AI-assisted tools to move faster, but I still treat understanding, debugging, verification, and ownership as the developer’s responsibility.</p>
+              <p>That is the thread connecting an old C# capstone, IT support work, AVENLO web products, and current application prototypes.</p>
+            </article>
+            <article class="panel timeline-card">
+              <div class="timeline-item"><span>EARLY</span><strong>Computer exposure</strong><p>Daily familiarity with PCs, software, peripherals, and figuring out why things stop working.</p></div>
+              <div class="timeline-item"><span>2018–2019</span><strong>Software engineering foundation</strong><p>Capstone development through research, documentation, forums, testing, and manual debugging.</p></div>
+              <div class="timeline-item"><span>PRACTICE</span><strong>Technical problem solving</strong><p>Windows, hardware, networking, printing systems, client support, and small-business operations.</p></div>
+              <div class="timeline-item"><span>2026</span><strong>Independent builder</strong><p>AVENLO web products, live demos, commercial packaging, and data-backed application prototypes.</p></div>
+            </article>
+          </div>
+          <div class="manifesto panel">
+            <span>manifesto.txt</span>
+            <p>Build what you understand.<br />Debug the cause, not the symptom.<br />Use AI to move faster—not to stop thinking.<br />Own the result.</p>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="view" data-view="contact" aria-labelledby="contact-title">
+          <div class="contact-layout">
+            <article class="panel contact-main">
+              <p class="section-index">07 / CONTACT</p>
+              <h2 id="contact-title">Have a role, project,<br />or system worth solving?</h2>
+              <p>I’m open to development, IT support, technical operations, and product-building opportunities where practical problem solving matters.</p>
+              <div class="contact-actions">
+                <a href="https://github.com/mbricia" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+                <a href="mailto:makmakbricia@gmail.com">Email <span>↗</span></a>
+                <a href="https://www.linkedin.com/in/mark-jhollan-bricia-a783a1182/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+                <a href="Mark-Jhollan-Bricia-CV.pdf" target="_blank" rel="noreferrer">Download CV <span>↓</span></a>
+              </div>
+            </article>
+            <article class="panel contact-terminal">
+              <div class="panel-bar"><span>contact.sh</span><span>ready</span></div>
+              <div class="terminal-body">
+                <p>$ ./contact --status</p>
+                <div class="terminal-output"><p><span>location</span><b>Philippines</b></p><p><span>timezone</span><b>UTC+8</b></p><p><span>status</span><b class="t-green">available</b></p><p><span>response</span><b>same day when possible</b></p><p><span>email</span><b>makmakbricia@gmail.com</b></p><p><span>linkedin</span><b>/in/mark-jhollan-bricia-a783a1182</b></p></div>
+                <p>$ <i class="blink"></i></p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="statusbar">
+        <div><span class="status-dot"></span><b>main</b><span>portfolio-v3.2.1 · recruiter-ready</span></div>
+        <div><span>HTML</span><span>CSS</span><span>JavaScript</span><span>UTF-8</span></div>
+      </footer>
+    </section>
+  </div>
+
+  <div class="mobile-drawer" id="mobileDrawer" hidden>
+    <div class="drawer-head"><strong>Navigate</strong><button id="mobileClose" type="button">CLOSE</button></div>
+    <nav>
+      <button type="button" data-route="overview">01 Overview</button><button type="button" data-route="work">02 Work</button><button type="button" data-route="kopi-app">03 Kopi App</button><button type="button" data-route="capstone">04 Foundations</button><button type="button" data-route="systems">05 Systems</button><button type="button" data-route="credentials">06 Credentials</button><button type="button" data-route="about">07 About</button><button type="button" data-route="contact">08 Contact</button>
+    </nav>
+  </div>
+
+  <div class="command-overlay" id="commandOverlay" hidden>
+    <div class="command-palette" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="command-search"><span>&gt;</span><input id="commandInput" type="text" autocomplete="off" placeholder="Go to a view…" /><kbd>ESC</kbd></div>
+      <div class="command-results" id="commandResults">
+        <button type="button" data-command="overview"><span>⌂ Overview</span><i>profile / status</i></button>
+        <button type="button" data-command="work"><span>◫ Work</span><i>selected projects</i></button>
+        <button type="button" data-command="kopi-app"><span>◆ Kopi App</span><i>current application case study</i></button>
+        <button type="button" data-command="capstone"><span>⌘ Foundations</span><i>2018–2019 capstone</i></button>
+        <button type="button" data-command="systems"><span>◈ Systems</span><i>skills / IT</i></button>
+        <button type="button" data-command="credentials"><span>◇ Credentials</span><i>education</i></button>
+        <button type="button" data-command="about"><span>~ About</span><i>story / philosophy</i></button>
+        <button type="button" data-command="contact"><span>@ Contact</span><i>availability</i></button>
+      </div>
+      <div class="command-footer"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status">Contact links and CV are ready.</div>
+  <script src="js/script.js"></script>
+</body>
+</html>

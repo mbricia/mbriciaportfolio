@@ -1,0 +1,93 @@
+MARK.JB PORTFOLIO — CONTENT NOTES / v3
+======================================
+
+PRIMARY AUDIENCE
+Recruiters and hiring managers first; technical reviewers second.
+
+PUBLIC POSITIONING
+Developer · IT Problem Solver · Digital Builder
+
+RECRUITER-FIRST ORDER
+1. Kopi Brews Operations App
+2. Eleventh28 POS + Kitchen Display
+3. AVENLO SaaS / Café / Portfolio
+4. IT systems capability
+5. Credentials / About / Contact
+
+AI POSITIONING
+Do not make AI the main identity and do not frame the portfolio as anti-AI.
+Core idea: programming fundamentals came first; AI is now an accelerator.
+Preferred wording: "The tools changed. The responsibility didn't."
+
+KOPI BREWS APP
+Private prototype / not publicly released.
+Founder / developer framing is supported by existing project documentation.
+Stack shown: React Native, Firebase, Cloud Firestore.
+
+Verified / documented surfaces:
+- Administrator dashboard
+- Cashier POS
+- Customer account/navigation
+- loyalty stamps / points / missions / rewards / referrals / QR
+- orders
+- inventory
+- sales insights
+- promotions
+- customer history
+
+Source-backed inventory implementation details:
+- Firestore real-time listeners
+- automated/manual calculation type
+- harvest region
+- roast date
+- package price
+- surcharge
+- package weight
+- computed unit cost
+- inventory adjustment reason/amount
+- waste / item logs
+
+Included screenshots:
+- kopi-admin.png
+- kopi-cashier.png
+- kopi-loyalty.png
+The documentation screenshot that showed a personal profile photo was intentionally not added to the public portfolio asset set.
+
+ELEVENTH28 / FOUNDATIONS
+POS with Kitchen Display for Eleventh28
+Team academic capstone / legacy system
+Developed across 2018–2019
+Stack: C# Windows Forms, .NET Framework 4.0, MySQL, SAP Crystal Reports
+
+Recovered project scope:
+- Administrator / Cashier / Cook role flows
+- POS ordering, payment, change, receipt
+- kitchen queue/status handling
+- product management
+- ingredient/raw inventory
+- product-to-ingredient links
+- ingredient costing / stock deduction logic
+- sales/reporting
+- activity/user logs
+- account creation
+- database backup
+
+DO NOT CLAIM
+- Do not claim Mark alone built every Eleventh28 feature without verification.
+- Do not call the old code production-grade by modern standards.
+- Do not expose old database credentials or the raw project archive publicly.
+
+AVENLO
+Treat as shipped independent static web products, not client projects.
+Current live demos:
+- SaaS: https://avenlo-saas.netlify.app/
+- Café: https://avenlo-cafe.netlify.app/
+- Portfolio: https://avenlo-portfolio.netlify.app/
+
+STILL NEEDED BEFORE PUBLIC RECRUITER USE
+- real email
+- LinkedIn URL
+- latest résumé PDF
+- verify GitHub URL
+- specific verified individual Eleventh28 contribution list
+- optional Eleventh28 screenshots if recovered
