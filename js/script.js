@@ -60,7 +60,7 @@
         <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore current AI automation learning track">
           <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>IN PROGRESS</em></div>
           <strong>AI Automation with n8n</strong>
-          <p><b>Module 1 completed.</b> Building hands-on workflows and expanding into nodes, triggers, data flow, APIs, and integrations.</p>
+          <p><b>First n8n course nearly complete.</b> Building hands-on workflows and expanding into nodes, triggers, data flow, APIs, and integrations.</p>
           <div class="learning-card-tags"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span></div>
           <i>Explore Learning Lab →</i>
         </button>`);
@@ -75,7 +75,7 @@
               <p class="mini-kicker">ACTIVE LEARNING TRACK / 2026</p>
               <h3 id="learning-lab-title">Learning by building, not collecting badges.</h3>
             </div>
-            <div class="learning-status"><span class="status-dot"></span><strong>n8n · Module 1 completed</strong><small>Hands-on learning in progress</small></div>
+            <div class="learning-status"><span class="status-dot"></span><strong>n8n · First course nearly complete</strong><small>Hands-on learning in progress</small></div>
           </div>
           <div class="learning-lab-grid">
             <article><span>01 / FUNDAMENTALS</span><strong>Workflow Automation</strong><p>Building a working mental model of nodes, triggers, connections, and how data moves from one step to the next.</p></article>
