@@ -58,11 +58,23 @@
     if (overviewStack && principlePanel && !$('.learning-card', overviewStack)) {
       principlePanel.insertAdjacentHTML('beforebegin', `
         <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore current AI automation learning track">
-          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>IN PROGRESS</em></div>
-          <strong>AI Automation with n8n</strong>
-          <p><b>First n8n course nearly complete.</b> Building hands-on workflows and expanding into nodes, triggers, data flow, APIs, and integrations.</p>
-          <div class="learning-card-tags"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span></div>
-          <i>Explore Learning Lab →</i>
+          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>ACTIVE TRACK</em></div>
+          <div class="learning-card-title"><strong>AI Automation with n8n</strong><small>Last updated · Sep 2026</small></div>
+          <div class="learning-progress" aria-label="Current learning progress">
+            <div class="learning-progress-step is-done">
+              <span class="learning-progress-dot" aria-hidden="true">✓</span>
+              <div><b>RECENTLY COMPLETED</b><strong>Guided n8n course workflow</strong><small>Built the workflow and reached the import / export stage.</small></div>
+            </div>
+            <div class="learning-progress-step is-current">
+              <span class="learning-progress-dot" aria-hidden="true"></span>
+              <div><b>CURRENT FOCUS</b><strong>Finish the first n8n course</strong><small>Strengthening nodes, triggers, connections, and data flow.</small></div>
+            </div>
+            <div class="learning-progress-step is-next">
+              <span class="learning-progress-dot" aria-hidden="true">→</span>
+              <div><b>NEXT MILESTONE</b><strong>Build an original automation</strong><small>Move into APIs, webhooks, integrations, and a portfolio-ready workflow.</small></div>
+            </div>
+          </div>
+          <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs next</span><i>Explore Learning Lab →</i></div>
         </button>`);
     }
 
@@ -77,13 +89,24 @@
             </div>
             <div class="learning-status"><span class="status-dot"></span><strong>n8n · First course nearly complete</strong><small>Hands-on learning in progress</small></div>
           </div>
+
+          <div class="learning-progress-log">
+            <div class="learning-progress-log-head"><span>RECENT PROGRESS</span><em>SEP 2026</em></div>
+            <ol>
+              <li><span>01</span><div><strong>Started n8n fundamentals</strong><small>Learned the core workflow model: nodes, triggers, connections, and step-by-step data movement.</small></div></li>
+              <li><span>02</span><div><strong>Built guided course workflow</strong><small>Completed the hands-on workflow from the first course and reached the import / export stage.</small></div></li>
+              <li class="is-active"><span>03</span><div><strong>Finishing first course</strong><small>Current focus: reinforce the fundamentals before moving into more independent builds.</small></div></li>
+              <li><span>04</span><div><strong>Next: original automation</strong><small>Apply the same concepts to APIs, webhooks, integrations, and a self-directed automation project.</small></div></li>
+            </ol>
+          </div>
+
           <div class="learning-lab-grid">
             <article><span>01 / FUNDAMENTALS</span><strong>Workflow Automation</strong><p>Building a working mental model of nodes, triggers, connections, and how data moves from one step to the next.</p></article>
-            <article><span>02 / INTEGRATIONS</span><strong>Connecting systems</strong><p>Expanding into structured data, APIs, and service integrations so workflows can move information between tools reliably.</p></article>
+            <article><span>02 / INTEGRATIONS</span><strong>Connecting systems</strong><p>Next up: structured data, APIs, webhooks, and service integrations so workflows can move information between tools reliably.</p></article>
             <article><span>03 / BUILD LOG</span><strong>Course workflows → original builds</strong><p>Using guided exercises to learn the platform first, then applying the same concepts to independent automation projects.</p></article>
             <article><span>04 / NEXT PROOF</span><strong>Portfolio-ready automations</strong><p>The next milestone is documenting real automations as problem → workflow → result case studies after they are independently built and verified.</p></article>
           </div>
-          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI-assisted workflows</span><em>LEARNING IN PUBLIC · PROOF ADDED WHEN READY</em></div>
+          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>Webhooks</span><em>LEARNING IN PUBLIC · PROOF ADDED WHEN READY</em></div>
         </section>`);
     }
   };
