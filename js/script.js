@@ -44,6 +44,53 @@
   });
 
 
+  const mountLearningProgress = () => {
+    if (!document.querySelector('link[data-learning-styles]')) {
+      const stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = 'css/learning.css';
+      stylesheet.dataset.learningStyles = 'true';
+      document.head.appendChild(stylesheet);
+    }
+
+    const overviewStack = $('.overview-stack');
+    const principlePanel = $('.principle-panel', overviewStack || document);
+    if (overviewStack && principlePanel && !$('.learning-card', overviewStack)) {
+      principlePanel.insertAdjacentHTML('beforebegin', `
+        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore current AI automation learning track">
+          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>IN PROGRESS</em></div>
+          <strong>AI Automation with n8n</strong>
+          <p><b>Module 1 completed.</b> Building hands-on workflows and expanding into nodes, triggers, data flow, APIs, and integrations.</p>
+          <div class="learning-card-tags"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span></div>
+          <i>Explore Learning Lab →</i>
+        </button>`);
+    }
+
+    const systemsGrid = $('[data-view="systems"] .capability-grid');
+    if (systemsGrid && !$('#learning-lab')) {
+      systemsGrid.insertAdjacentHTML('afterend', `
+        <section class="learning-lab panel" id="learning-lab" aria-labelledby="learning-lab-title">
+          <div class="learning-lab-header">
+            <div>
+              <p class="mini-kicker">ACTIVE LEARNING TRACK / 2026</p>
+              <h3 id="learning-lab-title">Learning by building, not collecting badges.</h3>
+            </div>
+            <div class="learning-status"><span class="status-dot"></span><strong>n8n · Module 1 completed</strong><small>Hands-on learning in progress</small></div>
+          </div>
+          <div class="learning-lab-grid">
+            <article><span>01 / FUNDAMENTALS</span><strong>Workflow Automation</strong><p>Building a working mental model of nodes, triggers, connections, and how data moves from one step to the next.</p></article>
+            <article><span>02 / INTEGRATIONS</span><strong>Connecting systems</strong><p>Expanding into structured data, APIs, and service integrations so workflows can move information between tools reliably.</p></article>
+            <article><span>03 / BUILD LOG</span><strong>Course workflows → original builds</strong><p>Using guided exercises to learn the platform first, then applying the same concepts to independent automation projects.</p></article>
+            <article><span>04 / NEXT PROOF</span><strong>Portfolio-ready automations</strong><p>The next milestone is documenting real automations as problem → workflow → result case studies after they are independently built and verified.</p></article>
+          </div>
+          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI-assisted workflows</span><em>LEARNING IN PUBLIC · PROOF ADDED WHEN READY</em></div>
+        </section>`);
+    }
+  };
+
+  mountLearningProgress();
+
+
   const normalizeRoute = (value) => validRoutes.includes(value) ? value : 'overview';
 
   const go = (route, options = {}) => {
