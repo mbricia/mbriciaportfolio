@@ -70,11 +70,11 @@
             </div>
             <div class="learning-progress-step is-current">
               <span class="learning-progress-dot" aria-hidden="true"></span>
-              <div><b>CURRENT FOCUS</b><strong>Integrations: APIs &amp; Connected Workflows</strong><small>Next in the n8n program: deeper work with APIs, connected services, and practical integration workflows.</small></div>
+              <div><b>CURRENT FOCUS</b><strong>Integrations: APIs & Connected Workflows</strong><small>Next in the n8n program: deeper work with APIs, connected services, and practical integration workflows.</small></div>
             </div>
             <div class="learning-progress-step is-next">
               <span class="learning-progress-dot" aria-hidden="true">04</span>
-              <div><b>NEXT COURSE</b><strong>In Practice: AI, Testing &amp; Best Practices</strong><small>Upcoming program course focused on AI, testing, and stronger workflow practices.</small></div>
+              <div><b>NEXT COURSE</b><strong>In Practice: AI, Testing & Best Practices</strong><small>Upcoming program course focused on AI, testing, and stronger workflow practices.</small></div>
             </div>
           </div>
           <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>2 Certificates</span><i>Explore Learning Lab →</i></div>
@@ -98,16 +98,16 @@
             <ol>
               <li class="is-complete"><span>01</span><div><strong>n8n Quickstart</strong><small>Completed with a passing grade and earned a Certificate of Completion.</small></div></li>
               <li class="is-complete"><span>02</span><div><strong>Essentials: Your First Workflows</strong><small>Completed program course with a passing grade and earned a second Certificate of Completion.</small></div></li>
-              <li class="is-active"><span>03</span><div><strong>Integrations: APIs &amp; Connected Workflows</strong><small>Current focus: APIs, connected services, and practical integration workflows.</small></div></li>
-              <li><span>04</span><div><strong>In Practice: AI, Testing &amp; Best Practices</strong><small>Next course in the learning path: AI usage, testing, and stronger automation practices.</small></div></li>
+              <li class="is-active"><span>03</span><div><strong>Integrations: APIs & Connected Workflows</strong><small>Current focus: APIs, connected services, and practical integration workflows.</small></div></li>
+              <li><span>04</span><div><strong>In Practice: AI, Testing & Best Practices</strong><small>Next course in the learning path: AI usage, testing, and stronger automation practices.</small></div></li>
             </ol>
           </div>
 
           <div class="learning-lab-grid">
             <article><span>01 / COMPLETED</span><strong>n8n Quickstart</strong><p>Established the platform basics and earned the first Certificate of Completion.</p></article>
             <article><span>02 / COMPLETED COURSE</span><strong>Essentials: Your First Workflows</strong><p>Completed the first full program course with a passing grade and earned the second certificate.</p></article>
-            <article><span>03 / CURRENT FOCUS</span><strong>Integrations: APIs &amp; Connected Workflows</strong><p>Moving deeper into APIs, connected services, and reusable integration patterns for practical automation.</p></article>
-            <article><span>04 / NEXT COURSE</span><strong>In Practice: AI, Testing &amp; Best Practices</strong><p>Next step in the program before turning the learning into independently built, portfolio-ready automations.</p></article>
+            <article><span>03 / CURRENT FOCUS</span><strong>Integrations: APIs & Connected Workflows</strong><p>Moving deeper into APIs, connected services, and reusable integration patterns for practical automation.</p></article>
+            <article><span>04 / NEXT COURSE</span><strong>In Practice: AI, Testing & Best Practices</strong><p>Next step in the program before turning the learning into independently built, portfolio-ready automations.</p></article>
           </div>
           <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>Connected Workflows</span><em>CURRENT FOCUS · INTEGRATIONS / APIS</em></div>
         </section>`);
