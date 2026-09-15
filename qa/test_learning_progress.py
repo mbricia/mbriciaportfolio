@@ -14,17 +14,20 @@ def run():
     for text in [
         'CURRENTLY LEARNING / 2026',
         'AI Automation with n8n',
-        'COURSE COMPLETED',
+        '2 COURSES COMPLETED',
         'n8n Quickstart',
+        'Essentials: Your First Workflows',
         'Certificate of Completion',
         'September 15, 2026',
         'Build an original AI automation',
         'assets/certificates/n8n-quickstart.svg',
+        'assets/certificates/n8n-essentials-first-workflows.svg',
         'RECENTLY COMPLETED',
         'NEXT MILESTONE',
         'Workflow Automation',
         'AI Agent',
         'Portfolio-ready automations',
+        'n8n Academy · 2 courses completed',
     ]:
         require(text in JS, f'Missing completed-course portfolio content: {text}')
 
@@ -39,7 +42,11 @@ def run():
 
     require('data-route="systems"' in JS, 'Learning card should route to Systems')
     require('id="learning-lab"' in JS, 'Learning Lab section is missing')
-    require('credential-certificate' in JS, 'Credentials certificate card is missing')
+    require('data-certificate="quickstart"' in JS, 'Quickstart credential card is missing')
+    require('data-certificate="essentials-first-workflows"' in JS, 'Essentials credential card is missing')
+
+    require((ROOT / 'assets/certificates/n8n-quickstart.svg').exists(), 'Quickstart certificate asset is missing')
+    require((ROOT / 'assets/certificates/n8n-essentials-first-workflows.svg').exists(), 'Essentials certificate asset is missing')
 
     for class_name in [
         '.learning-card',
@@ -53,7 +60,7 @@ def run():
 
     require('var(--border)' not in CSS, 'Learning CSS must only use portfolio design tokens')
     require('var(--text-soft)' not in CSS, 'Learning CSS must only use portfolio design tokens')
-    print('PASS completed n8n course and credential portfolio checks')
+    print('PASS two completed n8n courses and credential portfolio checks')
 
 
 if __name__ == '__main__':
