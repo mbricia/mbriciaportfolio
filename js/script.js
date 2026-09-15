@@ -43,7 +43,6 @@
     } catch (_) {}
   });
 
-
   const mountLearningProgress = () => {
     if (!document.querySelector('link[data-learning-styles]')) {
       const stylesheet = document.createElement('link');
@@ -57,21 +56,21 @@
     const principlePanel = $('.principle-panel', overviewStack || document);
     if (overviewStack && principlePanel && !$('.learning-card', overviewStack)) {
       principlePanel.insertAdjacentHTML('beforebegin', `
-        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore current AI automation learning track">
-          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>AI AGENT PHASE</em></div>
+        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore completed n8n Quickstart learning track and next automation milestone">
+          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>COURSE COMPLETED</em></div>
           <div class="learning-card-title"><strong>AI Automation with n8n</strong><small>Last updated · Sep 15, 2026</small></div>
           <div class="learning-progress" aria-label="Current learning progress">
             <div class="learning-progress-step is-done">
               <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>RECENTLY COMPLETED</b><strong>Getting Started + Working with Data</strong><small>Completed the hands-on exercises and knowledge checks across both course sections.</small></div>
+              <div><b>RECENTLY COMPLETED</b><strong>n8n Quickstart</strong><small>Completed the course, passed the required assessments, and earned a Certificate of Completion.</small></div>
+            </div>
+            <div class="learning-progress-step is-done">
+              <span class="learning-progress-dot" aria-hidden="true">✓</span>
+              <div><b>COURSE HIGHLIGHT</b><strong>Workflow automation + AI Agent</strong><small>Hands-on work covered real-world workflows, data handling, and building a first AI agent.</small></div>
             </div>
             <div class="learning-progress-step is-current">
               <span class="learning-progress-dot" aria-hidden="true"></span>
-              <div><b>BUILDING AN AI AGENT</b><strong>Building an AI Agent</strong><small>Current focus: “Your first AI agent” and the section knowledge check.</small></div>
-            </div>
-            <div class="learning-progress-step is-next">
-              <span class="learning-progress-dot" aria-hidden="true">→</span>
-              <div><b>NEXT MILESTONE</b><strong>Final exam and wrap up</strong><small>Finish the course, then turn the learning into an original portfolio automation.</small></div>
+              <div><b>NEXT MILESTONE</b><strong>Build an original AI automation</strong><small>Turn the course foundation into a self-directed, portfolio-ready workflow with a clear problem and result.</small></div>
             </div>
           </div>
           <div class="learning-card-footer"><span>n8n</span><span>AI Agent</span><span>Workflow Automation</span><i>Explore Learning Lab →</i></div>
@@ -85,34 +84,50 @@
           <div class="learning-lab-header">
             <div>
               <p class="mini-kicker">ACTIVE LEARNING TRACK / 2026</p>
-              <h3 id="learning-lab-title">Learning by building, not collecting badges.</h3>
+              <h3 id="learning-lab-title">Course complete. Next proof: an original build.</h3>
             </div>
-            <div class="learning-status"><span class="status-dot"></span><strong>n8n · Building an AI agent</strong><small>Hands-on learning in progress</small></div>
+            <div class="learning-status"><span class="status-dot"></span><strong>n8n Quickstart · Completed</strong><small>Certificate of Completion · September 15, 2026</small></div>
           </div>
 
           <div class="learning-progress-log">
-            <div class="learning-progress-log-head"><span>RECENT PROGRESS</span><em>SEP 15, 2026</em></div>
+            <div class="learning-progress-log-head"><span>COURSE PROGRESS</span><em>SEP 15, 2026</em></div>
             <ol>
-              <li><span>01</span><div><strong>Completed Getting started</strong><small>Finished the real-world automation hands-on exercise and the section knowledge check.</small></div></li>
-              <li><span>02</span><div><strong>Completed Working with data</strong><small>Finished the business workflow hands-on exercise and the section knowledge check.</small></div></li>
-              <li class="is-active"><span>03</span><div><strong>Building an AI Agent</strong><small>Current course phase: “Your first AI agent” followed by the AI-agent knowledge check.</small></div></li>
-              <li><span>04</span><div><strong>Final exam and wrap up</strong><small>Complete the course final exam before moving into a self-directed automation build.</small></div></li>
+              <li><span>01</span><div><strong>Getting started</strong><small>Completed a real-world automation hands-on exercise and the section knowledge check.</small></div></li>
+              <li><span>02</span><div><strong>Working with data</strong><small>Completed the business workflow hands-on exercise and the data-focused knowledge check.</small></div></li>
+              <li><span>03</span><div><strong>Building an AI Agent</strong><small>Completed the first AI agent section and its accompanying learning activities.</small></div></li>
+              <li class="is-complete"><span>✓</span><div><strong>n8n Quickstart completed</strong><small>Received a passing grade and the official Certificate of Completion.</small></div></li>
             </ol>
           </div>
 
           <div class="learning-lab-grid">
-            <article><span>01 / COMPLETED</span><strong>Getting started</strong><p>Hands-on automation of a real-world use case plus the accompanying knowledge check.</p></article>
-            <article><span>02 / COMPLETED</span><strong>Working with data</strong><p>Hands-on business workflow automation plus the accompanying data-focused knowledge check.</p></article>
-            <article><span>03 / CURRENT</span><strong>Your first AI agent</strong><p>Now working through the AI-agent section and its hands-on exercise before the section assessment.</p></article>
-            <article><span>04 / NEXT PROOF</span><strong>Original AI automation</strong><p>After the final exam, the next portfolio milestone is a self-directed workflow documented as problem → automation → result.</p></article>
+            <article><span>01 / COMPLETED</span><strong>Workflow Automation</strong><p>Built guided automations around real-world and business workflow use cases.</p></article>
+            <article><span>02 / COMPLETED</span><strong>Working with data</strong><p>Practiced moving and using structured data across connected workflow steps.</p></article>
+            <article><span>03 / COMPLETED</span><strong>AI Agent foundations</strong><p>Completed the course section focused on building a first AI agent in n8n.</p></article>
+            <article><span>04 / NEXT PROOF</span><strong>Portfolio-ready automations</strong><p>The next milestone is a self-directed AI automation documented as problem → workflow → result.</p></article>
           </div>
-          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>AI Agent</span><span>Hands-on Exercises</span><em>LEARNING IN PUBLIC · PROOF ADDED WHEN READY</em></div>
+          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>AI Agent</span><span>Certificate earned</span><em>COURSE COMPLETE · ORIGINAL BUILD NEXT</em></div>
         </section>`);
+    }
+
+    const credentialsLayout = $('[data-view="credentials"] .credentials-layout');
+    if (credentialsLayout && !$('.credential-certificate', credentialsLayout)) {
+      credentialsLayout.insertAdjacentHTML('beforeend', `
+        <article class="panel credential-certificate">
+          <a class="certificate-preview" href="assets/certificates/n8n-quickstart.svg" target="_blank" rel="noreferrer" aria-label="View n8n Quickstart Certificate of Completion">
+            <img src="assets/certificates/n8n-quickstart.svg" alt="n8n Quickstart Certificate of Completion awarded to Mark Jhollan Bricia" />
+          </a>
+          <div class="certificate-copy">
+            <span>CERTIFICATE OF COMPLETION / 2026</span>
+            <h3>n8n Quickstart</h3>
+            <strong>n8n Academy</strong>
+            <p>Successfully completed with a passing grade. Awarded September 15, 2026.</p>
+            <div class="certificate-actions"><a href="assets/certificates/n8n-quickstart.svg" target="_blank" rel="noreferrer">View Certificate ↗</a><button type="button" data-route="systems">View Learning Lab →</button></div>
+          </div>
+        </article>`);
     }
   };
 
   mountLearningProgress();
-
 
   const normalizeRoute = (value) => validRoutes.includes(value) ? value : 'overview';
 
