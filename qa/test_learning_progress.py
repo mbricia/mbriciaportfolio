@@ -20,35 +20,34 @@ def run():
         'Essentials: Your First Workflows',
         'Integrations: APIs & Connected Workflows',
         'In Practice: AI, Testing & Best Practices',
-        'Certificate of Completion',
-        'September 15, 2026',
-        'CURRENT COURSE',
+        'CURRENT FOCUS',
         'NEXT COURSE',
         'APIs',
-        'Connected Workflows',
-        'Portfolio-ready automations',
-        'n8n Academy · Integrations in progress',
+        'n8n Academy · Current focus: Integrations',
         'assets/certificates/n8n-quickstart.svg',
         'assets/certificates/n8n-essentials-first-workflows.svg',
     ]:
-        require(text in JS, f'Missing integrations learning tracker content: {text}')
+        require(text in JS, f'Missing learning tracker content: {text}')
 
     for stale_text in [
         '2 COURSES COMPLETED',
         'Build an original AI automation',
         'COURSES COMPLETE · ORIGINAL BUILD NEXT',
+        'n8n Academy · Integrations in progress',
     ]:
-        require(stale_text not in JS, f'Stale learning status remains: {stale_text}')
+        require(stale_text not in JS, f'Stale or unsupported learning status remains: {stale_text}')
 
     require('data-route="systems"' in JS, 'Learning card should route to Systems')
     require('id="learning-lab"' in JS, 'Learning Lab section is missing')
     require('data-certificate="quickstart"' in JS, 'Quickstart credential card is missing')
     require('data-certificate="essentials-first-workflows"' in JS, 'Essentials credential card is missing')
+    require('Awarded September 15, 2026.' in JS, 'Essentials certificate date should be shown')
 
     require((ROOT / 'assets/certificates/n8n-quickstart.svg').exists(), 'Quickstart certificate asset is missing')
     require((ROOT / 'assets/certificates/n8n-essentials-first-workflows.svg').exists(), 'Essentials certificate asset is missing')
-    require('<image' in CERT and 'data:image/' in CERT, 'Essentials certificate should use the original uploaded certificate image')
+    require('<image' in CERT and 'data:image/' in CERT, 'Essentials certificate should embed the original uploaded certificate image')
     require('preserveAspectRatio="xMidYMid meet"' in CERT, 'Certificate image must preserve its full aspect ratio')
+    require('viewBox="0 0 1123 793"' in CERT, 'Essentials certificate should preserve the uploaded image dimensions')
 
     for class_name in [
         '.learning-card',
@@ -58,11 +57,13 @@ def run():
         '.learning-lab',
         '.credential-certificate',
     ]:
-        require(class_name in CSS, f'Missing completed-course styling: {class_name}')
+        require(class_name in CSS, f'Missing learning styling: {class_name}')
 
+    compact_css = CSS.replace(' ', '')
+    require('object-fit:contain' in compact_css, 'Certificate preview must contain the full certificate without cropping')
     require('var(--border)' not in CSS, 'Learning CSS must only use portfolio design tokens')
     require('var(--text-soft)' not in CSS, 'Learning CSS must only use portfolio design tokens')
-    print('PASS integrations course progress and certificate asset checks')
+    print('PASS current n8n learning progress and certificate asset checks')
 
 
 if __name__ == '__main__':
