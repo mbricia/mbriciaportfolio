@@ -56,24 +56,24 @@
     const principlePanel = $('.principle-panel', overviewStack || document);
     if (overviewStack && principlePanel && !$('.learning-card', overviewStack)) {
       principlePanel.insertAdjacentHTML('beforebegin', `
-        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore completed n8n Quickstart learning track and next automation milestone">
-          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>COURSE COMPLETED</em></div>
+        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore two completed n8n Academy courses and the next automation milestone">
+          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>2 COURSES COMPLETED</em></div>
           <div class="learning-card-title"><strong>AI Automation with n8n</strong><small>Last updated · Sep 15, 2026</small></div>
           <div class="learning-progress" aria-label="Current learning progress">
             <div class="learning-progress-step is-done">
               <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>RECENTLY COMPLETED</b><strong>n8n Quickstart</strong><small>Completed the course, passed the required assessments, and earned a Certificate of Completion.</small></div>
+              <div><b>COMPLETED</b><strong>n8n Quickstart</strong><small>Completed with a passing grade and earned a Certificate of Completion.</small></div>
             </div>
             <div class="learning-progress-step is-done">
               <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>COURSE HIGHLIGHT</b><strong>Workflow automation + AI Agent</strong><small>Hands-on work covered real-world workflows, data handling, and building a first AI agent.</small></div>
+              <div><b>RECENTLY COMPLETED</b><strong>Essentials: Your First Workflows</strong><small>Completed with a passing grade and earned a second Certificate of Completion.</small></div>
             </div>
             <div class="learning-progress-step is-current">
               <span class="learning-progress-dot" aria-hidden="true"></span>
               <div><b>NEXT MILESTONE</b><strong>Build an original AI automation</strong><small>Turn the course foundation into a self-directed, portfolio-ready workflow with a clear problem and result.</small></div>
             </div>
           </div>
-          <div class="learning-card-footer"><span>n8n</span><span>AI Agent</span><span>Workflow Automation</span><i>Explore Learning Lab →</i></div>
+          <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>AI Agent</span><span>2 Certificates</span><i>Explore Learning Lab →</i></div>
         </button>`);
     }
 
@@ -84,35 +84,35 @@
           <div class="learning-lab-header">
             <div>
               <p class="mini-kicker">ACTIVE LEARNING TRACK / 2026</p>
-              <h3 id="learning-lab-title">Course complete. Next proof: an original build.</h3>
+              <h3 id="learning-lab-title">Two courses complete. Next proof: an original build.</h3>
             </div>
-            <div class="learning-status"><span class="status-dot"></span><strong>n8n Quickstart · Completed</strong><small>Certificate of Completion · September 15, 2026</small></div>
+            <div class="learning-status"><span class="status-dot"></span><strong>n8n Academy · 2 courses completed</strong><small>2 Certificates of Completion · September 15, 2026</small></div>
           </div>
 
           <div class="learning-progress-log">
             <div class="learning-progress-log-head"><span>COURSE PROGRESS</span><em>SEP 15, 2026</em></div>
             <ol>
-              <li><span>01</span><div><strong>Getting started</strong><small>Completed a real-world automation hands-on exercise and the section knowledge check.</small></div></li>
-              <li><span>02</span><div><strong>Working with data</strong><small>Completed the business workflow hands-on exercise and the data-focused knowledge check.</small></div></li>
-              <li><span>03</span><div><strong>Building an AI Agent</strong><small>Completed the first AI agent section and its accompanying learning activities.</small></div></li>
-              <li class="is-complete"><span>✓</span><div><strong>n8n Quickstart completed</strong><small>Received a passing grade and the official Certificate of Completion.</small></div></li>
+              <li><span>01</span><div><strong>n8n Quickstart</strong><small>Completed with a passing grade and received the first n8n Academy Certificate of Completion.</small></div></li>
+              <li><span>02</span><div><strong>Essentials: Your First Workflows</strong><small>Completed with a passing grade and received the second n8n Academy Certificate of Completion.</small></div></li>
+              <li><span>03</span><div><strong>Workflow + AI foundations</strong><small>Course work included workflow automation, working with data, and first AI Agent foundations.</small></div></li>
+              <li class="is-active"><span>04</span><div><strong>Original automation project</strong><small>Current next step: apply the learning to a self-directed workflow with a documented problem, automation, and result.</small></div></li>
             </ol>
           </div>
 
           <div class="learning-lab-grid">
-            <article><span>01 / COMPLETED</span><strong>Workflow Automation</strong><p>Built guided automations around real-world and business workflow use cases.</p></article>
-            <article><span>02 / COMPLETED</span><strong>Working with data</strong><p>Practiced moving and using structured data across connected workflow steps.</p></article>
-            <article><span>03 / COMPLETED</span><strong>AI Agent foundations</strong><p>Completed the course section focused on building a first AI agent in n8n.</p></article>
+            <article><span>01 / COMPLETED</span><strong>n8n Quickstart</strong><p>Completed guided learning around workflow automation, data handling, and first AI Agent foundations.</p></article>
+            <article><span>02 / COMPLETED</span><strong>Essentials: Your First Workflows</strong><p>Completed with a passing grade and added a second official n8n Academy Certificate of Completion.</p></article>
+            <article><span>03 / FOUNDATION</span><strong>Workflow Automation + AI Agent</strong><p>The completed coursework now supports the move from guided exercises into more independent automation building.</p></article>
             <article><span>04 / NEXT PROOF</span><strong>Portfolio-ready automations</strong><p>The next milestone is a self-directed AI automation documented as problem → workflow → result.</p></article>
           </div>
-          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>AI Agent</span><span>Certificate earned</span><em>COURSE COMPLETE · ORIGINAL BUILD NEXT</em></div>
+          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>AI Agent</span><span>2 certificates earned</span><em>COURSES COMPLETE · ORIGINAL BUILD NEXT</em></div>
         </section>`);
     }
 
     const credentialsLayout = $('[data-view="credentials"] .credentials-layout');
-    if (credentialsLayout && !$('.credential-certificate', credentialsLayout)) {
+    if (credentialsLayout && !$('[data-certificate="quickstart"]', credentialsLayout)) {
       credentialsLayout.insertAdjacentHTML('beforeend', `
-        <article class="panel credential-certificate">
+        <article class="panel credential-certificate" data-certificate="quickstart">
           <a class="certificate-preview" href="assets/certificates/n8n-quickstart.svg" target="_blank" rel="noreferrer" aria-label="View n8n Quickstart Certificate of Completion">
             <img src="assets/certificates/n8n-quickstart.svg" alt="n8n Quickstart Certificate of Completion awarded to Mark Jhollan Bricia" />
           </a>
@@ -122,6 +122,22 @@
             <strong>n8n Academy</strong>
             <p>Successfully completed with a passing grade. Awarded September 15, 2026.</p>
             <div class="certificate-actions"><a href="assets/certificates/n8n-quickstart.svg" target="_blank" rel="noreferrer">View Certificate ↗</a><button type="button" data-route="systems">View Learning Lab →</button></div>
+          </div>
+        </article>`);
+    }
+
+    if (credentialsLayout && !$('[data-certificate="essentials-first-workflows"]', credentialsLayout)) {
+      credentialsLayout.insertAdjacentHTML('beforeend', `
+        <article class="panel credential-certificate" data-certificate="essentials-first-workflows">
+          <a class="certificate-preview" href="assets/certificates/n8n-essentials-first-workflows.svg" target="_blank" rel="noreferrer" aria-label="View Essentials: Your First Workflows Certificate of Completion">
+            <img src="assets/certificates/n8n-essentials-first-workflows.svg" alt="Essentials: Your First Workflows Certificate of Completion awarded to Mark Jhollan Bricia" />
+          </a>
+          <div class="certificate-copy">
+            <span>CERTIFICATE OF COMPLETION / 2026</span>
+            <h3>Essentials: Your First Workflows</h3>
+            <strong>n8n Academy</strong>
+            <p>Successfully completed with a passing grade. Awarded September 15, 2026.</p>
+            <div class="certificate-actions"><a href="assets/certificates/n8n-essentials-first-workflows.svg" target="_blank" rel="noreferrer">View Certificate ↗</a><button type="button" data-route="systems">View Learning Lab →</button></div>
           </div>
         </article>`);
     }
