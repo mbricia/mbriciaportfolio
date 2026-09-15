@@ -14,29 +14,32 @@ def run():
     for text in [
         'CURRENTLY LEARNING / 2026',
         'AI Automation with n8n',
-        'BUILDING AN AI AGENT',
-        'Getting Started + Working with Data',
-        'Building an AI Agent',
-        'Your first AI agent',
-        'Final exam and wrap up',
-        'Last updated · Sep 15, 2026',
+        'COURSE COMPLETED',
+        'n8n Quickstart',
+        'Certificate of Completion',
+        'September 15, 2026',
+        'Build an original AI automation',
+        'assets/certificates/n8n-quickstart.svg',
         'RECENTLY COMPLETED',
-        'CURRENT FOCUS',
         'NEXT MILESTONE',
-        'RECENT PROGRESS',
-        'SEP 15, 2026',
+        'Workflow Automation',
+        'AI Agent',
+        'Portfolio-ready automations',
     ]:
-        require(text in JS, f'Missing AI-agent learning tracker content: {text}')
+        require(text in JS, f'Missing completed-course portfolio content: {text}')
 
     for stale_text in [
         'First course nearly complete',
         'Finish the first n8n course',
         'Finishing first course',
+        'BUILDING AN AI AGENT',
+        'Final exam and wrap up',
     ]:
         require(stale_text not in JS, f'Stale learning status remains: {stale_text}')
 
     require('data-route="systems"' in JS, 'Learning card should route to Systems')
     require('id="learning-lab"' in JS, 'Learning Lab section is missing')
+    require('credential-certificate' in JS, 'Credentials certificate card is missing')
 
     for class_name in [
         '.learning-card',
@@ -44,12 +47,13 @@ def run():
         '.learning-progress-dot',
         '.learning-progress-log',
         '.learning-lab',
+        '.credential-certificate',
     ]:
-        require(class_name in CSS, f'Missing learning tracker styling: {class_name}')
+        require(class_name in CSS, f'Missing completed-course styling: {class_name}')
 
     require('var(--border)' not in CSS, 'Learning CSS must only use portfolio design tokens')
     require('var(--text-soft)' not in CSS, 'Learning CSS must only use portfolio design tokens')
-    print('PASS AI agent learning tracker portfolio checks')
+    print('PASS completed n8n course and credential portfolio checks')
 
 
 if __name__ == '__main__':
