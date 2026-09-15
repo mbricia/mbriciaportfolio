@@ -14,18 +14,26 @@ def run():
     for text in [
         'CURRENTLY LEARNING / 2026',
         'AI Automation with n8n',
+        'BUILDING AN AI AGENT',
+        'Getting Started + Working with Data',
+        'Building an AI Agent',
+        'Your first AI agent',
+        'Final exam and wrap up',
+        'Last updated · Sep 15, 2026',
         'RECENTLY COMPLETED',
         'CURRENT FOCUS',
         'NEXT MILESTONE',
-        'Last updated · Sep 2026',
-        'Started n8n fundamentals',
-        'Built guided course workflow',
-        'Workflow Automation',
-        'APIs',
-        'Course workflows → original builds',
-        'Portfolio-ready automations',
+        'RECENT PROGRESS',
+        'SEP 15, 2026',
     ]:
-        require(text in JS, f'Missing learning tracker content: {text}')
+        require(text in JS, f'Missing AI-agent learning tracker content: {text}')
+
+    for stale_text in [
+        'First course nearly complete',
+        'Finish the first n8n course',
+        'Finishing first course',
+    ]:
+        require(stale_text not in JS, f'Stale learning status remains: {stale_text}')
 
     require('data-route="systems"' in JS, 'Learning card should route to Systems')
     require('id="learning-lab"' in JS, 'Learning Lab section is missing')
@@ -41,7 +49,7 @@ def run():
 
     require('var(--border)' not in CSS, 'Learning CSS must only use portfolio design tokens')
     require('var(--text-soft)' not in CSS, 'Learning CSS must only use portfolio design tokens')
-    print('PASS active learning tracker portfolio checks')
+    print('PASS AI agent learning tracker portfolio checks')
 
 
 if __name__ == '__main__':
