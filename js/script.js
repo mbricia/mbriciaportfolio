@@ -56,8 +56,8 @@
     const principlePanel = $('.principle-panel', overviewStack || document);
     if (overviewStack && principlePanel && !$('.learning-card', overviewStack)) {
       principlePanel.insertAdjacentHTML('beforebegin', `
-        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore two completed n8n Academy courses and the next automation milestone">
-          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>2 COURSES COMPLETED</em></div>
+        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore current n8n Academy learning progress">
+          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>2 CERTIFICATES EARNED</em></div>
           <div class="learning-card-title"><strong>AI Automation with n8n</strong><small>Last updated · Sep 15, 2026</small></div>
           <div class="learning-progress" aria-label="Current learning progress">
             <div class="learning-progress-step is-done">
@@ -66,14 +66,18 @@
             </div>
             <div class="learning-progress-step is-done">
               <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>RECENTLY COMPLETED</b><strong>Essentials: Your First Workflows</strong><small>Completed with a passing grade and earned a second Certificate of Completion.</small></div>
+              <div><b>COMPLETED COURSE</b><strong>Essentials: Your First Workflows</strong><small>Completed with a passing grade and earned the second Certificate of Completion.</small></div>
             </div>
             <div class="learning-progress-step is-current">
               <span class="learning-progress-dot" aria-hidden="true"></span>
-              <div><b>NEXT MILESTONE</b><strong>Build an original AI automation</strong><small>Turn the course foundation into a self-directed, portfolio-ready workflow with a clear problem and result.</small></div>
+              <div><b>CURRENT FOCUS</b><strong>Integrations: APIs &amp; Connected Workflows</strong><small>Next in the n8n program: deeper work with APIs, connected services, and practical integration workflows.</small></div>
+            </div>
+            <div class="learning-progress-step is-next">
+              <span class="learning-progress-dot" aria-hidden="true">04</span>
+              <div><b>NEXT COURSE</b><strong>In Practice: AI, Testing &amp; Best Practices</strong><small>Upcoming program course focused on AI, testing, and stronger workflow practices.</small></div>
             </div>
           </div>
-          <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>AI Agent</span><span>2 Certificates</span><i>Explore Learning Lab →</i></div>
+          <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>2 Certificates</span><i>Explore Learning Lab →</i></div>
         </button>`);
     }
 
@@ -84,28 +88,28 @@
           <div class="learning-lab-header">
             <div>
               <p class="mini-kicker">ACTIVE LEARNING TRACK / 2026</p>
-              <h3 id="learning-lab-title">Two courses complete. Next proof: an original build.</h3>
+              <h3 id="learning-lab-title">From workflow fundamentals to connected automations.</h3>
             </div>
-            <div class="learning-status"><span class="status-dot"></span><strong>n8n Academy · 2 courses completed</strong><small>2 Certificates of Completion · September 15, 2026</small></div>
+            <div class="learning-status"><span class="status-dot"></span><strong>n8n Academy · Current focus: Integrations</strong><small>2 Certificates of Completion · September 15, 2026</small></div>
           </div>
 
           <div class="learning-progress-log">
-            <div class="learning-progress-log-head"><span>COURSE PROGRESS</span><em>SEP 15, 2026</em></div>
+            <div class="learning-progress-log-head"><span>LEARNING PROGRESS</span><em>SEP 15, 2026</em></div>
             <ol>
-              <li><span>01</span><div><strong>n8n Quickstart</strong><small>Completed with a passing grade and received the first n8n Academy Certificate of Completion.</small></div></li>
-              <li><span>02</span><div><strong>Essentials: Your First Workflows</strong><small>Completed with a passing grade and received the second n8n Academy Certificate of Completion.</small></div></li>
-              <li><span>03</span><div><strong>Workflow + AI foundations</strong><small>Course work included workflow automation, working with data, and first AI Agent foundations.</small></div></li>
-              <li class="is-active"><span>04</span><div><strong>Original automation project</strong><small>Current next step: apply the learning to a self-directed workflow with a documented problem, automation, and result.</small></div></li>
+              <li class="is-complete"><span>01</span><div><strong>n8n Quickstart</strong><small>Completed with a passing grade and earned a Certificate of Completion.</small></div></li>
+              <li class="is-complete"><span>02</span><div><strong>Essentials: Your First Workflows</strong><small>Completed program course with a passing grade and earned a second Certificate of Completion.</small></div></li>
+              <li class="is-active"><span>03</span><div><strong>Integrations: APIs &amp; Connected Workflows</strong><small>Current focus: APIs, connected services, and practical integration workflows.</small></div></li>
+              <li><span>04</span><div><strong>In Practice: AI, Testing &amp; Best Practices</strong><small>Next course in the learning path: AI usage, testing, and stronger automation practices.</small></div></li>
             </ol>
           </div>
 
           <div class="learning-lab-grid">
-            <article><span>01 / COMPLETED</span><strong>n8n Quickstart</strong><p>Completed guided learning around workflow automation, data handling, and first AI Agent foundations.</p></article>
-            <article><span>02 / COMPLETED</span><strong>Essentials: Your First Workflows</strong><p>Completed with a passing grade and added a second official n8n Academy Certificate of Completion.</p></article>
-            <article><span>03 / FOUNDATION</span><strong>Workflow Automation + AI Agent</strong><p>The completed coursework now supports the move from guided exercises into more independent automation building.</p></article>
-            <article><span>04 / NEXT PROOF</span><strong>Portfolio-ready automations</strong><p>The next milestone is a self-directed AI automation documented as problem → workflow → result.</p></article>
+            <article><span>01 / COMPLETED</span><strong>n8n Quickstart</strong><p>Established the platform basics and earned the first Certificate of Completion.</p></article>
+            <article><span>02 / COMPLETED COURSE</span><strong>Essentials: Your First Workflows</strong><p>Completed the first full program course with a passing grade and earned the second certificate.</p></article>
+            <article><span>03 / CURRENT FOCUS</span><strong>Integrations: APIs &amp; Connected Workflows</strong><p>Moving deeper into APIs, connected services, and reusable integration patterns for practical automation.</p></article>
+            <article><span>04 / NEXT COURSE</span><strong>In Practice: AI, Testing &amp; Best Practices</strong><p>Next step in the program before turning the learning into independently built, portfolio-ready automations.</p></article>
           </div>
-          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>AI Agent</span><span>2 certificates earned</span><em>COURSES COMPLETE · ORIGINAL BUILD NEXT</em></div>
+          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>Connected Workflows</span><em>CURRENT FOCUS · INTEGRATIONS / APIS</em></div>
         </section>`);
     }
 
