@@ -3,6 +3,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 JS = (ROOT / 'js' / 'script.js').read_text(encoding='utf-8')
 CSS = (ROOT / 'css' / 'learning.css').read_text(encoding='utf-8')
+CERT = (ROOT / 'assets' / 'certificates' / 'n8n-essentials-first-workflows.svg').read_text(encoding='utf-8')
 
 
 def require(condition, message):
@@ -14,29 +15,28 @@ def run():
     for text in [
         'CURRENTLY LEARNING / 2026',
         'AI Automation with n8n',
-        '2 COURSES COMPLETED',
+        '2 CERTIFICATES EARNED',
         'n8n Quickstart',
         'Essentials: Your First Workflows',
+        'Integrations: APIs & Connected Workflows',
+        'In Practice: AI, Testing & Best Practices',
         'Certificate of Completion',
         'September 15, 2026',
-        'Build an original AI automation',
+        'CURRENT COURSE',
+        'NEXT COURSE',
+        'APIs',
+        'Connected Workflows',
+        'Portfolio-ready automations',
+        'n8n Academy · Integrations in progress',
         'assets/certificates/n8n-quickstart.svg',
         'assets/certificates/n8n-essentials-first-workflows.svg',
-        'RECENTLY COMPLETED',
-        'NEXT MILESTONE',
-        'Workflow Automation',
-        'AI Agent',
-        'Portfolio-ready automations',
-        'n8n Academy · 2 courses completed',
     ]:
-        require(text in JS, f'Missing completed-course portfolio content: {text}')
+        require(text in JS, f'Missing integrations learning tracker content: {text}')
 
     for stale_text in [
-        'First course nearly complete',
-        'Finish the first n8n course',
-        'Finishing first course',
-        'BUILDING AN AI AGENT',
-        'Final exam and wrap up',
+        '2 COURSES COMPLETED',
+        'Build an original AI automation',
+        'COURSES COMPLETE · ORIGINAL BUILD NEXT',
     ]:
         require(stale_text not in JS, f'Stale learning status remains: {stale_text}')
 
@@ -47,6 +47,8 @@ def run():
 
     require((ROOT / 'assets/certificates/n8n-quickstart.svg').exists(), 'Quickstart certificate asset is missing')
     require((ROOT / 'assets/certificates/n8n-essentials-first-workflows.svg').exists(), 'Essentials certificate asset is missing')
+    require('<image' in CERT and 'data:image/' in CERT, 'Essentials certificate should use the original uploaded certificate image')
+    require('preserveAspectRatio="xMidYMid meet"' in CERT, 'Certificate image must preserve its full aspect ratio')
 
     for class_name in [
         '.learning-card',
@@ -60,7 +62,7 @@ def run():
 
     require('var(--border)' not in CSS, 'Learning CSS must only use portfolio design tokens')
     require('var(--text-soft)' not in CSS, 'Learning CSS must only use portfolio design tokens')
-    print('PASS two completed n8n courses and credential portfolio checks')
+    print('PASS integrations course progress and certificate asset checks')
 
 
 if __name__ == '__main__':
