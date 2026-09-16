@@ -149,6 +149,28 @@
 
   mountLearningProgress();
 
+  const mountProfessionalTimeline = () => {
+    const aboutView = $('[data-view="about"]');
+    const timeline = $('.timeline-card', aboutView || document);
+    if (!aboutView || !timeline || timeline.dataset.experienceAligned === 'true') return;
+
+    timeline.innerHTML = `
+      <div class="timeline-item"><span>EARLY</span><strong>Computer exposure</strong><p>Daily familiarity with PCs, software, peripherals, and figuring out why things stop working.</p></div>
+      <div class="timeline-item"><span>2018–2019</span><strong>Software engineering foundation</strong><p>Capstone development through research, documentation, forums, testing, and manual debugging.</p></div>
+      <div class="timeline-item"><span>2020–2023</span><strong>Professional programming</strong><p>Worked with Quadrant Information Services as a Rate Programmer, contributing to system components, databases, application logic, structured problem-solving, and technical documentation.</p></div>
+      <div class="timeline-item"><span>2023–Present</span><strong>Freelance Technical & Development Work</strong><p>Took on small software and web projects plus technical support work for students and local clients, covering development, debugging, troubleshooting, and practical project implementation.</p></div>
+      <div class="timeline-item"><span>2026</span><strong>Independent products & automation</strong><p>Built AVENLO web products, the Kopi Brews application prototype, and continued AI automation learning through hands-on n8n workflows.</p></div>`;
+    timeline.dataset.experienceAligned = 'true';
+
+    const storyParagraphs = $$('.story-card p', aboutView);
+    const finalStory = storyParagraphs[storyParagraphs.length - 1];
+    if (finalStory) {
+      finalStory.textContent = 'That is the thread connecting my software-engineering foundation, professional programming work, freelance technical and development projects, AVENLO web products, and current application and automation work.';
+    }
+  };
+
+  mountProfessionalTimeline();
+
   const normalizeRoute = (value) => validRoutes.includes(value) ? value : 'overview';
 
   const go = (route, options = {}) => {
