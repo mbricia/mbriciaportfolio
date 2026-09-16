@@ -21,5 +21,5 @@ def test_about_timeline_uses_arr_aligned_experience_copy():
 def test_portfolio_download_asset_is_master_v3_pdf():
     pdf_bytes = base64.b64decode(CV_B64)
     assert pdf_bytes.startswith(b"%PDF-")
-    assert hashlib.sha256(pdf_bytes).hexdigest() == "ad716d638e665b3e08a0595918eaf69804a7ca137d6446531597a16e2d7e6016"
+    assert hashlib.sha256(pdf_bytes).hexdigest() == "4d39ddb3fcd15dd522aefc6e602313bff601bdc1414722f244cb9cad5fc56393"
     assert "Mark-Jhollan-Bricia-Master-ATS-CV-v3.pdf" in SCRIPT
