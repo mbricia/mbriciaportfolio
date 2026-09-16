@@ -18,8 +18,8 @@ def test_about_timeline_uses_arr_aligned_experience_copy():
         assert text in SCRIPT, f"missing ARR-aligned portfolio copy: {text}"
 
 
-def test_portfolio_download_asset_is_master_v3_pdf():
+def test_portfolio_download_asset_is_master_v4_pdf():
     pdf_bytes = base64.b64decode(CV_B64)
     assert pdf_bytes.startswith(b"%PDF-")
-    assert hashlib.sha256(pdf_bytes).hexdigest() == "4d39ddb3fcd15dd522aefc6e602313bff601bdc1414722f244cb9cad5fc56393"
-    assert "Mark-Jhollan-Bricia-Master-ATS-CV-v3.pdf" in SCRIPT
+    assert hashlib.sha256(pdf_bytes).hexdigest() == "cf670c80e4e5827d779236d374da52ecc524391af7191e587631cc9c6d420cba"
+    assert "Mark-Jhollan-Bricia-Master-ATS-CV-v4.pdf" in SCRIPT
