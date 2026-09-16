@@ -171,6 +171,38 @@
 
   mountProfessionalTimeline();
 
+  const mountCvDownload = () => {
+    const cvLinks = $$('a[href="Mark-Jhollan-Bricia-CV.pdf"]');
+    if (!cvLinks.length) return;
+
+    cvLinks.forEach(link => {
+      link.addEventListener('click', async event => {
+        event.preventDefault();
+        try {
+          const response = await fetch('assets/cv/Mark-Jhollan-Bricia-CV.base64.txt', {cache:'no-store'});
+          if (!response.ok) throw new Error('CV asset unavailable');
+          const base64 = (await response.text()).trim();
+          const binary = atob(base64);
+          const bytes = new Uint8Array(binary.length);
+          for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+          const blob = new Blob([bytes], {type:'application/pdf'});
+          const url = URL.createObjectURL(blob);
+          const download = document.createElement('a');
+          download.href = url;
+          download.download = 'Mark-Jhollan-Bricia-CV.pdf';
+          document.body.appendChild(download);
+          download.click();
+          download.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1200);
+        } catch (_) {
+          window.open('Mark-Jhollan-Bricia-CV.pdf', '_blank', 'noopener');
+        }
+      });
+    });
+  };
+
+  mountCvDownload();
+
   const normalizeRoute = (value) => validRoutes.includes(value) ? value : 'overview';
 
   const go = (route, options = {}) => {
