@@ -155,17 +155,18 @@
     if (!aboutView || !timeline || timeline.dataset.experienceAligned === 'true') return;
 
     timeline.innerHTML = `
-      <div class="timeline-item"><span>EARLY</span><strong>Computer exposure</strong><p>Daily familiarity with PCs, software, peripherals, and figuring out why things stop working.</p></div>
-      <div class="timeline-item"><span>2018–2019</span><strong>Software engineering foundation</strong><p>Capstone development through research, documentation, forums, testing, and manual debugging.</p></div>
-      <div class="timeline-item"><span>2020–2023</span><strong>Professional programming</strong><p>Worked with Quadrant Information Services as a Rate Programmer, contributing to system components, databases, application logic, structured problem-solving, and technical documentation.</p></div>
-      <div class="timeline-item"><span>2023–Present</span><strong>Freelance Technical & Development Work</strong><p>Took on small software and web projects plus technical support work for students and local clients, covering development, debugging, troubleshooting, and practical project implementation.</p></div>
-      <div class="timeline-item"><span>2026</span><strong>Independent products & automation</strong><p>Built AVENLO web products, the Kopi Brews application prototype, and continued AI automation learning through hands-on n8n workflows.</p></div>`;
+      <div class="timeline-item"><span>EARLY</span><strong>Computer exposure</strong><p>Built daily familiarity with PCs, software, peripherals, and troubleshooting through hands-on use, creating the practical foundation for later IT and development work.</p></div>
+      <div class="timeline-item"><span>2018–2019</span><strong>Software engineering foundation</strong><p>Developed a team capstone through research, documentation, testing, and manual debugging, turning software-engineering fundamentals into a working database-backed system.</p></div>
+      <div class="timeline-item"><span>2020–2023</span><strong>Quadrant Information Services · Rate Programmer</strong><p>Developed and maintained system components based on project requirements, working with databases and application logic to support project delivery.</p></div>
+      <div class="timeline-item"><span>2023–Present</span><strong>Freelance Technical & Development Work</strong><p>Built and supported small software and web projects for students and local clients, handling implementation, debugging, troubleshooting, and revisions to deliver working project outputs.</p></div>
+      <div class="timeline-item"><span>2023–Present</span><strong>STKR Maniac Printing Services</strong><p>Managed client print orders and prepared production-ready files from design through final output, completing customer requests for documents, stickers, shirts, and other print work. Maintained and troubleshot printers, computers, and related production equipment during daily operations, helping keep client work and production available.</p></div>
+      <div class="timeline-item"><span>2026</span><strong>Independent products & automation</strong><p>Built and shipped AVENLO web products, developed the Kopi Brews application prototype, and expanded into n8n automation to turn current learning into practical, portfolio-ready work.</p></div>`;
     timeline.dataset.experienceAligned = 'true';
 
     const storyParagraphs = $$('.story-card p', aboutView);
     const finalStory = storyParagraphs[storyParagraphs.length - 1];
     if (finalStory) {
-      finalStory.textContent = 'That is the thread connecting my software-engineering foundation, professional programming work, freelance technical and development projects, AVENLO web products, and current application and automation work.';
+      finalStory.textContent = 'That is the thread connecting my software-engineering foundation, professional programming work, freelance development and IT support, small-business technical operations, shipped web products, and current application and automation work.';
     }
   };
 
@@ -189,7 +190,7 @@
           const url = URL.createObjectURL(blob);
           const download = document.createElement('a');
           download.href = url;
-          download.download = 'Mark-Jhollan-Bricia-CV.pdf';
+          download.download = 'Mark-Jhollan-Bricia-Master-ATS-CV-v3.pdf';
           document.body.appendChild(download);
           download.click();
           download.remove();
