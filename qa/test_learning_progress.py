@@ -3,7 +3,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 JS = (ROOT / 'js' / 'script.js').read_text(encoding='utf-8')
 CSS = (ROOT / 'css' / 'learning.css').read_text(encoding='utf-8')
-CERT = (ROOT / 'assets' / 'certificates' / 'n8n-essentials-first-workflows.svg').read_text(encoding='utf-8')
+ESSENTIALS_CERT = (ROOT / 'assets' / 'certificates' / 'n8n-essentials-first-workflows.svg').read_text(encoding='utf-8')
+INTEGRATIONS_CERT = (ROOT / 'assets' / 'certificates' / 'n8n-integrations-apis-connected-workflows.svg').read_text(encoding='utf-8')
 
 
 def require(condition, message):
@@ -15,21 +16,28 @@ def run():
     for text in [
         'CURRENTLY LEARNING / 2026',
         'AI Automation with n8n',
-        '2 CERTIFICATES EARNED',
+        '3 CERTIFICATES EARNED',
+        'Last updated · Sep 16, 2026',
         'n8n Quickstart',
         'Essentials: Your First Workflows',
         'Integrations: APIs & Connected Workflows',
         'In Practice: AI, Testing & Best Practices',
-        'CURRENT FOCUS',
         'NEXT COURSE',
         'APIs',
-        'n8n Academy · Current focus: Integrations',
+        'n8n Academy · 3 certificates earned',
+        'Latest completion · September 16, 2026',
         'assets/certificates/n8n-quickstart.svg',
         'assets/certificates/n8n-essentials-first-workflows.svg',
+        'assets/certificates/n8n-integrations-apis-connected-workflows.svg',
     ]:
         require(text in JS, f'Missing learning tracker content: {text}')
 
     for stale_text in [
+        '2 CERTIFICATES EARNED',
+        '2 Certificates of Completion · September 15, 2026',
+        '03 / CURRENT FOCUS',
+        'CURRENT FOCUS · INTEGRATIONS / APIS',
+        'n8n Academy · Current focus: Integrations',
         '2 COURSES COMPLETED',
         'Build an original AI automation',
         'COURSES COMPLETE · ORIGINAL BUILD NEXT',
@@ -41,13 +49,18 @@ def run():
     require('id="learning-lab"' in JS, 'Learning Lab section is missing')
     require('data-certificate="quickstart"' in JS, 'Quickstart credential card is missing')
     require('data-certificate="essentials-first-workflows"' in JS, 'Essentials credential card is missing')
-    require('Awarded September 15, 2026.' in JS, 'Essentials certificate date should be shown')
+    require('data-certificate="integrations-apis-connected-workflows"' in JS, 'Integrations credential card is missing')
+    require('Awarded September 16, 2026.' in JS, 'Integrations certificate date should be shown')
 
     require((ROOT / 'assets/certificates/n8n-quickstart.svg').exists(), 'Quickstart certificate asset is missing')
     require((ROOT / 'assets/certificates/n8n-essentials-first-workflows.svg').exists(), 'Essentials certificate asset is missing')
-    require('<image' in CERT and 'data:image/' in CERT, 'Essentials certificate should embed the original uploaded certificate image')
-    require('preserveAspectRatio="xMidYMid meet"' in CERT, 'Certificate image must preserve its full aspect ratio')
-    require('viewBox="0 0 1123 793"' in CERT, 'Essentials certificate should preserve the uploaded image dimensions')
+    require((ROOT / 'assets/certificates/n8n-integrations-apis-connected-workflows.svg').exists(), 'Integrations certificate asset is missing')
+    require('<image' in ESSENTIALS_CERT and 'data:image/' in ESSENTIALS_CERT, 'Essentials certificate should embed the original uploaded certificate image')
+    require('preserveAspectRatio="xMidYMid meet"' in ESSENTIALS_CERT, 'Essentials certificate image must preserve its full aspect ratio')
+    require('viewBox="0 0 1123 793"' in ESSENTIALS_CERT, 'Essentials certificate should preserve the uploaded image dimensions')
+    require('<image' in INTEGRATIONS_CERT and 'data:image/' in INTEGRATIONS_CERT, 'Integrations certificate should embed the original uploaded certificate image')
+    require('preserveAspectRatio="xMidYMid meet"' in INTEGRATIONS_CERT, 'Integrations certificate image must preserve its full aspect ratio')
+    require('viewBox="0 0 1122 792"' in INTEGRATIONS_CERT, 'Integrations certificate should preserve the uploaded image dimensions')
 
     for class_name in [
         '.learning-card',
