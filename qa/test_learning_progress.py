@@ -5,6 +5,7 @@ JS = (ROOT / 'js' / 'script.js').read_text(encoding='utf-8')
 CSS = (ROOT / 'css' / 'learning.css').read_text(encoding='utf-8')
 ESSENTIALS_CERT = (ROOT / 'assets' / 'certificates' / 'n8n-essentials-first-workflows.svg').read_text(encoding='utf-8')
 INTEGRATIONS_CERT = (ROOT / 'assets' / 'certificates' / 'n8n-integrations-apis-connected-workflows.svg').read_text(encoding='utf-8')
+IN_PRACTICE_CERT = (ROOT / 'assets' / 'certificates' / 'n8n-in-practice-ai-testing-best-practices.svg').read_text(encoding='utf-8')
 
 
 def require(condition, message):
@@ -16,51 +17,52 @@ def run():
     for text in [
         'CURRENTLY LEARNING / 2026',
         'AI Automation with n8n',
-        '3 CERTIFICATES EARNED',
-        'Last updated · Sep 16, 2026',
+        '4 CERTIFICATES EARNED',
+        'Last updated · Sep 17, 2026',
         'n8n Quickstart',
         'Essentials: Your First Workflows',
         'Integrations: APIs & Connected Workflows',
         'In Practice: AI, Testing & Best Practices',
-        'NEXT COURSE',
-        'APIs',
-        'n8n Academy · 3 certificates earned',
-        'Latest completion · September 16, 2026',
+        'n8n Foundations Professional Certificate · Program completed',
+        'NEXT MILESTONE',
+        'Original AI Automation Project',
         'assets/certificates/n8n-quickstart.svg',
         'assets/certificates/n8n-essentials-first-workflows.svg',
         'assets/certificates/n8n-integrations-apis-connected-workflows.svg',
+        'assets/certificates/n8n-in-practice-ai-testing-best-practices.svg',
     ]:
-        require(text in JS, f'Missing learning tracker content: {text}')
+        require(text in JS, f'Missing final learning tracker content: {text}')
 
     for stale_text in [
-        '2 CERTIFICATES EARNED',
-        '2 Certificates of Completion · September 15, 2026',
-        '03 / CURRENT FOCUS',
-        'CURRENT FOCUS · INTEGRATIONS / APIS',
-        'n8n Academy · Current focus: Integrations',
-        '2 COURSES COMPLETED',
-        'Build an original AI automation',
-        'COURSES COMPLETE · ORIGINAL BUILD NEXT',
-        'n8n Academy · Integrations in progress',
+        '3 CERTIFICATES EARNED',
+        'n8n Academy · 3 certificates earned',
+        'Latest completion · September 16, 2026',
+        'NEXT COURSE · AI / TESTING / BEST PRACTICES',
+        '04 / NEXT COURSE',
+        'Upcoming program course focused on AI, testing, and stronger workflow practices.',
     ]:
-        require(stale_text not in JS, f'Stale or unsupported learning status remains: {stale_text}')
+        require(stale_text not in JS, f'Stale learning state remains: {stale_text}')
 
     require('data-route="systems"' in JS, 'Learning card should route to Systems')
     require('id="learning-lab"' in JS, 'Learning Lab section is missing')
     require('data-certificate="quickstart"' in JS, 'Quickstart credential card is missing')
     require('data-certificate="essentials-first-workflows"' in JS, 'Essentials credential card is missing')
     require('data-certificate="integrations-apis-connected-workflows"' in JS, 'Integrations credential card is missing')
-    require('Awarded September 16, 2026.' in JS, 'Integrations certificate date should be shown')
+    require('data-certificate="in-practice-ai-testing-best-practices"' in JS, 'In Practice credential card is missing')
+    require('Awarded September 17, 2026.' in JS, 'In Practice certificate date should be shown')
 
     require((ROOT / 'assets/certificates/n8n-quickstart.svg').exists(), 'Quickstart certificate asset is missing')
     require((ROOT / 'assets/certificates/n8n-essentials-first-workflows.svg').exists(), 'Essentials certificate asset is missing')
     require((ROOT / 'assets/certificates/n8n-integrations-apis-connected-workflows.svg').exists(), 'Integrations certificate asset is missing')
+    require((ROOT / 'assets/certificates/n8n-in-practice-ai-testing-best-practices.svg').exists(), 'In Practice certificate asset is missing')
+
     require('<image' in ESSENTIALS_CERT and 'data:image/' in ESSENTIALS_CERT, 'Essentials certificate should embed the original uploaded certificate image')
     require('preserveAspectRatio="xMidYMid meet"' in ESSENTIALS_CERT, 'Essentials certificate image must preserve its full aspect ratio')
-    require('viewBox="0 0 1123 793"' in ESSENTIALS_CERT, 'Essentials certificate should preserve the uploaded image dimensions')
     require('<image' in INTEGRATIONS_CERT and 'data:image/' in INTEGRATIONS_CERT, 'Integrations certificate should embed the original uploaded certificate image')
     require('preserveAspectRatio="xMidYMid meet"' in INTEGRATIONS_CERT, 'Integrations certificate image must preserve its full aspect ratio')
-    require('viewBox="0 0 1122 792"' in INTEGRATIONS_CERT, 'Integrations certificate should preserve the uploaded image dimensions')
+    require('<image' in IN_PRACTICE_CERT and 'data:image/' in IN_PRACTICE_CERT, 'In Practice certificate should embed the original uploaded certificate image')
+    require('preserveAspectRatio="xMidYMid meet"' in IN_PRACTICE_CERT, 'In Practice certificate image must preserve its full aspect ratio')
+    require('viewBox="0 0 1118 793"' in IN_PRACTICE_CERT, 'In Practice certificate should preserve the uploaded image dimensions')
 
     for class_name in [
         '.learning-card',
@@ -76,7 +78,7 @@ def run():
     require('object-fit:contain' in compact_css, 'Certificate preview must contain the full certificate without cropping')
     require('var(--border)' not in CSS, 'Learning CSS must only use portfolio design tokens')
     require('var(--text-soft)' not in CSS, 'Learning CSS must only use portfolio design tokens')
-    print('PASS current n8n learning progress and certificate asset checks')
+    print('PASS completed n8n Foundations program and four-certificate portfolio state')
 
 
 if __name__ == '__main__':
