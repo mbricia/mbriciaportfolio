@@ -56,10 +56,10 @@
     const principlePanel = $('.principle-panel', overviewStack || document);
     if (overviewStack && principlePanel && !$('.learning-card', overviewStack)) {
       principlePanel.insertAdjacentHTML('beforebegin', `
-        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore current n8n Academy learning progress">
-          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>3 CERTIFICATES EARNED</em></div>
-          <div class="learning-card-title"><strong>AI Automation with n8n</strong><small>Last updated · Sep 16, 2026</small></div>
-          <div class="learning-progress" aria-label="Current learning progress">
+        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore completed n8n Foundations learning progress">
+          <div class="learning-card-head"><span>CURRENTLY LEARNING / 2026</span><em>4 CERTIFICATES EARNED</em></div>
+          <div class="learning-card-title"><strong>AI Automation with n8n</strong><small>Last updated · Sep 17, 2026</small></div>
+          <div class="learning-progress" aria-label="Completed n8n Foundations learning progress">
             <div class="learning-progress-step is-done">
               <span class="learning-progress-dot" aria-hidden="true">✓</span>
               <div><b>COMPLETED</b><strong>n8n Quickstart</strong><small>Completed with a passing grade and earned a Certificate of Completion.</small></div>
@@ -72,12 +72,16 @@
               <span class="learning-progress-dot" aria-hidden="true">✓</span>
               <div><b>COMPLETED COURSE</b><strong>Integrations: APIs & Connected Workflows</strong><small>Completed with a passing grade and earned the third Certificate of Completion.</small></div>
             </div>
-            <div class="learning-progress-step is-next">
-              <span class="learning-progress-dot" aria-hidden="true">04</span>
-              <div><b>NEXT COURSE</b><strong>In Practice: AI, Testing & Best Practices</strong><small>Upcoming program course focused on AI, testing, and stronger workflow practices.</small></div>
+            <div class="learning-progress-step is-done">
+              <span class="learning-progress-dot" aria-hidden="true">✓</span>
+              <div><b>COMPLETED COURSE</b><strong>In Practice: AI, Testing & Best Practices</strong><small>Completed with a passing grade and earned the fourth Certificate of Completion.</small></div>
+            </div>
+            <div class="learning-progress-step is-current">
+              <span class="learning-progress-dot" aria-hidden="true"></span>
+              <div><b>NEXT MILESTONE</b><strong>Original AI Automation Project</strong><small>Apply the completed n8n Foundations track to a self-directed, portfolio-ready automation with a clear problem, workflow, and result.</small></div>
             </div>
           </div>
-          <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>3 Certificates</span><i>Explore Learning Lab →</i></div>
+          <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span><span>4 Certificates</span><i>Explore Learning Lab →</i></div>
         </button>`);
     }
 
@@ -88,28 +92,28 @@
           <div class="learning-lab-header">
             <div>
               <p class="mini-kicker">ACTIVE LEARNING TRACK / 2026</p>
-              <h3 id="learning-lab-title">From workflow fundamentals to connected automations.</h3>
+              <h3 id="learning-lab-title">n8n Foundations complete. Next proof: an original automation.</h3>
             </div>
-            <div class="learning-status"><span class="status-dot"></span><strong>n8n Academy · 3 certificates earned</strong><small>Latest completion · September 16, 2026</small></div>
+            <div class="learning-status"><span class="status-dot"></span><strong>n8n Foundations Professional Certificate · Program completed</strong><small>4 Certificates of Completion · Latest completion September 17, 2026</small></div>
           </div>
 
           <div class="learning-progress-log">
-            <div class="learning-progress-log-head"><span>LEARNING PROGRESS</span><em>SEP 16, 2026</em></div>
+            <div class="learning-progress-log-head"><span>LEARNING PROGRESS</span><em>SEP 17, 2026</em></div>
             <ol>
-              <li class="is-complete"><span>01</span><div><strong>n8n Quickstart</strong><small>Completed with a passing grade and earned a Certificate of Completion.</small></div></li>
-              <li class="is-complete"><span>02</span><div><strong>Essentials: Your First Workflows</strong><small>Completed program course with a passing grade and earned a second Certificate of Completion.</small></div></li>
-              <li class="is-complete"><span>03</span><div><strong>Integrations: APIs & Connected Workflows</strong><small>Completed with a passing grade and earned a third Certificate of Completion on September 16, 2026.</small></div></li>
-              <li><span>04</span><div><strong>In Practice: AI, Testing & Best Practices</strong><small>Next course in the learning path: AI usage, testing, and stronger automation practices.</small></div></li>
+              <li class="is-complete"><span>01</span><div><strong>n8n Quickstart</strong><small>Completed with a passing grade and earned the first Certificate of Completion.</small></div></li>
+              <li class="is-complete"><span>02</span><div><strong>Essentials: Your First Workflows</strong><small>Completed with a passing grade and earned the second Certificate of Completion.</small></div></li>
+              <li class="is-complete"><span>03</span><div><strong>Integrations: APIs & Connected Workflows</strong><small>Completed with a passing grade and earned the third Certificate of Completion.</small></div></li>
+              <li class="is-complete"><span>04</span><div><strong>In Practice: AI, Testing & Best Practices</strong><small>Completed with a passing grade and earned the fourth Certificate of Completion on September 17, 2026.</small></div></li>
             </ol>
           </div>
 
           <div class="learning-lab-grid">
             <article><span>01 / COMPLETED</span><strong>n8n Quickstart</strong><p>Established the platform basics and earned the first Certificate of Completion.</p></article>
-            <article><span>02 / COMPLETED COURSE</span><strong>Essentials: Your First Workflows</strong><p>Completed the first full program course with a passing grade and earned the second certificate.</p></article>
-            <article><span>03 / COMPLETED COURSE</span><strong>Integrations: APIs & Connected Workflows</strong><p>Completed the integrations course with a passing grade and earned the third certificate, covering APIs, connected services, and practical integration workflows.</p></article>
-            <article><span>04 / NEXT COURSE</span><strong>In Practice: AI, Testing & Best Practices</strong><p>Next step in the program before turning the learning into independently built, portfolio-ready automations.</p></article>
+            <article><span>02 / COMPLETED COURSE</span><strong>Essentials: Your First Workflows</strong><p>Completed workflow fundamentals, practical node usage, and data handling while earning the second certificate.</p></article>
+            <article><span>03 / COMPLETED COURSE</span><strong>Integrations: APIs & Connected Workflows</strong><p>Completed the integrations course covering APIs, connected services, and practical workflow integrations.</p></article>
+            <article><span>04 / COMPLETED COURSE</span><strong>In Practice: AI, Testing & Best Practices</strong><p>Completed the final Foundations course focused on AI, testing, and stronger workflow practices.</p></article>
           </div>
-          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>Connected Workflows</span><em>NEXT COURSE · AI / TESTING / BEST PRACTICES</em></div>
+          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span><span>Testing</span><em>NEXT MILESTONE · ORIGINAL AI AUTOMATION PROJECT</em></div>
         </section>`);
     }
 
@@ -158,6 +162,22 @@
             <strong>n8n Academy</strong>
             <p>Successfully completed with a passing grade. Awarded September 16, 2026.</p>
             <div class="certificate-actions"><a href="assets/certificates/n8n-integrations-apis-connected-workflows.svg" target="_blank" rel="noreferrer">View Certificate ↗</a><button type="button" data-route="systems">View Learning Lab →</button></div>
+          </div>
+        </article>`);
+    }
+
+    if (credentialsLayout && !$('[data-certificate="in-practice-ai-testing-best-practices"]', credentialsLayout)) {
+      credentialsLayout.insertAdjacentHTML('beforeend', `
+        <article class="panel credential-certificate" data-certificate="in-practice-ai-testing-best-practices">
+          <a class="certificate-preview" href="assets/certificates/n8n-in-practice-ai-testing-best-practices.webp" target="_blank" rel="noreferrer" aria-label="View In Practice: AI, Testing & Best Practices Certificate of Completion">
+            <img src="assets/certificates/n8n-in-practice-ai-testing-best-practices.webp" alt="In Practice: AI, Testing and Best Practices Certificate of Completion awarded to Mark Jhollan Bricia" />
+          </a>
+          <div class="certificate-copy">
+            <span>CERTIFICATE OF COMPLETION / 2026</span>
+            <h3>In Practice: AI, Testing & Best Practices</h3>
+            <strong>n8n Academy</strong>
+            <p>Successfully completed with a passing grade. Awarded September 17, 2026.</p>
+            <div class="certificate-actions"><a href="assets/certificates/n8n-in-practice-ai-testing-best-practices.webp" target="_blank" rel="noreferrer">View Certificate ↗</a><button type="button" data-route="systems">View Learning Lab →</button></div>
           </div>
         </article>`);
     }
