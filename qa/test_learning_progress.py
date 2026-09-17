@@ -5,7 +5,6 @@ JS = (ROOT / 'js' / 'script.js').read_text(encoding='utf-8')
 CSS = (ROOT / 'css' / 'learning.css').read_text(encoding='utf-8')
 ESSENTIALS_CERT = (ROOT / 'assets' / 'certificates' / 'n8n-essentials-first-workflows.svg').read_text(encoding='utf-8')
 INTEGRATIONS_CERT = (ROOT / 'assets' / 'certificates' / 'n8n-integrations-apis-connected-workflows.svg').read_text(encoding='utf-8')
-IN_PRACTICE_CERT = (ROOT / 'assets' / 'certificates' / 'n8n-in-practice-ai-testing-best-practices.svg').read_text(encoding='utf-8')
 
 
 def require(condition, message):
@@ -29,7 +28,7 @@ def run():
         'assets/certificates/n8n-quickstart.svg',
         'assets/certificates/n8n-essentials-first-workflows.svg',
         'assets/certificates/n8n-integrations-apis-connected-workflows.svg',
-        'assets/certificates/n8n-in-practice-ai-testing-best-practices.svg',
+        'assets/certificates/n8n-in-practice-ai-testing-best-practices.webp',
     ]:
         require(text in JS, f'Missing final learning tracker content: {text}')
 
@@ -54,15 +53,12 @@ def run():
     require((ROOT / 'assets/certificates/n8n-quickstart.svg').exists(), 'Quickstart certificate asset is missing')
     require((ROOT / 'assets/certificates/n8n-essentials-first-workflows.svg').exists(), 'Essentials certificate asset is missing')
     require((ROOT / 'assets/certificates/n8n-integrations-apis-connected-workflows.svg').exists(), 'Integrations certificate asset is missing')
-    require((ROOT / 'assets/certificates/n8n-in-practice-ai-testing-best-practices.svg').exists(), 'In Practice certificate asset is missing')
+    require((ROOT / 'assets/certificates/n8n-in-practice-ai-testing-best-practices.webp').exists(), 'In Practice certificate asset is missing')
 
     require('<image' in ESSENTIALS_CERT and 'data:image/' in ESSENTIALS_CERT, 'Essentials certificate should embed the original uploaded certificate image')
     require('preserveAspectRatio="xMidYMid meet"' in ESSENTIALS_CERT, 'Essentials certificate image must preserve its full aspect ratio')
     require('<image' in INTEGRATIONS_CERT and 'data:image/' in INTEGRATIONS_CERT, 'Integrations certificate should embed the original uploaded certificate image')
     require('preserveAspectRatio="xMidYMid meet"' in INTEGRATIONS_CERT, 'Integrations certificate image must preserve its full aspect ratio')
-    require('<image' in IN_PRACTICE_CERT and 'data:image/' in IN_PRACTICE_CERT, 'In Practice certificate should embed the original uploaded certificate image')
-    require('preserveAspectRatio="xMidYMid meet"' in IN_PRACTICE_CERT, 'In Practice certificate image must preserve its full aspect ratio')
-    require('viewBox="0 0 1118 793"' in IN_PRACTICE_CERT, 'In Practice certificate should preserve the uploaded image dimensions')
 
     for class_name in [
         '.learning-card',
