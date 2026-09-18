@@ -58,7 +58,7 @@
       principlePanel.insertAdjacentHTML('beforebegin', `
         <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore completed n8n Foundations learning progress">
           <div class="learning-card-head"><span>AUTOMATION TRACK / 2026</span><em>4 CERTIFICATES + 1 ORIGINAL PROJECT</em></div>
-          <div class="learning-card-title"><strong>Workflow Automation with n8n</strong><small>Last updated · Sep 18, 2026</small></div>
+          <div class="learning-card-title"><strong>AI Automation with n8n</strong><small>Last updated · Sep 18, 2026</small></div>
           <div class="learning-progress" aria-label="Completed n8n Foundations learning progress">
             <div class="learning-progress-step is-done">
               <span class="learning-progress-dot" aria-hidden="true">✓</span>
@@ -78,7 +78,7 @@
             </div>
             <div class="learning-progress-step is-done">
               <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>ORIGINAL PROJECT / COMPLETED</b><strong>Client Inquiry & Lead Qualification</strong><small>Built and production-tested an original n8n automation with validation, deduplication, structured extraction, deterministic scoring, client replies, routing, and error monitoring.</small></div>
+              <div><b>ORIGINAL PROJECT / COMPLETED</b><strong>AI Client Inquiry & Lead Qualification</strong><small>Built and production-tested an original n8n automation with validation, deduplication, AI extraction, deterministic scoring, client replies, routing, and error monitoring.</small></div>
             </div>
           </div>
           <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span><span>4 Certificates</span><span>Original Project</span><i>Explore Learning Lab →</i></div>
@@ -112,7 +112,7 @@
             <article><span>02 / COMPLETED COURSE</span><strong>Essentials: Your First Workflows</strong><p>Completed workflow fundamentals, practical node usage, and data handling while earning the second certificate.</p></article>
             <article><span>03 / COMPLETED COURSE</span><strong>Integrations: APIs & Connected Workflows</strong><p>Completed the integrations course covering APIs, connected services, and practical workflow integrations.</p></article>
             <article><span>04 / COMPLETED COURSE</span><strong>In Practice: AI, Testing & Best Practices</strong><p>Completed the final Foundations course focused on AI, testing, and stronger workflow practices.</p></article>
-            <article><span>05 / ORIGINAL PROJECT</span><strong>Client Inquiry & Lead Qualification</strong><p>Applied the completed n8n Foundations track to a self-directed automation integrating webhooks, structured extraction, JavaScript scoring, Google Sheets, Gmail, routing, testing, and error handling.</p></article>
+            <article><span>05 / ORIGINAL PROJECT</span><strong>AI Client Inquiry & Lead Qualification</strong><p>Applied the completed n8n Foundations track to a self-directed automation integrating webhooks, AI extraction, JavaScript scoring, Google Sheets, Gmail, routing, testing, and error handling.</p></article>
           </div>
           <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span><span>Testing</span><em>ORIGINAL PROJECT · BUILT + TESTED · SEP 18, 2026</em></div>
         </section>`);
