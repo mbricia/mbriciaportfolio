@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#070a0f" />
-  <meta name="description" content="Mark Jhollan Bricia — developer, IT problem solver, and digital builder. Recruiter-first portfolio featuring software, IT support, and shipped web products." />
+  <meta name="description" content="Mark Jhollan Bricia — developer, IT problem solver, and digital builder. Recruiter-first portfolio featuring software, AI automation, IT support, and shipped web products." />
   <meta property="og:title" content="Mark Jhollan Bricia — Developer · IT · Builder" />
-  <meta property="og:description" content="Recruiter-first portfolio featuring software systems, IT support, and shipped web products." />
+  <meta property="og:description" content="Recruiter-first portfolio featuring software systems, AI automation, IT support, and shipped web products." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/meta/og-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -86,7 +86,7 @@
                 </figure>
               </div>
               <p class="hero-copy">I build practical software and web experiences, troubleshoot the systems behind them, and use modern tools without outsourcing the fundamentals.</p>
-              <div class="recruiter-tech" aria-label="Core technologies"><span>JavaScript</span><span>React / React Native</span><span>Firebase / Firestore</span><span>C#</span><span>Java</span><span>HTML / CSS</span><span>Git</span></div>
+              <div class="recruiter-tech" aria-label="Core technologies"><span>JavaScript</span><span>React / React Native</span><span>Firebase / Firestore</span><span>n8n / Webhooks</span><span>OpenAI</span><span>C#</span><span>Java</span><span>HTML / CSS</span><span>Git</span></div>
               <p class="availability-line"><span class="status-dot"></span> OPEN TO OPPORTUNITIES · PHILIPPINES / UTC+8</p>
               <div class="hero-actions">
                 <button class="btn btn-primary" type="button" data-route="work">View selected work <span>↗</span></button>
@@ -123,7 +123,7 @@
           <div class="overview-bottom">
             <button class="signal-card panel signal-primary" type="button" data-route="kopi-app"><span>CURRENT SOFTWARE / 2026</span><strong>Kopi Brews Operations App</strong><small>React Native · Firebase · Firestore · multi-user workflows</small><i>OPEN APPLICATION CASE STUDY →</i></button>
             <button class="signal-card panel" type="button" data-route="capstone"><span>FOUNDATIONS / 2018–2019</span><strong>Eleventh28 POS + Kitchen Display</strong><small>C# · WinForms · MySQL · Crystal Reports</small><i>OPEN FOUNDATIONS CASE STUDY →</i></button>
-            <button class="signal-card panel" type="button" data-route="work"><span>SHIPPED WEB PRODUCTS</span><strong>AVENLO Product Line</strong><small>SaaS · Café · Portfolio · live demos</small><i>VIEW ALL SELECTED WORK →</i></button>
+            <button class="signal-card panel" type="button" data-route="automation"><span>AI AUTOMATION / 2026</span><strong>Client Inquiry & Lead Qualification</strong><small>n8n · OpenAI · Webhooks · Google Sheets · Gmail</small><i>OPEN AUTOMATION CASE STUDY →</i></button>
           </div>
         </section>
 
@@ -131,12 +131,22 @@
         <section class="view" data-view="work" aria-labelledby="work-title">
           <div class="view-heading recruiter-heading">
             <div><p class="section-index">02 / SELECTED WORK</p><h2 id="work-title">Proof before promises.</h2></div>
-            <p>Software systems first, then shipped web products. Each item shows what it does, the stack behind it, and what I was responsible for.</p>
+            <p>Automation and software systems first, then shipped web products. Each item shows what it does, the stack behind it, and what I was responsible for.</p>
           </div>
 
           <div class="work-group">
-            <div class="work-group-title"><span>01</span><div><p>Software Systems</p><small>Application logic · data · operations</small></div></div>
+            <div class="work-group-title"><span>01</span><div><p>Automation & Software Systems</p><small>Workflow orchestration · application logic · data · operations</small></div></div>
             <div class="system-projects">
+              <button class="system-project feature-project automation-project-card panel" type="button" data-route="automation">
+                <div class="project-top"><span>ORIGINAL AI AUTOMATION</span><em>BUILT + TESTED / 2026</em></div>
+                <div class="system-project-copy">
+                  <p class="project-kicker">N8N · AI · BUSINESS LOGIC</p>
+                  <h3>AI Client Inquiry & Lead Qualification</h3>
+                  <p>End-to-end inquiry automation that validates and deduplicates submissions, extracts structured project details with AI, applies explainable rule-based scoring, logs leads, generates personalized replies, and routes Hot, Warm, and Cold leads to different follow-up actions.</p>
+                  <div class="tag-row"><span>n8n</span><span>OpenAI</span><span>Webhooks</span><span>JavaScript</span><span>Google Sheets</span><span>Gmail</span></div>
+                </div>
+                <span class="project-open">Open automation case study →</span>
+              </button>
               <button class="system-project feature-project panel" type="button" data-route="kopi-app">
                 <div class="project-top"><span>CURRENT APPLICATION</span><em>PRIVATE PROTOTYPE</em></div>
                 <div class="system-project-copy">
@@ -189,6 +199,116 @@
                 <a href="https://avenlo-portfolio.netlify.app/" target="_blank" rel="noreferrer">Live demo ↗</a>
               </article>
             </div>
+          </div>
+        </section>
+
+
+        <!-- AI AUTOMATION -->
+        <section class="view" data-view="automation" aria-labelledby="automation-title">
+          <div class="case-header panel automation-case-header">
+            <div class="case-meta"><span>ORIGINAL AUTOMATION / PORTFOLIO PROJECT</span><em>BUILT + TESTED · 2026</em></div>
+            <div class="case-title-grid">
+              <div><p class="terminal-prompt">&gt; inspect workflow</p><h2 id="automation-title">AI Client Inquiry &amp;<br /><span>Lead Qualification</span></h2></div>
+              <p>An end-to-end n8n workflow that receives client inquiries, validates and deduplicates submissions, uses AI to structure project details, applies deterministic lead scoring, stores records, sends personalized replies, and routes follow-up actions.</p>
+            </div>
+            <div class="case-specs">
+              <div><span>ROLE</span><strong>Workflow Designer / Builder</strong></div>
+              <div><span>ORCHESTRATION</span><strong>n8n · Webhooks</strong></div>
+              <div><span>AI + LOGIC</span><strong>GPT-5 Mini · JavaScript</strong></div>
+              <div><span>INTEGRATIONS</span><strong>Google Sheets · Gmail</strong></div>
+            </div>
+          </div>
+
+          <div class="automation-showcase panel">
+            <div class="automation-showcase-copy">
+              <p class="mini-kicker">BUSINESS PROCESS → AUTOMATED SYSTEM</p>
+              <h3>From unstructured inquiry to an actionable lead.</h3>
+              <p>The workflow separates language interpretation from business decisions. AI extracts project details and drafts replies, while validation, duplicate prevention, scoring, HTTP responses, routing, and error handling remain explicit and inspectable.</p>
+              <div class="automation-actions">
+                <a class="btn btn-primary" href="https://github.com/mbricia/n8n-ai-lead-qualification-automation" target="_blank" rel="noreferrer">View GitHub repository ↗</a>
+                <button class="btn btn-ghost" type="button" data-route="work">← Back to selected work</button>
+              </div>
+            </div>
+            <figure class="automation-architecture-visual">
+              <img src="assets/projects/ai-lead-workflow-architecture.svg" alt="Architecture diagram for the AI client inquiry and lead qualification automation" />
+            </figure>
+          </div>
+
+          <div class="case-grid automation-case-grid">
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>01</span><h3>Workflow design</h3><small>Protect before processing</small></div>
+              <div class="data-loop automation-flow">
+                <div><span>01</span><strong>Receive</strong><small>POST webhook intake</small></div><i>→</i>
+                <div><span>02</span><strong>Validate</strong><small>Required fields + email format</small></div><i>→</i>
+                <div><span>03</span><strong>Deduplicate</strong><small>Check before AI usage</small></div><i>→</i>
+                <div><span>04</span><strong>Extract + Score</strong><small>AI interpretation + JS rules</small></div><i>→</i>
+                <div><span>05</span><strong>Respond + Route</strong><small>Store, email, follow up</small></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>02</span><h3>AI where it helps</h3><small>Interpretation + communication</small></div>
+              <div class="evidence-list">
+                <div><b>Structured extraction</b><p>GPT-5 Mini converts free-form inquiries into project type, budget, currency, timeline, requirements, and urgency.</p></div>
+                <div><b>Personalized response</b><p>A second AI step drafts a concise client reply using the structured lead data without inventing pricing, availability, or delivery commitments.</p></div>
+                <div><b>Human-owned rules</b><p>AI does not decide lead quality. Business qualification remains deterministic and explainable.</p></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>03</span><h3>Explainable scoring</h3><small>0–100 deterministic model</small></div>
+              <div class="problem-solution-list">
+                <div><span>CONTACT</span><b>Complete contact information · +10</b><small>Name, email, and inquiry message are present.</small></div>
+                <div><span>PROJECT</span><b>Clear project type · +25</b><small>A specific project category was extracted.</small></div>
+                <div><span>BUDGET</span><b>Amount + currency · up to +25</b><small>Rewards provided commercial context without assuming budget fit.</small></div>
+                <div><span>TIMELINE + DETAIL</span><b>Timeline + requirements · up to +40</b><small>Measures inquiry completeness and clarity.</small></div>
+              </div>
+              <p class="case-note">Classification: Hot 80–100 · Warm 50–79 · Cold 0–49. This is a completeness / intent score, not a prediction of client value.</p>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>04</span><h3>Production-style safeguards</h3><small>Validation · cost control · observability</small></div>
+              <div class="proof-columns">
+                <div><span>VALIDATION</span><strong>Reject bad input early</strong><p>Missing fields and malformed email addresses are logged and return HTTP 400 before downstream processing.</p></div>
+                <div><span>DEDUPLICATION</span><strong>Stop repeats before AI</strong><p>A normalized email + inquiry key blocks duplicate AI calls, rows, replies, and internal alerts.</p></div>
+                <div><span>ERROR HANDLING</span><strong>Separate failure workflow</strong><p>Unhandled production failures trigger an internal alert with the failed node, error message, execution ID, timestamp, and execution link.</p></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>05</span><h3>Tested behavior</h3><small>Controlled demo scenarios</small></div>
+              <div class="feature-matrix automation-test-matrix">
+                <div><strong>HOT</strong><span>100-point example</span><span>Lead stored</span><span>Client reply sent</span><span>Immediate alert</span></div>
+                <div><strong>WARM</strong><span>70-point example</span><span>Lead stored</span><span>Client reply sent</span><span>Delayed reminder</span></div>
+                <div><strong>COLD</strong><span>45-point example</span><span>Lead stored</span><span>Client reply sent</span><span>Nurture queue</span></div>
+                <div><strong>INVALID</strong><span>Missing / bad email</span><span>Audit log</span><span>HTTP 400</span><span>No AI processing</span></div>
+                <div><strong>DUPLICATE</strong><span>Same normalized inquiry</span><span>HTTP 200</span><span>No duplicate row</span><span>No repeated AI call</span></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>06</span><h3>Output evidence</h3><small>Privacy-safe portfolio examples</small></div>
+              <div class="automation-proof-grid">
+                <figure><img src="assets/projects/ai-lead-client-reply.svg" alt="Privacy-safe example of an automated personalized client reply" /><figcaption>Personalized client reply</figcaption></figure>
+                <figure><img src="assets/projects/ai-lead-hot-alert.svg" alt="Privacy-safe example of an internal Hot lead notification" /><figcaption>Hot lead internal alert</figcaption></figure>
+                <figure><img src="assets/projects/ai-lead-error-handler.svg" alt="Error handler workflow diagram" /><figcaption>Centralized error workflow</figcaption></figure>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide code-evidence">
+              <div class="case-section-head"><span>07</span><h3>What this proves</h3><small>Workflow engineering beyond a tutorial</small></div>
+              <div class="proof-columns">
+                <div><span>ORCHESTRATION</span><strong>Multi-branch automation design</strong><p>Webhook intake, data shaping, validation, storage, AI calls, waits, conditional routing, responses, and notifications operate as one system.</p></div>
+                <div><span>ENGINEERING</span><strong>AI + deterministic logic</strong><p>Model output is constrained to interpretation tasks while scoring and routing stay readable, testable, and predictable.</p></div>
+                <div><span>DELIVERY</span><strong>Documented and reproducible</strong><p>The public repository includes sanitized n8n exports, architecture notes, synthetic test payloads, setup guidance, testing evidence, and case-study documentation.</p></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="case-footer panel">
+            <p><span class="status-dot"></span> ORIGINAL AUTOMATION · BUILT + TESTED</p>
+            <blockquote>Use AI where language is fuzzy. Keep business rules explicit where decisions need to be explained.</blockquote>
+            <small>AI-assisted development was used for planning, debugging, review, and documentation. Workflow configuration, testing, verification, and final implementation decisions were manually owned.</small>
           </div>
         </section>
 
@@ -381,7 +501,7 @@
             <article class="panel capability"><span>02 / APPLICATION</span><h3>Programming</h3><div class="cap-list"><b>C#</b><b>Java</b><b>PHP</b><b>React Native</b><b>Firebase</b><b>Firestore</b></div><p>Academic foundations plus current application prototyping and data-backed business workflows.</p></article>
             <article class="panel capability"><span>03 / IT SYSTEMS</span><h3>Hands-on support</h3><div class="cap-list"><b>Windows</b><b>OS installs</b><b>Hardware</b><b>Drivers</b><b>Peripherals</b><b>Troubleshooting</b></div><p>Practical PC problem solving from software failures to component and peripheral issues.</p></article>
             <article class="panel capability"><span>04 / NETWORKING</span><h3>Connectivity</h3><div class="cap-list"><b>RJ45</b><b>Ethernet</b><b>Basic LAN</b><b>Router setup</b><b>Diagnostics</b><b>Cabling</b></div><p>Foundational networking and physical connectivity knowledge for small systems and support work.</p></article>
-            <article class="panel capability"><span>05 / WORKFLOW</span><h3>Tools</h3><div class="cap-list"><b>Git</b><b>GitHub</b><b>VS Code</b><b>Android Studio</b><b>Netlify</b><b>Photoshop</b></div><p>From source control and deployment to design implementation and production support.</p></article>
+            <article class="panel capability"><span>05 / WORKFLOW</span><h3>Tools & automation</h3><div class="cap-list"><b>Git</b><b>GitHub</b><b>VS Code</b><b>Android Studio</b><b>n8n</b><b>Webhooks</b><b>OpenAI</b><b>Google Sheets</b><b>Netlify</b><b>Photoshop</b></div><p>From source control and deployment to AI-assisted workflow orchestration, integrations, testing, and production support.</p></article>
             <article class="panel capability capability-principle"><span>06 / METHOD</span><h3>How I work</h3><ol><li>Understand the actual problem.</li><li>Inspect before replacing.</li><li>Prefer readable over clever.</li><li>Reproduce bugs before fixing.</li><li>Verify generated code.</li><li>Leave the system easier to maintain.</li></ol></article>
           </div>
         </section>
@@ -451,7 +571,7 @@
       </main>
 
       <footer class="statusbar">
-        <div><span class="status-dot"></span><b>main</b><span>portfolio-v3.2.1 · recruiter-ready</span></div>
+        <div><span class="status-dot"></span><b>main</b><span>portfolio-v3.3.0 · automation case study added</span></div>
         <div><span>HTML</span><span>CSS</span><span>JavaScript</span><span>UTF-8</span></div>
       </footer>
     </section>
@@ -460,7 +580,7 @@
   <div class="mobile-drawer" id="mobileDrawer" hidden>
     <div class="drawer-head"><strong>Navigate</strong><button id="mobileClose" type="button">CLOSE</button></div>
     <nav>
-      <button type="button" data-route="overview">01 Overview</button><button type="button" data-route="work">02 Work</button><button type="button" data-route="kopi-app">03 Kopi App</button><button type="button" data-route="capstone">04 Foundations</button><button type="button" data-route="systems">05 Systems</button><button type="button" data-route="credentials">06 Credentials</button><button type="button" data-route="about">07 About</button><button type="button" data-route="contact">08 Contact</button>
+      <button type="button" data-route="overview">01 Overview</button><button type="button" data-route="work">02 Work</button><button type="button" data-route="automation">03 AI Automation</button><button type="button" data-route="kopi-app">04 Kopi App</button><button type="button" data-route="capstone">05 Foundations</button><button type="button" data-route="systems">06 Systems</button><button type="button" data-route="credentials">07 Credentials</button><button type="button" data-route="about">08 About</button><button type="button" data-route="contact">09 Contact</button>
     </nav>
   </div>
 
@@ -470,6 +590,7 @@
       <div class="command-results" id="commandResults">
         <button type="button" data-command="overview"><span>⌂ Overview</span><i>profile / status</i></button>
         <button type="button" data-command="work"><span>◫ Work</span><i>selected projects</i></button>
+        <button type="button" data-command="automation"><span>⚡ AI Automation</span><i>n8n lead qualification case study</i></button>
         <button type="button" data-command="kopi-app"><span>◆ Kopi App</span><i>current application case study</i></button>
         <button type="button" data-command="capstone"><span>⌘ Foundations</span><i>2018–2019 capstone</i></button>
         <button type="button" data-command="systems"><span>◈ Systems</span><i>skills / IT</i></button>
