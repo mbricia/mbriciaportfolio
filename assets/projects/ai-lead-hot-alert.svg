@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="800" viewBox="0 0 1100 800">
+  <rect width="1100" height="800" fill="#f8fafc"/>
+  <rect x="70" y="45" width="960" height="705" rx="22" fill="white" stroke="#e2e8f0"/>
+  <text x="115" y="112" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">🔥 HOT LEAD: Ethan Navarro — Website Development</text>
+  <text x="115" y="165" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#111827">NEW HOT LEAD</text>
+
+  <text x="115" y="220" font-family="Arial, sans-serif" font-size="17" fill="#111827">Client: Ethan Navarro</text>
+  <text x="115" y="250" font-family="Arial, sans-serif" font-size="17" fill="#111827">Company: Northline Creative</text>
+  <text x="115" y="280" font-family="Arial, sans-serif" font-size="17" fill="#111827">Email: ethan@example.com</text>
+
+  <text x="115" y="340" font-family="Arial, sans-serif" font-size="17" fill="#111827">Project: Website Development</text>
+  <text x="115" y="370" font-family="Arial, sans-serif" font-size="17" fill="#111827">Budget: 2300 USD</text>
+  <text x="115" y="400" font-family="Arial, sans-serif" font-size="17" fill="#111827">Timeline: Completed within 5 weeks</text>
+  <text x="115" y="430" font-family="Arial, sans-serif" font-size="17" fill="#111827">Urgency: Medium</text>
+
+  <rect x="640" y="205" width="310" height="130" rx="16" fill="#fff7ed"/>
+  <text x="675" y="245" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#9a3412">Lead Score: 100/100</text>
+  <text x="675" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#9a3412">Lead Quality: Hot</text>
+
+  <text x="115" y="500" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#111827">Requirements</text>
+  <text x="115" y="533" font-family="Arial, sans-serif" font-size="16" fill="#334155">Modern creative-agency website; services page; case studies; team section;</text>
+  <text x="115" y="560" font-family="Arial, sans-serif" font-size="16" fill="#334155">testimonials; contact form.</text>
+
+  <text x="115" y="620" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#111827">Recommended Action</text>
+  <text x="115" y="651" font-family="Arial, sans-serif" font-size="16" fill="#334155">Review the lead and follow up promptly.</text>
+
+  <rect x="115" y="690" width="840" height="36" rx="10" fill="#f1f5f9"/>
+  <text x="135" y="714" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Synthetic portfolio example. No real client or personal email address is shown.</text>
+</svg>
