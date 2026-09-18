@@ -1,6 +1,6 @@
 # Mark Jhollan Bricia — Portfolio
 
-Personal developer and IT portfolio showcasing selected software projects, web products, technical skills, and hands-on systems experience.
+Personal developer and IT portfolio showcasing selected software projects, AI automation, web products, technical skills, and hands-on systems experience.
 
 ## Tech
 
@@ -10,9 +10,15 @@ Personal developer and IT portfolio showcasing selected software projects, web p
 - C# and Java
 - MySQL
 - Git / GitHub
+- n8n, Webhooks, OpenAI, Google Sheets, Gmail
 - Windows and basic IT support / networking
 
 ## Featured Work
+
+### AI Client Inquiry & Lead Qualification Automation
+Original n8n portfolio automation that validates and deduplicates incoming inquiries, extracts structured project information with GPT-5 Mini, applies deterministic JavaScript lead scoring, logs data to Google Sheets, generates personalized Gmail replies, routes Hot/Warm/Cold leads, and includes a separate error-monitoring workflow.
+
+- [Project repository](https://github.com/mbricia/n8n-ai-lead-qualification-automation)
 
 ### Kopi Brews Operations App
 Private React Native and Firebase prototype designed around administrator, cashier, inventory, ordering, sales visibility, and customer loyalty workflows.
