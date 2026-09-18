@@ -56,33 +56,22 @@
     const principlePanel = $('.principle-panel', overviewStack || document);
     if (overviewStack && principlePanel && !$('.learning-card', overviewStack)) {
       principlePanel.insertAdjacentHTML('beforebegin', `
-        <button class="learning-card panel" type="button" data-route="systems" aria-label="Explore completed n8n Foundations learning progress">
-          <div class="learning-card-head"><span>AUTOMATION TRACK / 2026</span><em>4 CERTIFICATES + 1 ORIGINAL PROJECT</em></div>
-          <div class="learning-card-title"><strong>AI Automation with n8n</strong><small>Last updated · Sep 18, 2026</small></div>
-          <div class="learning-progress" aria-label="Completed n8n Foundations learning progress">
-            <div class="learning-progress-step is-done">
-              <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>COMPLETED</b><strong>n8n Quickstart</strong><small>Completed with a passing grade and earned a Certificate of Completion.</small></div>
+        <article class="learning-card learning-summary panel" aria-labelledby="automation-proof-title">
+          <div class="learning-card-head">
+            <span>AUTOMATION / 2026</span>
+            <em>TRACK COMPLETE</em>
+          </div>
+          <div class="learning-summary-body">
+            <div>
+              <strong id="automation-proof-title">n8n Foundations + Original Project</strong>
+              <p>4 certificates completed · 1 production-tested automation</p>
             </div>
-            <div class="learning-progress-step is-done">
-              <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>COMPLETED COURSE</b><strong>Essentials: Your First Workflows</strong><small>Completed with a passing grade and earned the second Certificate of Completion.</small></div>
-            </div>
-            <div class="learning-progress-step is-done">
-              <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>COMPLETED COURSE</b><strong>Integrations: APIs & Connected Workflows</strong><small>Completed with a passing grade and earned the third Certificate of Completion.</small></div>
-            </div>
-            <div class="learning-progress-step is-done">
-              <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>COMPLETED COURSE</b><strong>In Practice: AI, Testing & Best Practices</strong><small>Completed with a passing grade and earned the fourth Certificate of Completion.</small></div>
-            </div>
-            <div class="learning-progress-step is-done">
-              <span class="learning-progress-dot" aria-hidden="true">✓</span>
-              <div><b>ORIGINAL PROJECT / COMPLETED</b><strong>AI Client Inquiry & Lead Qualification</strong><small>Built and production-tested an original n8n automation with validation, deduplication, AI extraction, deterministic scoring, client replies, routing, and error monitoring.</small></div>
+            <div class="learning-summary-actions">
+              <button type="button" data-route="credentials">View credentials →</button>
+              <button type="button" data-route="automation">View automation →</button>
             </div>
           </div>
-          <div class="learning-card-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span><span>4 Certificates</span><span>Original Project</span><i>Explore Learning Lab →</i></div>
-        </button>`);
+        </article>`);
     }
 
     const systemsGrid = $('[data-view="systems"] .capability-grid');
