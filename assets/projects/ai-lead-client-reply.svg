@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760">
+  <rect width="1100" height="760" fill="#f8fafc"/>
+  <rect x="80" y="55" width="940" height="650" rx="22" fill="white" stroke="#e2e8f0"/>
+  <text x="125" y="125" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Re: Your Website Development Inquiry</text>
+  <circle cx="145" cy="180" r="26" fill="#e5e7eb"/>
+  <text x="190" y="174" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#111827">Portfolio Demo</text>
+  <text x="190" y="198" font-family="Arial, sans-serif" font-size="15" fill="#64748b">&lt;sender@example.com&gt;</text>
+  <text x="125" y="255" font-family="Arial, sans-serif" font-size="17" fill="#111827">Hi Ethan,</text>
+  <text x="125" y="305" font-family="Arial, sans-serif" font-size="17" fill="#111827">Thanks for reaching out — I’m excited about the opportunity to work</text>
+  <text x="125" y="334" font-family="Arial, sans-serif" font-size="17" fill="#111827">with Northline Creative on a modern website for your creative agency.</text>
+  <text x="125" y="363" font-family="Arial, sans-serif" font-size="17" fill="#111827">I noted your services page, case studies, team section, testimonials,</text>
+  <text x="125" y="392" font-family="Arial, sans-serif" font-size="17" fill="#111827">contact form, $2,300 USD budget, and 5-week timeline.</text>
+  <text x="125" y="438" font-family="Arial, sans-serif" font-size="17" fill="#111827">I’d be happy to schedule a short discovery call to clarify priorities,</text>
+  <text x="125" y="467" font-family="Arial, sans-serif" font-size="17" fill="#111827">scope, and next steps. Please share a few times that work for you.</text>
+  <text x="125" y="525" font-family="Arial, sans-serif" font-size="17" fill="#111827">Best regards,</text>
+  <text x="125" y="554" font-family="Arial, sans-serif" font-size="17" fill="#111827">Portfolio Demo</text>
+  <rect x="125" y="610" width="850" height="50" rx="12" fill="#eff6ff"/>
+  <text x="150" y="642" font-family="Arial, sans-serif" font-size="15" fill="#1d4ed8">Privacy-safe reconstruction of the automated client reply used in testing.</text>
+</svg>
