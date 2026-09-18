@@ -536,3 +536,74 @@ html[data-theme="light"] .toast{background:#163a34;color:#ecfffa}
   .automation-actions{display:grid;width:100%}
   .automation-actions .btn{width:100%}
 }
+
+
+/* =========================================================
+   V3.3.3 — AUTHORED VISUAL POLISH
+   Reduce generic glass / glow / pill patterns while keeping
+   the developer-system identity.
+   ========================================================= */
+:root{--radius:6px}
+
+/* Remove decorative "online" dots and glow effects. */
+.status-dot{display:none!important}
+.ambient-glow{display:none!important}
+.hero-portrait-halo{display:none!important}
+
+/* Keep the layout crisp rather than glassy. */
+.sidebar,.topbar{backdrop-filter:none}
+.panel{
+  background:#0b1017;
+  box-shadow:none;
+}
+.nav-item.is-active:before{box-shadow:none}
+
+/* Core-tech list: plain technical metadata instead of pill badges. */
+.recruiter-tech{
+  gap:0;
+  row-gap:8px;
+  align-items:center;
+}
+.recruiter-tech span{
+  border:0!important;
+  background:transparent!important;
+  border-radius:0!important;
+  padding:0!important;
+  color:#8796a6;
+  font:600 8px/1.35 var(--mono);
+}
+.recruiter-tech span:not(:last-child)::after{
+  content:" / ";
+  display:inline-block;
+  margin:0 8px;
+  color:#425365;
+  font-weight:500;
+}
+
+/* Flatten the most visible feature cards; hierarchy comes from borders/type. */
+.signal-primary,
+.system-project.feature-project,
+.automation-project-card,
+.automation-case-header,
+.kopi-case-header{
+  background:#0b1218!important;
+}
+.signal-primary,
+.automation-project-card{
+  border-color:#2d554d!important;
+}
+
+/* Avoid decorative glow on the primary action. */
+.btn-primary{box-shadow:none}
+
+/* Light mode equivalents. */
+html[data-theme="light"] .panel{background:#ffffff;box-shadow:none}
+html[data-theme="light"] .signal-primary,
+html[data-theme="light"] .system-project.feature-project,
+html[data-theme="light"] .automation-project-card,
+html[data-theme="light"] .automation-case-header,
+html[data-theme="light"] .kopi-case-header{
+  background:#ffffff!important;
+}
+html[data-theme="light"] .recruiter-tech span{color:#536879}
+html[data-theme="light"] .recruiter-tech span:not(:last-child)::after{color:#9aa8b5}
