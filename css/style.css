@@ -684,3 +684,174 @@ html[data-theme="light"] .recruiter-tech span:not(:last-child)::after{color:#9aa
 }
 
 html[data-theme="light"] .identity-grid>div{background:transparent!important}
+
+
+/* =========================================================
+   V3.3.6 — WORK + AUTOMATION MICRO POLISH
+   ========================================================= */
+
+/* Work-page tech metadata: plain text, not a row of mini pills. */
+.system-project .tag-row,
+.web-product .tag-row{
+  gap:0;
+  row-gap:5px;
+}
+.system-project .tag-row span,
+.web-product .tag-row span{
+  border:0!important;
+  background:transparent!important;
+  border-radius:0!important;
+  padding:0!important;
+  color:#7f8f9f;
+}
+.system-project .tag-row span:not(:last-child)::after,
+.web-product .tag-row span:not(:last-child)::after{
+  content:" · ";
+  margin:0 7px;
+  color:#405164;
+}
+
+/* Give the selected-work cards hierarchy without decorative effects. */
+.system-project{
+  box-shadow:none!important;
+}
+.system-project:hover{
+  transform:none!important;
+  border-color:#3a5668;
+}
+.automation-project-card{
+  border-left:2px solid var(--accent)!important;
+}
+.system-project.feature-project:not(.automation-project-card){
+  border-left:2px solid #7e6d4c!important;
+}
+
+/* Flatten nested card patterns inside the automation case study. */
+.automation-case-grid .automation-flow{
+  gap:0;
+}
+.automation-case-grid .automation-flow>div{
+  border:0!important;
+  border-top:1px solid var(--line)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  padding:14px 12px!important;
+}
+.automation-case-grid .automation-flow>div:first-of-type{
+  padding-left:0!important;
+}
+.automation-case-grid .automation-flow>div:last-of-type{
+  padding-right:0!important;
+}
+.automation-case-grid .automation-flow>i{
+  padding:0 4px;
+}
+
+.automation-case-grid .problem-solution-list{
+  gap:0;
+}
+.automation-case-grid .problem-solution-list>div{
+  border:0!important;
+  border-left:2px solid #33495b!important;
+  border-radius:0!important;
+  background:transparent!important;
+  padding:11px 0 11px 13px!important;
+}
+.automation-case-grid .problem-solution-list>div+div{
+  margin-top:7px;
+}
+
+.automation-case-grid .proof-columns{
+  gap:0;
+  border-top:1px solid var(--line);
+}
+.automation-case-grid .proof-columns>div{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  padding:16px!important;
+}
+.automation-case-grid .proof-columns>div:first-child{
+  padding-left:0!important;
+}
+.automation-case-grid .proof-columns>div+div{
+  border-left:1px solid var(--line)!important;
+}
+
+.automation-test-matrix{
+  gap:0!important;
+  border-top:1px solid var(--line);
+}
+.automation-test-matrix>div{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  min-height:128px!important;
+  padding:15px!important;
+}
+.automation-test-matrix>div:first-child{
+  padding-left:0!important;
+}
+.automation-test-matrix>div+div{
+  border-left:1px solid var(--line)!important;
+}
+
+/* Keep evidence images framed; reduce their visual chrome. */
+.automation-proof-grid figure{
+  border-radius:3px!important;
+  background:transparent!important;
+}
+.automation-proof-grid figcaption{
+  background:transparent;
+}
+
+/* Case-study closing note: quieter, less poster-like. */
+[data-view="automation"] .case-footer{
+  text-align:left;
+  padding:22px 24px;
+}
+[data-view="automation"] .case-footer>p{
+  justify-content:flex-start;
+}
+[data-view="automation"] .case-footer blockquote{
+  margin:14px 0 10px;
+  max-width:900px;
+  font-size:clamp(17px,1.8vw,24px);
+  line-height:1.35;
+}
+[data-view="automation"] .case-footer small{
+  display:block;
+  max-width:980px;
+  line-height:1.6;
+}
+
+@media(max-width:820px){
+  .automation-case-grid .proof-columns{
+    border-top:0;
+  }
+  .automation-case-grid .proof-columns>div,
+  .automation-case-grid .proof-columns>div:first-child{
+    padding:14px 0!important;
+    border-top:1px solid var(--line)!important;
+  }
+  .automation-case-grid .proof-columns>div+div{
+    border-left:0!important;
+  }
+
+  .automation-test-matrix{
+    border-top:0;
+  }
+  .automation-test-matrix>div,
+  .automation-test-matrix>div:first-child{
+    padding:13px 0!important;
+    border-top:1px solid var(--line)!important;
+  }
+  .automation-test-matrix>div+div{
+    border-left:0!important;
+  }
+}
+
+html[data-theme="light"] .system-project .tag-row span,
+html[data-theme="light"] .web-product .tag-row span{
+  color:#5e7181;
+}
