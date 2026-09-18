@@ -1,6 +1,6 @@
 # Mark Jhollan Bricia — Portfolio
 
-Personal developer and IT portfolio showcasing selected software projects, AI automation, web products, technical skills, and hands-on systems experience.
+Personal developer and IT portfolio showcasing selected software projects, workflow automation, web products, technical skills, and hands-on systems experience.
 
 ## Tech
 
@@ -15,8 +15,8 @@ Personal developer and IT portfolio showcasing selected software projects, AI au
 
 ## Featured Work
 
-### AI Client Inquiry & Lead Qualification Automation
-Original n8n portfolio automation that validates and deduplicates incoming inquiries, extracts structured project information with GPT-5 Mini, applies deterministic JavaScript lead scoring, logs data to Google Sheets, generates personalized Gmail replies, routes Hot/Warm/Cold leads, and includes a separate error-monitoring workflow.
+### Client Inquiry & Lead Qualification Automation
+Original n8n portfolio automation that validates and deduplicates incoming inquiries, uses GPT-5 Mini for structured extraction and reply drafting, applies deterministic JavaScript lead scoring, logs data to Google Sheets, routes Hot/Warm/Cold leads, and includes a separate error-monitoring workflow.
 
 - [Project repository](https://github.com/mbricia/n8n-ai-lead-qualification-automation)
 
