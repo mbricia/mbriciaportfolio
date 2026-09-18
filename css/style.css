@@ -607,3 +607,80 @@ html[data-theme="light"] .kopi-case-header{
 }
 html[data-theme="light"] .recruiter-tech span{color:#536879}
 html[data-theme="light"] .recruiter-tech span:not(:last-child)::after{color:#9aa8b5}
+
+
+/* =========================================================
+   V3.3.5 — OVERVIEW HIERARCHY REFINEMENT
+   ========================================================= */
+
+/* Remove the decorative oversized section numeral from the hero. */
+.hero-panel:after{display:none!important}
+
+/* Replace the boxed 3-cell identity strip with simple technical metadata. */
+.identity-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-top:1px solid var(--line)!important;
+  border-radius:0!important;
+  overflow:visible!important;
+  margin-top:42px!important;
+}
+.identity-grid>div{
+  background:transparent!important;
+  padding:14px 18px 0!important;
+  min-height:66px;
+}
+.identity-grid>div:first-child{padding-left:0!important}
+.identity-grid>div+div{border-left:1px solid var(--line)}
+.identity-grid span{color:var(--muted-2)}
+.identity-grid strong{margin-top:7px}
+.identity-grid small{margin-top:4px}
+
+/* Make the lower-right card read like a working note, not an inspirational quote. */
+.working-method{
+  justify-content:flex-start!important;
+  padding:26px!important;
+}
+.working-method .method-line{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin:24px 0 16px;
+  color:var(--text);
+  font:700 clamp(18px,1.65vw,26px)/1.15 var(--sans);
+  letter-spacing:-.035em;
+}
+.working-method .method-line i{
+  color:var(--muted-2);
+  font:500 11px/1 var(--mono);
+  font-style:normal;
+}
+.working-method>p:last-child{
+  margin:0;
+  max-width:520px;
+  color:#94a2b1;
+  font-size:12px;
+  line-height:1.7;
+}
+
+@media(max-width:820px){
+  .identity-grid{
+    grid-template-columns:1fr!important;
+    margin-top:30px!important;
+  }
+  .identity-grid>div,
+  .identity-grid>div:first-child{
+    padding:13px 0!important;
+    min-height:0;
+  }
+  .identity-grid>div+div{
+    border-left:0;
+    border-top:1px solid var(--line);
+  }
+}
+
+html[data-theme="light"] .identity-grid>div{background:transparent!important}
