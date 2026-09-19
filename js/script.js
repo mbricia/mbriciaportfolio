@@ -1,7 +1,7 @@
 (() => {
   const $ = (s, scope = document) => scope.querySelector(s);
   const $$ = (s, scope = document) => [...scope.querySelectorAll(s)];
-  const validRoutes = ['overview','work','automation','kopi-app','capstone','systems','credentials','about','contact'];
+  const validRoutes = ['overview','work','automation','inventory','kopi-app','capstone','systems','credentials','about','contact'];
 
   const workspace = $('#workspace');
   const routeLabel = $('#routeLabel');
@@ -81,7 +81,7 @@
           <div class="learning-lab-header">
             <div>
               <p class="mini-kicker">AUTOMATION TRACK / 2026</p>
-              <h3 id="learning-lab-title">n8n Foundations complete. Original automation shipped.</h3>
+              <h3 id="learning-lab-title">n8n Foundations complete. Original automations shipped.</h3>
             </div>
             <div class="learning-status"><span class="status-dot"></span><strong>n8n Foundations Professional Certificate · Program completed</strong><small>4 Certificates of Completion · Latest completion September 17, 2026</small></div>
           </div>
@@ -102,8 +102,9 @@
             <article><span>03 / COMPLETED COURSE</span><strong>Integrations: APIs & Connected Workflows</strong><p>Completed the integrations course covering APIs, connected services, and practical workflow integrations.</p></article>
             <article><span>04 / COMPLETED COURSE</span><strong>In Practice: AI, Testing & Best Practices</strong><p>Completed the final Foundations course focused on AI, testing, and stronger workflow practices.</p></article>
             <article><span>05 / ORIGINAL PROJECT</span><strong>AI Client Inquiry & Lead Qualification</strong><p>Applied the completed n8n Foundations track to a self-directed automation integrating webhooks, AI extraction, JavaScript scoring, Google Sheets, Gmail, routing, testing, and error handling.</p></article>
+            <article><span>06 / ORIGINAL PROJECT</span><strong>Inventory & Low-Stock Business Automation</strong><p>Built a scheduled business workflow that reads Google Sheets, applies deterministic stock thresholds, consolidates reorder data, calculates inventory-health metrics, sends HTML reports, and handles a zero-low-stock edge case.</p></article>
           </div>
-          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span><span>Testing</span><em>ORIGINAL PROJECT · BUILT + TESTED · SEP 18, 2026</em></div>
+          <div class="learning-lab-footer"><span>n8n</span><span>Workflow Automation</span><span>APIs</span><span>AI</span><span>Testing</span><em>2 ORIGINAL PROJECTS · BUILT + TESTED · SEP 19, 2026</em></div>
         </section>`);
     }
 
@@ -286,7 +287,7 @@
       return;
     }
     if (e.ctrlKey || e.metaKey || e.altKey || ['INPUT','TEXTAREA'].includes(document.activeElement?.tagName)) return;
-    const shortcuts = {o:'overview',w:'work',n:'automation',k:'kopi-app',s:'systems',c:'credentials',a:'about',x:'contact','3':'capstone'};
+    const shortcuts = {o:'overview',w:'work',n:'automation',i:'inventory',k:'kopi-app',s:'systems',c:'credentials',a:'about',x:'contact','3':'capstone'};
     const route = shortcuts[e.key.toLowerCase()]; if (route) go(route);
   });
 
