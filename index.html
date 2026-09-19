@@ -148,6 +148,16 @@
                 </div>
                 <span class="project-open">Open automation case study →</span>
               </button>
+              <button class="system-project feature-project automation-project-card panel" type="button" data-route="inventory">
+                <div class="project-top"><span>BUSINESS AUTOMATION</span><em>BUILT + TESTED / 2026</em></div>
+                <div class="system-project-copy">
+                  <p class="project-kicker">N8N · INVENTORY · REPORTING</p>
+                  <h3>Inventory &amp; Low-Stock Business Automation</h3>
+                  <p>Scheduled inventory monitoring that reads Google Sheets, detects items at or below reorder thresholds, builds one consolidated reorder list, calculates inventory health metrics, and sends polished HTML alerts and daily summaries.</p>
+                  <div class="tag-row"><span>n8n</span><span>Google Sheets</span><span>Gmail</span><span>JavaScript</span><span>HTML Email</span></div>
+                </div>
+                <span class="project-open">Open inventory automation case study →</span>
+              </button>
               <button class="system-project feature-project panel" type="button" data-route="kopi-app">
                 <div class="project-top"><span>CURRENT APPLICATION</span><em>PRIVATE PROTOTYPE</em></div>
                 <div class="system-project-copy">
@@ -312,6 +322,103 @@
             <small>AI-assisted development was used for planning, debugging, review, and documentation. Workflow configuration, testing, verification, and final implementation decisions were manually owned.</small>
           </div>
         </section>
+
+        <!-- INVENTORY AUTOMATION -->
+        <section class="view" data-view="inventory" aria-labelledby="inventory-title">
+          <div class="case-header panel automation-case-header">
+            <div class="case-meta"><span>BUSINESS AUTOMATION / PORTFOLIO PROJECT</span><em>BUILT + TESTED · 2026</em></div>
+            <div class="case-title-grid">
+              <div><p class="terminal-prompt">&gt; inspect workflow</p><h2 id="inventory-title">Inventory &amp; Low-Stock<br /><span>Business Automation</span></h2></div>
+              <p>A scheduled n8n workflow that turns a familiar inventory spreadsheet into an active monitoring system. It checks stock levels automatically, identifies items at or below reorder thresholds, creates a consolidated reorder list, and sends separate HTML alerts and management summaries.</p>
+            </div>
+            <div class="case-specs">
+              <div><span>ROLE</span><strong>Workflow Designer / Builder</strong></div>
+              <div><span>ORCHESTRATION</span><strong>n8n · Schedule Trigger</strong></div>
+              <div><span>DATA SOURCE</span><strong>Google Sheets</strong></div>
+              <div><span>OUTPUT</span><strong>Gmail · HTML Reports</strong></div>
+            </div>
+          </div>
+
+          <div class="automation-showcase panel">
+            <div class="automation-showcase-copy">
+              <p class="mini-kicker">SPREADSHEET → ACTIVE MONITORING</p>
+              <h3>Keep stock updates simple. Automate the checking.</h3>
+              <p>Staff continue updating current stock in Google Sheets. The automation handles the repetitive monitoring work in the background: threshold comparison, low-stock filtering, consolidation, inventory-health metrics, and scheduled email reporting.</p>
+              <div class="automation-actions">
+                <a class="btn btn-primary" href="https://github.com/mbricia/n8n-inventory-low-stock-automation" target="_blank" rel="noreferrer">View GitHub repository ↗</a>
+                <button class="btn btn-ghost" type="button" data-route="work">← Back to selected work</button>
+              </div>
+            </div>
+            <figure class="automation-architecture-visual">
+              <img src="https://raw.githubusercontent.com/mbricia/n8n-inventory-low-stock-automation/main/screenshots/01-workflow-overview.webp" alt="n8n inventory and low-stock automation workflow overview" />
+            </figure>
+          </div>
+
+          <div class="case-grid automation-case-grid">
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>01</span><h3>Operating model</h3><small>Simple input · automated monitoring</small></div>
+              <div class="data-loop automation-flow">
+                <div><span>01</span><strong>Update</strong><small>Staff maintains current_stock</small></div><i>→</i>
+                <div><span>02</span><strong>Schedule</strong><small>Daily inventory check</small></div><i>→</i>
+                <div><span>03</span><strong>Compare</strong><small>Stock vs reorder level</small></div><i>→</i>
+                <div><span>04</span><strong>Aggregate</strong><small>Low-stock + all-item metrics</small></div><i>→</i>
+                <div><span>05</span><strong>Report</strong><small>Alert + daily summary</small></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>02</span><h3>Deterministic business rules</h3><small>No runtime AI dependency</small></div>
+              <div class="problem-solution-list">
+                <div><span>LOW STOCK</span><b>current_stock ≤ reorder_level</b><small>Every row is evaluated against its own configurable threshold.</small></div>
+                <div><span>ALERT DESIGN</span><b>Many rows → one reorder email</b><small>Low-stock records are aggregated before Gmail so the business receives one actionable alert instead of one message per item.</small></div>
+                <div><span>HEALTH METRICS</span><b>Total · Low Stock · Healthy Stock</b><small>The reporting branch calculates an at-a-glance inventory status from the complete dataset.</small></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>03</span><h3>Two outputs, two purposes</h3><small>Action + visibility</small></div>
+              <div class="evidence-list">
+                <div><b>Low-stock reorder alert</b><p>Sent only when the TRUE branch contains items. Includes current quantity, recommended reorder quantity, unit, and supplier in an HTML table.</p></div>
+                <div><b>Daily inventory summary</b><p>Runs from the full inventory dataset and reports total items, low-stock count, healthy-stock count, and the items currently below threshold.</p></div>
+                <div><b>Independent reporting branch</b><p>The summary still completes even when no items require reordering.</p></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>04</span><h3>Tested behavior</h3><small>Normal + edge-case verification</small></div>
+              <div class="proof-columns">
+                <div><span>LOW-STOCK TEST</span><strong>10 total · 7 low · 3 healthy</strong><p>The workflow separated the inventory correctly, generated one consolidated reorder alert, and sent the daily summary.</p></div>
+                <div><span>ZERO-LOW-STOCK TEST</span><strong>10 total · 0 low · 10 healthy</strong><p>All items were moved above their thresholds to verify the no-alert scenario.</p></div>
+                <div><span>EXPECTED EDGE BEHAVIOR</span><strong>No unnecessary alert</strong><p>The low-stock email path received zero items while the daily summary continued and displayed “No low-stock items detected.”</p></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>05</span><h3>Evidence</h3><small>Workflow · alert · summary</small></div>
+              <div class="automation-proof-grid">
+                <figure><img src="https://raw.githubusercontent.com/mbricia/n8n-inventory-low-stock-automation/main/screenshots/01-workflow-overview.webp" alt="Inventory automation workflow in n8n" /><figcaption>FULL N8N WORKFLOW</figcaption></figure>
+                <figure><img src="https://raw.githubusercontent.com/mbricia/n8n-inventory-low-stock-automation/main/screenshots/04-low-stock-alert.webp" alt="HTML low-stock reorder alert email" /><figcaption>LOW-STOCK REORDER ALERT</figcaption></figure>
+                <figure><img src="https://raw.githubusercontent.com/mbricia/n8n-inventory-low-stock-automation/main/screenshots/05-daily-inventory-summary.webp" alt="HTML daily inventory summary email" /><figcaption>DAILY INVENTORY SUMMARY</figcaption></figure>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>06</span><h3>Client handoff and scope</h3><small>Clear operating boundary</small></div>
+              <div class="proof-columns">
+                <div><span>DAY-TO-DAY USE</span><strong>Google Sheet stays the interface</strong><p>Staff update current stock values. They do not need to open the n8n editor for normal inventory work.</p></div>
+                <div><span>AUTOMATION ENVIRONMENT</span><strong>Client-owned credentials</strong><p>A production handoff can use the client’s n8n workspace, Google Sheet, and business email so ownership and access remain clear.</p></div>
+                <div><span>CURRENT LIMIT</span><strong>Monitoring, not transaction management</strong><p>This version does not automatically add or deduct stock from sales or deliveries. Stock IN / Stock OUT handling is a future extension.</p></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="case-footer panel">
+            <p><span class="status-dot"></span> SCHEDULED BUSINESS AUTOMATION · BUILT + TESTED</p>
+            <blockquote>The spreadsheet stays simple; the monitoring becomes automatic.</blockquote>
+            <small>The public repository includes a sanitized n8n export, sample inventory data, setup guidance, screenshots, tested edge cases, and privacy notes.</small>
+          </div>
+        </section>
+
 
         <!-- KOPI BREWS APP -->
         <section class="view" data-view="kopi-app" aria-labelledby="kopi-title">
@@ -572,7 +679,7 @@
       </main>
 
       <footer class="statusbar">
-        <div><span class="status-dot"></span><b>main</b><span>portfolio-v3.3.7 · CV v5 integrated</span></div>
+        <div><span class="status-dot"></span><b>main</b><span>portfolio-v3.4.0 · 2 automation case studies</span></div>
         <div><span>HTML</span><span>CSS</span><span>JavaScript</span><span>UTF-8</span></div>
       </footer>
     </section>
@@ -581,7 +688,7 @@
   <div class="mobile-drawer" id="mobileDrawer" hidden>
     <div class="drawer-head"><strong>Navigate</strong><button id="mobileClose" type="button">CLOSE</button></div>
     <nav>
-      <button type="button" data-route="overview">01 Overview</button><button type="button" data-route="work">02 Work</button><button type="button" data-route="automation">03 AI Automation</button><button type="button" data-route="kopi-app">04 Kopi App</button><button type="button" data-route="capstone">05 Foundations</button><button type="button" data-route="systems">06 Systems</button><button type="button" data-route="credentials">07 Credentials</button><button type="button" data-route="about">08 About</button><button type="button" data-route="contact">09 Contact</button>
+      <button type="button" data-route="overview">01 Overview</button><button type="button" data-route="work">02 Work</button><button type="button" data-route="automation">03 AI Automation</button><button type="button" data-route="inventory">04 Inventory Automation</button><button type="button" data-route="kopi-app">05 Kopi App</button><button type="button" data-route="capstone">06 Foundations</button><button type="button" data-route="systems">07 Systems</button><button type="button" data-route="credentials">08 Credentials</button><button type="button" data-route="about">09 About</button><button type="button" data-route="contact">10 Contact</button>
     </nav>
   </div>
 
@@ -592,6 +699,7 @@
         <button type="button" data-command="overview"><span>⌂ Overview</span><i>profile / status</i></button>
         <button type="button" data-command="work"><span>◫ Work</span><i>selected projects</i></button>
         <button type="button" data-command="automation"><span>⚡ AI Automation</span><i>n8n lead qualification case study</i></button>
+        <button type="button" data-command="inventory"><span>▤ Inventory Automation</span><i>scheduled low-stock monitoring case study</i></button>
         <button type="button" data-command="kopi-app"><span>◆ Kopi App</span><i>current application case study</i></button>
         <button type="button" data-command="capstone"><span>⌘ Foundations</span><i>2018–2019 capstone</i></button>
         <button type="button" data-command="systems"><span>◈ Systems</span><i>skills / IT</i></button>
