@@ -63,12 +63,12 @@
           </div>
           <div class="learning-summary-body">
             <div>
-              <strong id="automation-proof-title">n8n Foundations + Original Project</strong>
-              <p>4 certificates completed · 1 production-tested automation</p>
+              <strong id="automation-proof-title">n8n Foundations + Original Projects</strong>
+              <p>4 certificates completed · 2 tested automations</p>
             </div>
             <div class="learning-summary-actions">
               <button type="button" data-route="credentials">View credentials →</button>
-              <button type="button" data-route="automation">View automation →</button>
+              <button type="button" data-route="work">View projects →</button>
             </div>
           </div>
         </article>`);
