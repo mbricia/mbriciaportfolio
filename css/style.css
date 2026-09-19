@@ -855,3 +855,58 @@ html[data-theme="light"] .system-project .tag-row span,
 html[data-theme="light"] .web-product .tag-row span{
   color:#5e7181;
 }
+
+
+/* =========================================================
+   OVERVIEW LOAD REVEAL
+   Subtle staggered entrance for the overview only.
+   ========================================================= */
+[data-view="overview"].is-active .hero-panel > *,
+[data-view="overview"].is-active .overview-stack > *,
+[data-view="overview"].is-active .overview-bottom > * {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: overviewReveal .62s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+[data-view="overview"].is-active .hero-panel .eyebrow { animation-delay: .16s; }
+[data-view="overview"].is-active .hero-panel .hero-title-row { animation-delay: .24s; }
+[data-view="overview"].is-active .hero-panel .hero-copy { animation-delay: .34s; }
+[data-view="overview"].is-active .hero-panel .recruiter-tech { animation-delay: .42s; }
+[data-view="overview"].is-active .hero-panel .availability-line { animation-delay: .48s; }
+[data-view="overview"].is-active .hero-panel .hero-actions { animation-delay: .54s; }
+[data-view="overview"].is-active .hero-panel .identity-grid { animation-delay: .62s; }
+
+[data-view="overview"].is-active .overview-stack > :nth-child(1) { animation-delay: .34s; }
+[data-view="overview"].is-active .overview-stack > :nth-child(2) { animation-delay: .46s; }
+[data-view="overview"].is-active .overview-stack > :nth-child(3) { animation-delay: .58s; }
+[data-view="overview"].is-active .overview-stack > :nth-child(4) { animation-delay: .70s; }
+
+[data-view="overview"].is-active .overview-bottom > :nth-child(1) { animation-delay: .70s; }
+[data-view="overview"].is-active .overview-bottom > :nth-child(2) { animation-delay: .78s; }
+[data-view="overview"].is-active .overview-bottom > :nth-child(3) { animation-delay: .86s; }
+
+[data-view="overview"].is-active .hero-portrait {
+  animation: overviewPortraitReveal .72s cubic-bezier(.22,1,.36,1) .30s forwards;
+}
+
+@keyframes overviewReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes overviewPortraitReveal {
+  from { opacity: 0; transform: translateY(10px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-view="overview"].is-active .hero-panel > *,
+  [data-view="overview"].is-active .overview-stack > *,
+  [data-view="overview"].is-active .overview-bottom > *,
+  [data-view="overview"].is-active .hero-portrait {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
