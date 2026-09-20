@@ -873,33 +873,33 @@ html[data-theme="light"] .web-product .tag-row span{
 
 /* 1) Hero / Whoami */
 [data-view="overview"].is-active .hero-panel {
-  animation-delay: .60s;
+  animation-delay: .45s;
 }
 
 /* 2) Recruiter Snapshot */
 [data-view="overview"].is-active .overview-stack > :nth-child(1) {
-  animation-delay: 2.10s;
+  animation-delay: 1.45s;
 }
 
 /* 3) Learning Card */
 [data-view="overview"].is-active .overview-stack > :nth-child(2) {
-  animation-delay: 3.60s;
+  animation-delay: 2.45s;
 }
 
 /* 4) Working Method */
 [data-view="overview"].is-active .overview-stack > :nth-child(3) {
-  animation-delay: 5.10s;
+  animation-delay: 3.45s;
 }
 
 /* 5) Bottom cards */
 [data-view="overview"].is-active .overview-bottom > :nth-child(1) {
-  animation-delay: 6.60s;
+  animation-delay: 4.45s;
 }
 [data-view="overview"].is-active .overview-bottom > :nth-child(2) {
-  animation-delay: 8.10s;
+  animation-delay: 5.45s;
 }
 [data-view="overview"].is-active .overview-bottom > :nth-child(3) {
-  animation-delay: 9.60s;
+  animation-delay: 6.45s;
 }
 
 [data-view="overview"].is-active .hero-portrait img {
