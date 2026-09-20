@@ -1668,13 +1668,6 @@ html[data-theme="light"] .web-product .tag-row span{
    OVERVIEW LOAD REVEAL
    Subtle staggered entrance for the overview only.
    ========================================================= */
-[data-view="overview"].is-active .hero-panel > *,
-[data-view="overview"].is-active .overview-stack > *,
-[data-view="overview"].is-active .overview-bottom > * {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: overviewReveal .62s cubic-bezier(.22,1,.36,1) forwards;
-}
 
 [data-view="overview"].is-active .hero-panel .eyebrow { animation-delay: .16s; }
 [data-view="overview"].is-active .hero-panel .hero-title-row { animation-delay: .24s; }
@@ -1697,15 +1690,7 @@ html[data-theme="light"] .web-product .tag-row span{
   animation: overviewPortraitReveal .72s cubic-bezier(.22,1,.36,1) .30s forwards;
 }
 
-@keyframes overviewReveal {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-@keyframes overviewPortraitReveal {
-  from { opacity: 0; transform: translateY(10px) scale(.985); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
 
 @media (prefers-reduced-motion: reduce) {
   [data-view="overview"].is-active .hero-panel > *,
