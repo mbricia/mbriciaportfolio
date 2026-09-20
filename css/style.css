@@ -859,34 +859,29 @@ html[data-theme="light"] .web-product .tag-row span{
 
 /* =========================================================
    OVERVIEW LOAD REVEAL
-   Panel-by-panel cinematic entrance.
+   Slow panel-by-panel cinematic entrance.
    ========================================================= */
 [data-view="overview"].is-active .hero-panel,
 [data-view="overview"].is-active .overview-stack > *,
 [data-view="overview"].is-active .overview-bottom > * {
   opacity: 0;
-  transform: translateY(28px) scale(.992);
-  animation: overviewPanelReveal 1.05s cubic-bezier(.22,1,.36,1) forwards;
-  will-change: opacity, transform;
+  transform: translateY(30px) scale(.99);
+  animation: overviewPanelReveal 1.15s cubic-bezier(.22,1,.36,1) forwards;
+  will-change: opacity, transform, filter;
 }
 
-/* Reveal the whole whoami panel first */
-[data-view="overview"].is-active .hero-panel {
-  animation-delay: .55s;
-}
+/* Whole-panel sequence with ~2.5s spacing */
+[data-view="overview"].is-active .hero-panel { animation-delay: .80s; }
 
-/* Then reveal each right-side panel as one complete block */
-[data-view="overview"].is-active .overview-stack > :nth-child(1) { animation-delay: 1.85s; }
-[data-view="overview"].is-active .overview-stack > :nth-child(2) { animation-delay: 3.05s; }
-[data-view="overview"].is-active .overview-stack > :nth-child(3) { animation-delay: 4.25s; }
-[data-view="overview"].is-active .overview-stack > :nth-child(4) { animation-delay: 5.45s; }
+[data-view="overview"].is-active .overview-stack > :nth-child(1) { animation-delay: 3.30s; }
+[data-view="overview"].is-active .overview-stack > :nth-child(2) { animation-delay: 5.80s; }
+[data-view="overview"].is-active .overview-stack > :nth-child(3) { animation-delay: 8.30s; }
+[data-view="overview"].is-active .overview-stack > :nth-child(4) { animation-delay: 10.80s; }
 
-/* Bottom signal cards appear last, one by one */
-[data-view="overview"].is-active .overview-bottom > :nth-child(1) { animation-delay: 6.60s; }
-[data-view="overview"].is-active .overview-bottom > :nth-child(2) { animation-delay: 7.45s; }
-[data-view="overview"].is-active .overview-bottom > :nth-child(3) { animation-delay: 8.30s; }
+[data-view="overview"].is-active .overview-bottom > :nth-child(1) { animation-delay: 13.30s; }
+[data-view="overview"].is-active .overview-bottom > :nth-child(2) { animation-delay: 15.80s; }
+[data-view="overview"].is-active .overview-bottom > :nth-child(3) { animation-delay: 18.30s; }
 
-/* Keep the portrait stable inside the already-animated hero panel */
 [data-view="overview"].is-active .hero-portrait img {
   opacity: 1;
   transform: none;
@@ -897,8 +892,8 @@ html[data-theme="light"] .web-product .tag-row span{
 @keyframes overviewPanelReveal {
   from {
     opacity: 0;
-    transform: translateY(28px) scale(.992);
-    filter: blur(3px);
+    transform: translateY(30px) scale(.99);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
@@ -917,65 +912,6 @@ html[data-theme="light"] .web-product .tag-row span{
     filter: none;
     animation: none;
   }
-}
-body{font-size:15px}
-
-/* Navigation / shell: keep the developer UI, remove micro-text strain */
-.brand-copy small{font-size:9px;color:#7c8b9c}
-.nav-item>span{font-size:9px}
-.nav-item>b{font-size:11px}
-.nav-item kbd{font-size:9px}
-.nav-item em{font-size:8px}
-.command-button{font-size:10px}
-.command-button kbd{font-size:9px}
-.system-mini strong,.system-mini small{font-size:8px}
-.crumb{font-size:10px}
-.local-time,.icon-link{font-size:9px}
-.statusbar{font-size:8px}
-
-/* Overview */
-.eyebrow{font-size:9px}
-.terminal-prompt{font-size:11px}
-.recruiter-tech span{font-size:8px;padding:7px 10px}
-.availability-line{font-size:8px}
-.identity-grid span{font-size:8px}
-.identity-grid strong{font-size:10px}
-.identity-grid small{font-size:8px}
-.snapshot-head span,.snapshot-head em{font-size:8px}
-.snapshot-grid span{font-size:7px}
-.snapshot-grid strong{font-size:11px}
-.snapshot-grid small{font-size:8.5px}
-.snapshot-link{font-size:9px}
-.panel-bar{font-size:8px}
-.terminal-body{font-size:9px;line-height:1.85}
-.tag-row span{font-size:8px;padding:6px 8px}
-.mini-kicker{font-size:8px}
-.principle-panel>p:last-child{font-size:12px;color:#94a2b1}
-.signal-card>span{font-size:8px}
-.signal-card strong{font-size:14px}
-.signal-card small{font-size:9px;color:#7b8999}
-.signal-card i{font-size:8px}
-
-/* Section headings and recruiter scan text */
-.section-index{font-size:9px}
-.view-heading>p{font-size:13px;color:#8c99a8;max-width:520px}
-.work-group-title>span{font-size:8px;width:28px;height:28px}
-.work-group-title p{font-size:15px}
-.work-group-title small{font-size:8px;color:#748397}
-
-/* Work cards */
-.project-top{font-size:8px}
-.project-kicker{font-size:8px}
-.system-project p:not(.project-kicker){font-size:12px;color:#91a0af;line-height:1.72}
-.project-open{font-size:9px}
-.web-product{padding:0 18px 20px}
-.web-product .project-top{padding-top:17px}
-.web-product-media{
-  margin:14px -18px 18px;
-  aspect-ratio:4/3;
-  background:#0a0f15;
-  display:grid;
-  place-items:center;
 }
 .web-product-media img{
   width:100%;
