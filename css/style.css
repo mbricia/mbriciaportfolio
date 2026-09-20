@@ -886,8 +886,12 @@ html[data-theme="light"] .web-product .tag-row span{
 [data-view="overview"].is-active .overview-bottom > :nth-child(2) { animation-delay: 3.70s; }
 [data-view="overview"].is-active .overview-bottom > :nth-child(3) { animation-delay: 3.96s; }
 
-[data-view="overview"].is-active .hero-portrait {
-  animation: overviewPortraitReveal .94s cubic-bezier(.22,1,.36,1) 1.18s forwards;
+
+[data-view="overview"].is-active .hero-portrait img {
+  opacity: 0;
+  transform: scale(.985);
+  animation: overviewPortraitImageIn .72s cubic-bezier(.22,1,.36,1) 1.28s forwards;
+  will-change: opacity, transform;
 }
 
 @keyframes overviewReveal {
@@ -895,16 +899,17 @@ html[data-theme="light"] .web-product .tag-row span{
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes overviewPortraitReveal {
-  from { opacity: 0; transform: translateY(18px) scale(.965); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+
+@keyframes overviewPortraitImageIn {
+  from { opacity: 0; transform: scale(.985); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   [data-view="overview"].is-active .hero-panel > *,
   [data-view="overview"].is-active .overview-stack > *,
   [data-view="overview"].is-active .overview-bottom > *,
-  [data-view="overview"].is-active .hero-portrait {
+  [data-view="overview"].is-active .hero-portrait img {
     opacity: 1;
     transform: none;
     animation: none;
@@ -1792,7 +1797,7 @@ html[data-theme="light"] .web-product .tag-row span{
 [data-view="overview"].is-active .overview-bottom > :nth-child(2) { animation-delay: .78s; }
 [data-view="overview"].is-active .overview-bottom > :nth-child(3) { animation-delay: .86s; }
 
-[data-view="overview"].is-active .hero-portrait {
+[data-view="overview"].is-active .hero-portrait img {
   animation: overviewPortraitReveal .72s cubic-bezier(.22,1,.36,1) .30s forwards;
 }
 
@@ -1810,7 +1815,7 @@ html[data-theme="light"] .web-product .tag-row span{
   [data-view="overview"].is-active .hero-panel > *,
   [data-view="overview"].is-active .overview-stack > *,
   [data-view="overview"].is-active .overview-bottom > *,
-  [data-view="overview"].is-active .hero-portrait {
+  [data-view="overview"].is-active .hero-portrait img {
     opacity: 1;
     transform: none;
     animation: none;
