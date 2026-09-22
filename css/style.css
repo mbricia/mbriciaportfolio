@@ -198,6 +198,173 @@ h3{
   box-shadow:0 0 16px rgba(124,224,202,.45);
 }
 
+.proof-section{
+  padding:0 0 30px;
+}
+.proof-strip{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--surface);
+}
+.proof-stat{
+  min-width:0;
+  padding:18px 20px;
+  border-left:1px solid var(--line);
+}
+.proof-stat:first-child{border-left:0}
+.proof-stat strong{
+  display:block;
+  color:var(--text);
+  font-size:1.35rem;
+  line-height:1;
+}
+.proof-stat span{
+  display:block;
+  margin-top:7px;
+  color:var(--soft);
+  font-size:.75rem;
+}
+
+.activity-card{
+  display:grid;
+  grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);
+  gap:28px;
+  align-items:center;
+  margin-top:16px;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(145deg,#11171b,var(--surface));
+}
+.activity-copy .eyebrow{margin-bottom:10px}
+.activity-copy h2{
+  margin-bottom:9px;
+  font-size:clamp(1.55rem,3vw,2.25rem);
+}
+.activity-copy>p:last-child{
+  margin:0;
+  color:var(--soft);
+  font-size:.78rem;
+}
+.activity-visual{min-width:0}
+.activity-heatmap{
+  display:grid;
+  grid-template-columns:repeat(14,1fr);
+  gap:6px;
+  width:100%;
+}
+.activity-cell{
+  display:block;
+  aspect-ratio:1;
+  min-width:0;
+  border:1px solid #202831;
+  border-radius:4px;
+  background:#151a20;
+}
+.activity-cell.level-1,.activity-legend .level-1{background:#17392f;border-color:#245343}
+.activity-cell.level-2,.activity-legend .level-2{background:#1e5a49;border-color:#2d715d}
+.activity-cell.level-3,.activity-legend .level-3{background:#2a8069;border-color:#3b947d}
+.activity-cell.level-4,.activity-legend .level-4{background:#54c8ad;border-color:#6bdac1}
+.activity-legend{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:5px;
+  margin-top:9px;
+  color:var(--soft);
+  font-size:.66rem;
+}
+.activity-legend i{
+  width:11px;
+  height:11px;
+  border:1px solid #202831;
+  border-radius:3px;
+  background:#151a20;
+}
+
+.project-visual{
+  margin:0 0 20px;
+}
+.workflow-visual,
+.inventory-visual,
+.system-visual{
+  min-height:128px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:18px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:
+    linear-gradient(rgba(124,224,202,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,224,202,.035) 1px,transparent 1px),
+    #0d1217;
+  background-size:20px 20px;
+}
+.workflow-visual>span,
+.inventory-visual>b,
+.system-visual>b{
+  color:#52616e;
+  font-weight:700;
+}
+.flow-node{
+  padding:9px 10px;
+  border:1px solid #315248;
+  border-radius:8px;
+  background:#12221e;
+  color:#c9e8e1;
+  font-size:.7rem;
+  font-weight:700;
+  white-space:nowrap;
+}
+.inventory-visual>div,
+.system-visual>div{
+  min-width:86px;
+  padding:11px;
+  border:1px solid #2b3946;
+  border-radius:9px;
+  background:#111820;
+  text-align:center;
+}
+.inventory-visual span,
+.system-visual span{
+  display:block;
+  color:var(--soft);
+  font-size:.6rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.inventory-visual strong,
+.system-visual small{
+  display:block;
+  margin-top:4px;
+  color:var(--text);
+  font-size:.76rem;
+  font-weight:700;
+}
+.project-media{
+  aspect-ratio:16/8.2;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:#0d1115;
+}
+.project-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.project-media-app img{
+  object-fit:cover;
+  object-position:top center;
+}
+
 .portrait-frame{
   width:min(100%,360px);
   min-height:430px;
@@ -482,6 +649,10 @@ h3{
   .portrait-frame img{min-height:360px}
   .project-grid,.about-grid{grid-template-columns:1fr}
   .project-featured{background:var(--surface)}
+  .proof-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proof-stat:nth-child(3){border-left:0;border-top:1px solid var(--line)}
+  .proof-stat:nth-child(4){border-top:1px solid var(--line)}
+  .activity-card{grid-template-columns:1fr}
 }
 
 @media(max-width:680px){
@@ -499,6 +670,8 @@ h3{
   .portrait-frame img{min-height:338px}
   .project-card,.about-card{padding:22px}
   .certificate-grid{grid-template-columns:1fr 1fr}
+  .activity-heatmap{grid-template-columns:repeat(7,1fr)}
+  .workflow-visual,.inventory-visual,.system-visual{overflow-x:auto;justify-content:flex-start}
   .experience-item{grid-template-columns:1fr;gap:5px}
   .contact-card{padding:34px 24px}
   .contact-links{flex-direction:column;gap:10px}
