@@ -121,14 +121,44 @@ The workflow also logs an invalid-application validation error instead of attemp
 
 Interview, assessment, offer, and rejection actions can create a Gmail **draft** for recruiter review. The AI prompt is constrained to the provided candidate, role, recruiter notes, dates, and recruiter name; it is instructed not to invent missing details or claim that the message was already sent.
 
+## Workflow 3 — Follow-up & Reminder Engine
+
+This scheduled workflow checks the recruitment pipeline each morning and creates recruiter reminder drafts only when follow-up is actually due.
+
+### Control flow
+
+```text
+Daily Schedule
+→ Read Applications
+→ Active Application?
+→ Follow-up Due?
+→ Prepare Reminder
+→ Find Today's Reminder
+→ Already Reminded Today?
+   ├─ yes → stop
+   └─ no  → Restore Reminder Data
+          → Create Gmail Draft
+          → Log Reminder
+```
+
+### Reminder rules
+- terminal stages `Rejected`, `Withdrawn`, `Hired`, and `Closed` are ignored
+- a follow-up is due when `next_action_date` is today or earlier
+- reminders are labeled **Due Today** or **Overdue**
+- overdue days are calculated from the stored action date
+- a reminder key combines `application_id` + current date
+- that key prevents more than one reminder draft for the same application on the same day
+- reminders are created as Gmail drafts for recruiter review rather than automatically sent
+
 ## Public export status
 
 Sanitized exports currently included:
 
 - **Workflow 1 — Candidate Email Processor**
 - **Workflow 2 — Recruiter Action Center**
+- **Workflow 3 — Follow-up & Reminder Engine**
 
-Workflows 3 and 4 can be added here as they are exported from n8n.
+Workflow 4 can be added here once its export is included.
 
 ## Setup
 
