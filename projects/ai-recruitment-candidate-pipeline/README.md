@@ -174,6 +174,19 @@ Error Trigger
 
 The handler accepts both execution-level and trigger-level error payloads so failures can still be recorded even when some execution metadata is unavailable.
 
+## Portfolio evidence
+
+Privacy-safe evidence reconstructed from the tested Gmail scenarios:
+
+| Evidence | What it demonstrates |
+| --- | --- |
+| [Candidate application email](./evidence/candidate-application-email.svg) | Incoming unstructured application that Workflow 1 interprets and stores |
+| [Interview invitation draft](./evidence/interview-invitation-draft.svg) | Recruiter-controlled interview action producing a reviewable candidate Gmail draft |
+| [Offer draft](./evidence/offer-draft.svg) | Later-stage recruiter action producing a reviewable offer draft |
+| [Overdue recruiter reminder](./evidence/overdue-recruiter-reminder.svg) | Scheduled follow-up workflow generating an internal overdue reminder draft |
+
+The evidence uses synthetic candidate/recruiter data and preserves the behavior of the tested scenarios without exposing account-specific sender details.
+
 ## Public export status
 
 Sanitized exports included:
