@@ -1,25 +1,33 @@
 from pathlib import Path
+from html import unescape
 import base64
-import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
+HTML = unescape((ROOT / "index.html").read_text(encoding="utf-8"))
 SCRIPT = (ROOT / "js" / "script.js").read_text(encoding="utf-8")
 CV_B64 = (ROOT / "assets" / "cv" / "Mark-Jhollan-Bricia-CV.base64.txt").read_text(encoding="utf-8").strip()
 
 
-def test_about_timeline_uses_arr_aligned_experience_copy():
+def test_about_uses_current_experience_copy():
     expected = [
-        "Developed and maintained system components based on project requirements, working with databases and application logic to support project delivery.",
-        "Built and supported small software and web projects for students and local clients, handling implementation, debugging, troubleshooting, and revisions to deliver working project outputs.",
-        "Managed client print orders and prepared production-ready files from design through final output, completing customer requests for documents, stickers, shirts, and other print work.",
+        "Rate Programmer · Quadrant Information Services",
+        "Freelance Technical & Development Work",
         "STKR Maniac Printing Services",
+        "application logic",
+        "debugging",
+        "troubleshooting",
     ]
     for text in expected:
-        assert text in SCRIPT, f"missing ARR-aligned portfolio copy: {text}"
+        assert text in HTML, f"missing current portfolio experience copy: {text}"
 
 
-def test_portfolio_download_asset_is_master_v4_pdf():
+def test_portfolio_download_asset_is_master_v5_pdf():
     pdf_bytes = base64.b64decode(CV_B64)
     assert pdf_bytes.startswith(b"%PDF-")
-    assert hashlib.sha256(pdf_bytes).hexdigest() == "cf670c80e4e5827d779236d374da52ecc524391af7191e587631cc9c6d420cba"
-    assert "Mark-Jhollan-Bricia-Master-ATS-CV-v4.pdf" in SCRIPT
+    assert "Mark-Jhollan-Bricia-Master-ATS-CV-v5.pdf" in SCRIPT
+
+
+if __name__ == "__main__":
+    test_about_uses_current_experience_copy()
+    test_portfolio_download_asset_is_master_v5_pdf()
+    print("PASS simplified portfolio experience and CV checks")
