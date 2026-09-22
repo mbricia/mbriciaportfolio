@@ -25,6 +25,11 @@ Scheduled n8n inventory monitoring workflow that reads Google Sheets, evaluates 
 
 - [Project repository](https://github.com/mbricia/n8n-inventory-low-stock-automation)
 
+### AI Recruitment & Candidate Pipeline Automation
+Four-workflow n8n recruitment operations system covering candidate email interpretation, exact-email/candidate/application deduplication, recruiter-controlled stage transitions, reviewable AI-generated email drafts, due/overdue reminders, audit logging, and centralized technical error handling.
+
+- [Project files and sanitized workflow export](./projects/ai-recruitment-candidate-pipeline/)
+
 ### Kopi Brews Operations App
 Private React Native and Firebase prototype designed around administrator, cashier, inventory, ordering, sales visibility, and customer loyalty workflows.
 
