@@ -57,7 +57,7 @@ def run():
     require(HTML.count('class="proof-stat"') == 4, "Proof strip should contain four verified proof points")
     require('Recent portfolio repo activity' in TEXT, "GitHub-style activity section is missing")
     require(HTML.count('class="activity-cell') >= 28, "Activity heatmap should contain enough cells to read visually")
-    require('Latest 100 commits' in TEXT, "Activity snapshot must explain its data scope")
+    require('148 commits in this portfolio repository' in TEXT, "Activity snapshot must explain its current repository data scope")
     require(HTML.count('class="project-visual') >= 5, "Most project cards should have a visual layer")
     require('assets/projects/ai-lead-workflow-architecture.svg' in HTML, "Lead automation should use its existing workflow visual")
     require('assets/projects/kopi-admin.png' in HTML, "Kopi project should use an actual app screenshot")
