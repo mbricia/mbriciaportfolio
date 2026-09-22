@@ -95,7 +95,7 @@
               <div class="identity-grid">
                 <div><span>EDUCATION</span><strong>BS Information Technology</strong><small>Major in Software Engineering</small></div>
                 <div><span>CORE</span><strong>Build · Debug · Improve</strong><small>Readable systems over clever code</small></div>
-                <div><span>WORKFLOW</span><strong>Automation + AI</strong><small>2 tested n8n projects</small></div>
+                <div><span>WORKFLOW</span><strong>Automation + AI</strong><small>3 tested n8n projects</small></div>
               </div>
             </div>
 
@@ -104,7 +104,7 @@
                 <div class="snapshot-head"><span>RECRUITER SNAPSHOT</span><em>30-SECOND VIEW</em></div>
                 <div class="snapshot-grid">
                   <div><span>TARGET</span><strong>Developer / Automation / IT</strong><small>Software · workflows · technical support</small></div>
-                  <div><span>STRONGEST CURRENT PROOF</span><strong>2 Tested n8n Automations</strong><small>AI lead qualification · inventory monitoring</small></div>
+                  <div><span>STRONGEST CURRENT PROOF</span><strong>3 Tested n8n Automations</strong><small>AI lead qualification · inventory monitoring · recruitment operations</small></div>
                   <div><span>FOUNDATION</span><strong>Software Engineering</strong><small>C# · Java · database-backed capstone</small></div>
                   <div><span>SHIPPED WEB</span><strong>3 AVENLO products</strong><small>Live demos · docs · Git workflow</small></div>
                 </div>
@@ -122,7 +122,7 @@
           </div>
 
           <div class="overview-bottom">
-            <button class="signal-card panel signal-primary" type="button" data-route="work"><span>AUTOMATION PORTFOLIO / 2026</span><strong>2 Tested n8n Business Automations</strong><small>AI lead qualification · scheduled inventory monitoring</small><i>REVIEW AUTOMATION PROJECTS →</i></button>
+            <button class="signal-card panel signal-primary" type="button" data-route="work"><span>AUTOMATION PORTFOLIO / 2026</span><strong>3 Tested n8n Business Automations</strong><small>Lead qualification · inventory monitoring · recruitment operations</small><i>REVIEW AUTOMATION PROJECTS →</i></button>
             <button class="signal-card panel" type="button" data-route="kopi-app"><span>CURRENT SOFTWARE / 2026</span><strong>Kopi Brews Operations App</strong><small>React Native · Firebase · Firestore · multi-user workflows</small><i>OPEN APPLICATION CASE STUDY →</i></button>
             <button class="signal-card panel" type="button" data-route="capstone"><span>FOUNDATIONS / 2018–2019</span><strong>Eleventh28 POS + Kitchen Display</strong><small>C# · WinForms · MySQL · Crystal Reports</small><i>OPEN FOUNDATIONS CASE STUDY →</i></button>
           </div>
@@ -157,6 +157,16 @@
                   <div class="tag-row"><span>n8n</span><span>Google Sheets</span><span>Gmail</span><span>JavaScript</span><span>HTML Email</span></div>
                 </div>
                 <span class="project-open">Open inventory automation case study →</span>
+              </button>
+              <button class="system-project feature-project automation-project-card panel" type="button" data-route="recruitment">
+                <div class="project-top"><span>MULTI-WORKFLOW AUTOMATION</span><em>BUILT + TESTED / 2026</em></div>
+                <div class="system-project-copy">
+                  <p class="project-kicker">N8N · AI · RECRUITMENT OPS</p>
+                  <h3>AI Recruitment &amp; Candidate Pipeline</h3>
+                  <p>Four-workflow recruitment operations system that interprets candidate emails, prevents duplicate records, gives recruiters controlled stage actions, creates reviewable email drafts, schedules follow-up reminders, and centralizes technical error logging.</p>
+                  <div class="tag-row"><span>n8n</span><span>OpenAI</span><span>Gmail</span><span>Google Sheets</span><span>Human-in-the-loop</span></div>
+                </div>
+                <span class="project-open">Open recruitment automation case study →</span>
               </button>
               <button class="system-project feature-project panel" type="button" data-route="kopi-app">
                 <div class="project-top"><span>CURRENT APPLICATION</span><em>PRIVATE PROTOTYPE</em></div>
@@ -420,6 +430,104 @@
         </section>
 
 
+        <!-- RECRUITMENT AUTOMATION -->
+        <section class="view" data-view="recruitment" aria-labelledby="recruitment-title">
+          <div class="case-header panel automation-case-header">
+            <div class="case-meta"><span>AI + BUSINESS AUTOMATION / PORTFOLIO PROJECT</span><em>BUILT + TESTED · 2026</em></div>
+            <div class="case-title-grid">
+              <div><p class="terminal-prompt">&gt; inspect recruitment_system</p><h2 id="recruitment-title">AI Recruitment &amp;<br /><span>Candidate Pipeline</span></h2></div>
+              <p>A multi-workflow n8n recruitment operations system that processes candidate communication, separates AI interpretation from hiring decisions, prevents duplicate records, controls stage transitions, creates reviewable email drafts, monitors follow-ups, and captures technical failures.</p>
+            </div>
+            <div class="case-specs">
+              <div><span>ROLE</span><strong>Workflow Designer / Builder</strong></div>
+              <div><span>ORCHESTRATION</span><strong>n8n · 4 Workflows</strong></div>
+              <div><span>AI + LOGIC</span><strong>GPT-5 Mini · Deterministic Rules</strong></div>
+              <div><span>INTEGRATIONS</span><strong>Gmail · Google Sheets</strong></div>
+            </div>
+          </div>
+
+          <div class="automation-showcase panel">
+            <div class="automation-showcase-copy">
+              <p class="mini-kicker">CANDIDATE COMMUNICATION → CONTROLLED PIPELINE</p>
+              <h3>AI interprets. Recruiters decide.</h3>
+              <p>The system uses AI for unstructured language tasks such as email interpretation and draft writing, while duplicate checks, stage transitions, recruiter actions, reminder timing, and error handling stay explicit and inspectable.</p>
+              <div class="automation-actions">
+                <a class="btn btn-primary" href="https://github.com/mbricia/mbriciaportfolio/tree/main/projects/ai-recruitment-candidate-pipeline" target="_blank" rel="noreferrer">View GitHub project files ↗</a>
+                <button class="btn btn-ghost" type="button" data-route="work">← Back to selected work</button>
+              </div>
+            </div>
+            <figure class="automation-architecture-visual">
+              <img src="projects/ai-recruitment-candidate-pipeline/architecture.svg" alt="Architecture diagram for the AI recruitment and candidate pipeline automation" />
+            </figure>
+          </div>
+
+          <div class="case-grid automation-case-grid">
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>01</span><h3>Four cooperating workflows</h3><small>Separate triggers · shared recruitment data</small></div>
+              <div class="feature-matrix">
+                <div><strong>CANDIDATE EMAIL</strong><span>Gmail trigger</span><span>AI extraction</span><span>Candidate + application dedup</span><span>Email log</span></div>
+                <div><strong>RECRUITER ACTION</strong><span>Internal form</span><span>Stage validation</span><span>Audit trail</span><span>Optional Gmail draft</span></div>
+                <div><strong>FOLLOW-UP ENGINE</strong><span>Daily schedule</span><span>Due / overdue logic</span><span>Reminder dedup</span><span>Recruiter draft</span></div>
+                <div><strong>ERROR HANDLER</strong><span>Error Trigger</span><span>Normalize failure</span><span>Execution link</span><span>Error log</span></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>02</span><h3>AI where it helps</h3><small>Interpretation, not authority</small></div>
+              <div class="evidence-list">
+                <div><b>Candidate email interpretation</b><p>AI classifies candidate-pipeline emails and extracts candidate, role, communication type, interview date, and a concise factual summary.</p></div>
+                <div><b>Professional draft generation</b><p>Recruiter-controlled actions can create candidate email drafts for interview, assessment, offer, or rejection communication.</p></div>
+                <div><b>No automated hiring decisions</b><p>Shortlist, offer, reject, hire, hold, and close decisions remain explicit recruiter actions.</p></div>
+              </div>
+            </article>
+
+            <article class="panel case-section">
+              <div class="case-section-head"><span>03</span><h3>Three layers of deduplication</h3><small>Protect before writing</small></div>
+              <div class="problem-solution-list">
+                <div><span>EMAIL</span><b>Exact Gmail message ID</b><small>Stops the same incoming message before repeat AI/database processing.</small></div>
+                <div><span>CANDIDATE</span><b>Normalized candidate email</b><small>Reuses the master candidate instead of creating another person record.</small></div>
+                <div><span>APPLICATION</span><b>Candidate ID + job title</b><small>Creates a new application only when the candidate-role pair does not already exist.</small></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>04</span><h3>Human-controlled stage transitions</h3><small>Business rules guard the pipeline</small></div>
+              <div class="proof-columns">
+                <div><span>RECRUITER INPUT</span><strong>Controlled action form</strong><p>Recruiters choose actions such as Shortlist, Schedule Interview, Assessment, Offer, Reject, Hire, Put On Hold, or Close.</p></div>
+                <div><span>VALIDATION</span><strong>Allowed transitions only</strong><p>Terminal stages are protected and invalid jumps are blocked rather than silently changing the record.</p></div>
+                <div><span>AUDITABILITY</span><strong>Allowed and blocked actions logged</strong><p>The system preserves who attempted the action, from-stage, target-stage, notes, result, and timestamp.</p></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>05</span><h3>Tested behavior</h3><small>Candidate · recruiter · reminder · failure paths</small></div>
+              <div class="feature-matrix automation-test-matrix">
+                <div><strong>NEW APPLICATION</strong><span>Candidate created</span><span>Application created</span><span>New Applicant stage</span><span>Email logged</span></div>
+                <div><strong>DUPLICATE</strong><span>Email blocked</span><span>Candidate reused</span><span>Application reused</span><span>No duplicate row</span></div>
+                <div><strong>INTERVIEW</strong><span>Existing application found</span><span>Stage updated</span><span>Date extracted</span><span>Same APP ID retained</span></div>
+                <div><strong>RECRUITER</strong><span>Shortlist / Offer / Hire</span><span>Invalid transitions blocked</span><span>Audit logged</span><span>Drafts require review</span></div>
+                <div><strong>REMINDER</strong><span>Due today</span><span>Overdue</span><span>One reminder / day</span><span>Terminal stages ignored</span></div>
+                <div><strong>ERROR</strong><span>Automatic failure</span><span>Failed node captured</span><span>Execution link logged</span><span>Central error workflow</span></div>
+              </div>
+            </article>
+
+            <article class="panel case-section case-wide">
+              <div class="case-section-head"><span>06</span><h3>Portfolio-safe and portable</h3><small>Sanitized export · client-owned environment</small></div>
+              <div class="proof-columns">
+                <div><span>PRIVACY</span><strong>Synthetic demo data</strong><p>Portfolio examples use fictional candidates, recruiters, roles, and business names instead of production personal data.</p></div>
+                <div><span>PUBLIC EXPORT</span><strong>Credentials and private IDs removed</strong><p>The GitHub project folder includes a sanitized Workflow 1 export plus architecture and setup documentation.</p></div>
+                <div><span>PORTABILITY</span><strong>Cloud or self-hosted n8n</strong><p>Standard n8n nodes can be moved to a client-owned or self-hosted environment by reconnecting credentials and data sources.</p></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="case-footer panel">
+            <p><span class="status-dot"></span> MULTI-WORKFLOW RECRUITMENT AUTOMATION · BUILT + TESTED</p>
+            <blockquote>AI handles interpretation. Recruiters retain the decision, and business rules protect the pipeline.</blockquote>
+            <small>Current public project files include the sanitized Candidate Email Processor export, system architecture, setup notes, tested scenarios, and privacy guidance.</small>
+          </div>
+        </section>
+
         <!-- KOPI BREWS APP -->
         <section class="view" data-view="kopi-app" aria-labelledby="kopi-title">
           <div class="case-header panel kopi-case-header">
@@ -679,7 +787,7 @@
       </main>
 
       <footer class="statusbar">
-        <div><span class="status-dot"></span><b>main</b><span>portfolio-v3.4.1 · 2 automation case studies</span></div>
+        <div><span class="status-dot"></span><b>main</b><span>portfolio-v3.5.0 · 3 automation case studies</span></div>
         <div><span>HTML</span><span>CSS</span><span>JavaScript</span><span>UTF-8</span></div>
       </footer>
     </section>
@@ -688,7 +796,7 @@
   <div class="mobile-drawer" id="mobileDrawer" hidden>
     <div class="drawer-head"><strong>Navigate</strong><button id="mobileClose" type="button">CLOSE</button></div>
     <nav>
-      <button type="button" data-route="overview">01 Overview</button><button type="button" data-route="work">02 Work</button><button type="button" data-route="automation">03 AI Automation</button><button type="button" data-route="inventory">04 Inventory Automation</button><button type="button" data-route="kopi-app">05 Kopi App</button><button type="button" data-route="capstone">06 Foundations</button><button type="button" data-route="systems">07 Systems</button><button type="button" data-route="credentials">08 Credentials</button><button type="button" data-route="about">09 About</button><button type="button" data-route="contact">10 Contact</button>
+      <button type="button" data-route="overview">01 Overview</button><button type="button" data-route="work">02 Work</button><button type="button" data-route="automation">03 AI Automation</button><button type="button" data-route="inventory">04 Inventory Automation</button><button type="button" data-route="recruitment">05 Recruitment Automation</button><button type="button" data-route="kopi-app">06 Kopi App</button><button type="button" data-route="capstone">07 Foundations</button><button type="button" data-route="systems">08 Systems</button><button type="button" data-route="credentials">09 Credentials</button><button type="button" data-route="about">10 About</button><button type="button" data-route="contact">11 Contact</button>
     </nav>
   </div>
 
@@ -700,6 +808,7 @@
         <button type="button" data-command="work"><span>◫ Work</span><i>selected projects</i></button>
         <button type="button" data-command="automation"><span>⚡ AI Automation</span><i>n8n lead qualification case study</i></button>
         <button type="button" data-command="inventory"><span>▤ Inventory Automation</span><i>scheduled low-stock monitoring case study</i></button>
+        <button type="button" data-command="recruitment"><span>◎ Recruitment Automation</span><i>AI candidate pipeline + recruiter operations</i></button>
         <button type="button" data-command="kopi-app"><span>◆ Kopi App</span><i>current application case study</i></button>
         <button type="button" data-command="capstone"><span>⌘ Foundations</span><i>2018–2019 capstone</i></button>
         <button type="button" data-command="systems"><span>◈ Systems</span><i>skills / IT</i></button>
