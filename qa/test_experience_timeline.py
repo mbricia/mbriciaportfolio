@@ -1,7 +1,9 @@
 from pathlib import Path
+from html import unescape
 
 ROOT = Path(__file__).resolve().parents[1]
-JS = (ROOT / 'js' / 'script.js').read_text(encoding='utf-8')
+HTML = (ROOT / "index.html").read_text(encoding="utf-8")
+TEXT = unescape(HTML)
 
 
 def require(condition, message):
@@ -11,25 +13,22 @@ def require(condition, message):
 
 def run():
     expected = [
-        '2020–2023',
-        'Professional programming',
-        'Quadrant Information Services',
-        '2023–Present',
-        'Freelance Technical & Development Work',
-        'students and local clients',
-        'development, debugging, troubleshooting, and practical project implementation',
-        '2026',
-        'Independent products & automation',
-        'AVENLO web products',
-        'AI automation learning',
+        "2020–2023",
+        "Rate Programmer · Quadrant Information Services",
+        "2023–Present",
+        "Freelance Technical & Development Work",
+        "STKR Maniac Printing Services",
+        "application logic",
+        "debugging",
+        "troubleshooting",
     ]
     for text in expected:
-        require(text in JS, f'Missing experience timeline content: {text}')
+        require(text in TEXT, f"Missing experience content: {text}")
 
-    require('mountProfessionalTimeline' in JS, 'Professional timeline mount is missing')
-    require("[data-view=\"about\"] .timeline-card" in JS, 'About timeline target is missing')
-    print('PASS professional experience timeline content checks')
+    require('id="about"' in HTML, "About section is missing")
+    require('class="experience-list"' in HTML, "Experience list is missing")
+    print("PASS simplified experience section checks")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()
