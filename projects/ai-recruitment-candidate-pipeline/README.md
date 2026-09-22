@@ -82,9 +82,53 @@ Gmail Trigger
 - invalid application ID validation error
 - automatic technical failure captured by the central error workflow
 
+## Workflow 2 — Recruiter Action Center
+
+The recruiter-facing workflow starts from an internal n8n form and turns human decisions into controlled, auditable pipeline updates.
+
+### Recruiter actions
+- Shortlist
+- Schedule Interview
+- Assessment
+- Offer
+- Reject
+- Hire
+- Put On Hold
+- Close
+
+### Control flow
+
+```text
+Recruiter Form
+→ Normalize Action
+→ Find Application
+→ Validate Application Exists
+→ Validate Stage Transition
+   ├─ blocked → Recruiter_Action_Log
+   └─ allowed → Update Application
+              → Log Successful Action
+              → Email Draft Needed?
+                 └─ yes → Find Candidate Contact
+                        → Prepare Communication Context
+                        → AI Draft
+                        → Gmail Draft
+                        → Communication_Log
+```
+
+The workflow also logs an invalid-application validation error instead of attempting a database update.
+
+### Human-in-the-loop communication
+
+Interview, assessment, offer, and rejection actions can create a Gmail **draft** for recruiter review. The AI prompt is constrained to the provided candidate, role, recruiter notes, dates, and recruiter name; it is instructed not to invent missing details or claim that the message was already sent.
+
 ## Public export status
 
-This folder currently includes the sanitized export for **Workflow 1 — Candidate Email Processor**. The remaining workflow exports can be added here as they are exported from n8n.
+Sanitized exports currently included:
+
+- **Workflow 1 — Candidate Email Processor**
+- **Workflow 2 — Recruiter Action Center**
+
+Workflows 3 and 4 can be added here as they are exported from n8n.
 
 ## Setup
 
