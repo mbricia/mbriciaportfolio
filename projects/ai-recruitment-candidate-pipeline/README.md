@@ -206,12 +206,15 @@ Sanitized exports included:
 - OpenAI Chat Model
 
 ### Import notes
-1. Import the sanitized workflow JSON into n8n.
+1. Import all four sanitized workflow JSON files into n8n.
 2. Reconnect your own Gmail, Google Sheets, and OpenAI credentials.
 3. Replace `YOUR_GOOGLE_SHEET_ID` with your own spreadsheet.
-4. Confirm the expected sheet/tab names.
-5. Import the companion recruiter, reminder, and error workflows when available.
-6. Link the Technical Error Handler as the Error Workflow for production-style automatic executions.
+4. Confirm the expected sheet/tab names and column schemas.
+5. Set the workflow timezone to the client/business timezone before activating the daily reminder schedule.
+6. Link the Technical Error Handler as the Error Workflow for Workflows 1–3.
+7. Publish/activate the trigger-based workflows only after credentials, sheet mappings, and test data have been verified.
+
+Public exports are intentionally saved as inactive templates so an imported workflow cannot start processing mail or scheduled reminders before the new owner finishes configuration.
 
 The public JSON intentionally excludes credential IDs, private spreadsheet IDs/URLs, instance IDs, webhook IDs, workflow IDs, and the linked error-workflow ID.
 
