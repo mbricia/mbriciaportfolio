@@ -35,6 +35,7 @@ def run():
     require('margin-inline:auto' in compact_css, "Portrait should be centered in its frame")
 
     require('Software Developer · AI Automation · IT Support' in TEXT, "Primary positioning is missing")
+    require('6+ years of hands-on experience' in TEXT, "Home introduction should state the experience span accurately")
     require(HTML.count('class="skill-pill"') <= 6, "Home should keep skill pills intentionally limited")
 
     for title in [
@@ -49,7 +50,10 @@ def run():
 
     require('n8n Foundations Professional Certificate' in TEXT, "n8n credential summary is missing")
     require('4 course certificates completed' in TEXT, "n8n credential count is missing")
+    require(HTML.count('class="certificate-card"') == 4, "Credentials should show four compact certificate cards")
+    require(HTML.count('class="certificate-thumb"') == 4, "Each certificate should have a visible compact thumbnail")
     require('AI Automation' in TEXT, "n8n should sit under broader AI Automation positioning")
+    require('\\n' not in CSS, "CSS must not contain literal escaped newline sequences")
 
     require('commandOverlay' not in JS, "Command palette JavaScript should be removed")
     require('localTime' not in JS, "Live clock JavaScript should be removed")
