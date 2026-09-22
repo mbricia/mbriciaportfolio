@@ -150,15 +150,40 @@ Daily Schedule
 - that key prevents more than one reminder draft for the same application on the same day
 - reminders are created as Gmail drafts for recruiter review rather than automatically sent
 
+## Workflow 4 — Technical Error Handler
+
+This centralized error workflow is linked to the production-style automatic executions of the other recruitment workflows.
+
+### Control flow
+
+```text
+Error Trigger
+→ Normalize Technical Error
+→ Append Error_Log
+```
+
+### Captured fields
+- generated technical error ID
+- source workflow name
+- error type
+- failed / last executed node
+- normalized error message
+- execution ID
+- execution URL
+- timestamp
+
+The handler accepts both execution-level and trigger-level error payloads so failures can still be recorded even when some execution metadata is unavailable.
+
 ## Public export status
 
-Sanitized exports currently included:
+Sanitized exports included:
 
 - **Workflow 1 — Candidate Email Processor**
 - **Workflow 2 — Recruiter Action Center**
 - **Workflow 3 — Follow-up & Reminder Engine**
+- **Workflow 4 — Technical Error Handler**
 
-Workflow 4 can be added here once its export is included.
+**Public workflow package complete: 4 / 4 sanitized exports.**
 
 ## Setup
 
