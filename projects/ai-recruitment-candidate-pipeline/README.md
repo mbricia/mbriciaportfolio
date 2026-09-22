@@ -1,5 +1,7 @@
 # AI Recruitment & Candidate Pipeline Automation
 
+[Standalone GitHub repository](https://github.com/mbricia/n8n-ai-recruitment-candidate-pipeline) · [Portfolio](https://mbriciaportfolio.vercel.app/)
+
 A portfolio-ready n8n recruitment operations system that combines AI interpretation with deterministic business rules, human-controlled hiring decisions, duplicate protection, reminders, audit logs, and centralized technical error handling.
 
 ## What the system does
