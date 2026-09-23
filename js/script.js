@@ -40,8 +40,8 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const particleCanvas = document.getElementById('particleBackground');
-  const PARTICLE_COUNT_DESKTOP = 150;
-  const PARTICLE_COUNT_MOBILE = 78;
+  const PARTICLE_COUNT_DESKTOP = 220;
+  const PARTICLE_COUNT_MOBILE = 100;
 
   const initParticleBackground = () => {
     if (!particleCanvas) return;
@@ -66,8 +66,8 @@
         x: Math.random() * width,
         y: Math.random() * height,
         depth: 0.35 + Math.random() * 0.85,
-        radius: 0.55 + Math.random() * 1.45,
-        alpha: 0.12 + Math.random() * 0.38,
+        radius: 0.4 + Math.random() * 1.0,
+        alpha: 0.05 + Math.random() * 0.16,
         phase: Math.random() * Math.PI * 2,
         speed: 0.35 + Math.random() * 0.8,
       }));
