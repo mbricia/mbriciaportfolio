@@ -60,6 +60,8 @@ def run():
     require(HTML.count('class="activity-cell') >= 28, "Activity heatmap should contain enough cells to read visually")
     require('Portfolio repository · activity snapshot through Sep 22, 2026' in TEXT, "Activity snapshot must explain its repository scope and capture date")
     require('class="tech-carousel"' in HTML, "Home should include a tech stack carousel")
+    require('TECH STACK' in TEXT.upper(), "Tech carousel should have a visible TECH STACK label")
+    require('class="container tech-carousel-inner"' in HTML, "Tech carousel should be contained to the same page width as other content")
     require('tech-carousel-head' not in HTML, "Tech carousel should be a single centered inline row without a separate heading")
     require(HTML.count('class="tech-chip"') >= 20, "Tech carousel should duplicate enough stack items for a seamless loop")
     require(HTML.count('class="tech-icon"') >= 20, "Tech carousel should use visible technology icons")
