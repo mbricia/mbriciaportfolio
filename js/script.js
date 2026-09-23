@@ -38,6 +38,125 @@
   });
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const particleCanvas = document.getElementById('particleBackground');
+  const PARTICLE_COUNT_DESKTOP = 150;
+  const PARTICLE_COUNT_MOBILE = 78;
+
+  const initParticleBackground = () => {
+    if (!particleCanvas) return;
+
+    const context = particleCanvas.getContext('2d');
+    if (!context) return;
+
+    const mobileQuery = window.matchMedia('(max-width: 680px)');
+    const pointer = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+    let particles = [];
+    let scrollTarget = window.scrollY * 0.025;
+    let scrollShift = scrollTarget;
+    let frameId = 0;
+    let running = true;
+
+    const buildParticles = () => {
+      const count = mobileQuery.matches ? PARTICLE_COUNT_MOBILE : PARTICLE_COUNT_DESKTOP;
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        depth: 0.35 + Math.random() * 0.85,
+        radius: 0.55 + Math.random() * 1.45,
+        alpha: 0.12 + Math.random() * 0.38,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.35 + Math.random() * 0.8,
+      }));
+    };
+
+    const resizeCanvas = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      particleCanvas.width = Math.round(width * pixelRatio);
+      particleCanvas.height = Math.round(height * pixelRatio);
+      particleCanvas.style.width = `${width}px`;
+      particleCanvas.style.height = `${height}px`;
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      buildParticles();
+    };
+
+    const draw = (time = 0) => {
+      context.clearRect(0, 0, width, height);
+      pointer.x += (pointer.targetX - pointer.x) * 0.035;
+      pointer.y += (pointer.targetY - pointer.y) * 0.035;
+      scrollShift += (scrollTarget - scrollShift) * 0.04;
+
+      const seconds = time * 0.001;
+
+      particles.forEach((particle) => {
+        const driftX = reduceMotion ? 0 : Math.sin(seconds * particle.speed + particle.phase) * 8 * particle.depth;
+        const driftY = reduceMotion ? 0 : Math.cos(seconds * particle.speed * 0.72 + particle.phase) * 6 * particle.depth;
+        const parallaxX = pointer.x * 18 * particle.depth;
+        const parallaxY = pointer.y * 11 * particle.depth;
+        const scrollY = (scrollShift * particle.depth) % (height + 40);
+
+        let x = particle.x + driftX + parallaxX;
+        let y = particle.y + driftY + parallaxY - scrollY * 0.18;
+
+        x = ((x % width) + width) % width;
+        y = ((y % height) + height) % height;
+
+        context.beginPath();
+        context.arc(x, y, particle.radius * particle.depth, 0, Math.PI * 2);
+        context.fillStyle = `rgba(124, 224, 202, ${particle.alpha})`;
+        context.fill();
+      });
+    };
+
+    const animate = (time) => {
+      if (!running) return;
+      draw(time);
+      frameId = window.requestAnimationFrame(animate);
+    };
+
+    const onPointerMove = (event) => {
+      if (mobileQuery.matches || reduceMotion) return;
+      pointer.targetX = (event.clientX / Math.max(width, 1) - 0.5) * 2;
+      pointer.targetY = (event.clientY / Math.max(height, 1) - 0.5) * 2;
+    };
+
+    const onScroll = () => {
+      scrollTarget = window.scrollY * 0.025;
+      if (reduceMotion) draw(0);
+    };
+
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        running = false;
+        window.cancelAnimationFrame(frameId);
+        return;
+      }
+
+      if (!running && !reduceMotion) {
+        running = true;
+        frameId = window.requestAnimationFrame(animate);
+      }
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    if (reduceMotion) {
+      draw(0);
+    } else {
+      frameId = window.requestAnimationFrame(animate);
+    }
+  };
+
+  initParticleBackground();
   const revealTargets = [
     ...document.querySelectorAll(
       '.bento-proof > *, .project-card, .section-heading, .about-card, .contact-card'
