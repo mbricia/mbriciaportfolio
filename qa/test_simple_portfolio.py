@@ -65,7 +65,7 @@ def run():
     require(HTML.count('class="tech-icon"') >= 20, "Tech carousel should use visible technology icons")
     require('assets/tech/' in HTML, "Tech icons should be served from local portfolio assets")
     require('justify-content:center' in CSS.replace(" ", ""), "Tech carousel items should be centered inline")
-    for tech in ['JavaScript', 'React', 'React Native', 'Firebase', 'C#', 'Java', 'MySQL', 'n8n', 'APIs & Webhooks', 'OpenAI', 'Git & GitHub']:
+    for tech in ['HTML5', 'CSS3', 'JavaScript', 'React', 'React Native', 'Firebase', 'Git', 'GitHub', 'C#', 'Java', 'MySQL', 'n8n', 'APIs & Webhooks', 'OpenAI']:
         require(tech in TEXT, f"Tech carousel is missing: {tech}")
     require('@keyframes techMarquee' in CSS, "Tech carousel marquee animation is missing")
     require('prefers-reduced-motion: reduce' in CSS, "Motion must respect reduced-motion preferences")
