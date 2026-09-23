@@ -40,12 +40,12 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const particleCanvas = document.getElementById('particleBackground');
-  const PARTICLE_AREA_DIVISOR_DESKTOP = 3300;
-  const PARTICLE_AREA_DIVISOR_MOBILE = 2700;
-  const PARTICLE_MIN_DESKTOP = 320;
-  const PARTICLE_MAX_DESKTOP = 600;
-  const PARTICLE_MIN_MOBILE = 100;
-  const PARTICLE_MAX_MOBILE = 160;
+  const PARTICLE_AREA_DIVISOR_DESKTOP = 1750;
+  const PARTICLE_AREA_DIVISOR_MOBILE = 2300;
+  const PARTICLE_MIN_DESKTOP = 620;
+  const PARTICLE_MAX_DESKTOP = 1000;
+  const PARTICLE_MIN_MOBILE = 120;
+  const PARTICLE_MAX_MOBILE = 190;
 
   const initParticleBackground = () => {
     if (!particleCanvas) return;
@@ -90,9 +90,9 @@
         x: Math.random() * width,
         y: Math.random() * height,
         depth: 0.35 + Math.random() * 0.85,
-        radius: 0.38 + Math.random() * 0.9,
-        alpha: 0.08 + Math.random() * 0.14,
-        highlight: Math.random() < 0.14,
+        radius: 0.5 + Math.random() * 1.15,
+        alpha: 0.11 + Math.random() * 0.17,
+        highlight: Math.random() < 0.18,
         phase: Math.random() * Math.PI * 2,
         speed: 0.35 + Math.random() * 0.8,
       }));
@@ -131,8 +131,8 @@
         x = ((x % width) + width) % width;
         y = ((y % height) + height) % height;
 
-        const radius = particle.radius * particle.depth * (particle.highlight ? 1.4 : 1);
-        const alpha = Math.min(particle.alpha + (particle.highlight ? 0.12 : 0), 0.34);
+        const radius = particle.radius * particle.depth * (particle.highlight ? 1.5 : 1);
+        const alpha = Math.min(particle.alpha + (particle.highlight ? 0.14 : 0), 0.34);
 
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI * 2);
