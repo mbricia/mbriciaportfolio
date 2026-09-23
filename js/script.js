@@ -40,8 +40,12 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const particleCanvas = document.getElementById('particleBackground');
-  const PARTICLE_COUNT_DESKTOP = 260;
-  const PARTICLE_COUNT_MOBILE = 116;
+  const PARTICLE_AREA_DIVISOR_DESKTOP = 3300;
+  const PARTICLE_AREA_DIVISOR_MOBILE = 2700;
+  const PARTICLE_MIN_DESKTOP = 320;
+  const PARTICLE_MAX_DESKTOP = 600;
+  const PARTICLE_MIN_MOBILE = 100;
+  const PARTICLE_MAX_MOBILE = 160;
 
   const initParticleBackground = () => {
     if (!particleCanvas) return;
@@ -60,15 +64,35 @@
     let frameId = 0;
     let running = true;
 
+    const clampParticleCount = (value, min, max) => Math.min(max, Math.max(min, value));
+
+    const getParticleCount = () => {
+      const area = width * height;
+
+      if (mobileQuery.matches) {
+        return clampParticleCount(
+          Math.round(area / PARTICLE_AREA_DIVISOR_MOBILE),
+          PARTICLE_MIN_MOBILE,
+          PARTICLE_MAX_MOBILE
+        );
+      }
+
+      return clampParticleCount(
+        Math.round(area / PARTICLE_AREA_DIVISOR_DESKTOP),
+        PARTICLE_MIN_DESKTOP,
+        PARTICLE_MAX_DESKTOP
+      );
+    };
+
     const buildParticles = () => {
-      const count = mobileQuery.matches ? PARTICLE_COUNT_MOBILE : PARTICLE_COUNT_DESKTOP;
+      const count = getParticleCount();
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
         depth: 0.35 + Math.random() * 0.85,
         radius: 0.38 + Math.random() * 0.9,
-        alpha: 0.07 + Math.random() * 0.16,
-        highlight: Math.random() < 0.12,
+        alpha: 0.08 + Math.random() * 0.14,
+        highlight: Math.random() < 0.14,
         phase: Math.random() * Math.PI * 2,
         speed: 0.35 + Math.random() * 0.8,
       }));
@@ -107,8 +131,8 @@
         x = ((x % width) + width) % width;
         y = ((y % height) + height) % height;
 
-        const radius = particle.radius * particle.depth * (particle.highlight ? 1.35 : 1);
-        const alpha = Math.min(particle.alpha + (particle.highlight ? 0.11 : 0), 0.34);
+        const radius = particle.radius * particle.depth * (particle.highlight ? 1.4 : 1);
+        const alpha = Math.min(particle.alpha + (particle.highlight ? 0.12 : 0), 0.34);
 
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI * 2);
