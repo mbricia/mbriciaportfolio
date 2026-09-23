@@ -40,8 +40,8 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const particleCanvas = document.getElementById('particleBackground');
-  const PARTICLE_COUNT_DESKTOP = 220;
-  const PARTICLE_COUNT_MOBILE = 100;
+  const PARTICLE_COUNT_DESKTOP = 260;
+  const PARTICLE_COUNT_MOBILE = 116;
 
   const initParticleBackground = () => {
     if (!particleCanvas) return;
@@ -66,8 +66,9 @@
         x: Math.random() * width,
         y: Math.random() * height,
         depth: 0.35 + Math.random() * 0.85,
-        radius: 0.4 + Math.random() * 1.0,
-        alpha: 0.05 + Math.random() * 0.16,
+        radius: 0.38 + Math.random() * 0.9,
+        alpha: 0.07 + Math.random() * 0.16,
+        highlight: Math.random() < 0.12,
         phase: Math.random() * Math.PI * 2,
         speed: 0.35 + Math.random() * 0.8,
       }));
@@ -106,9 +107,12 @@
         x = ((x % width) + width) % width;
         y = ((y % height) + height) % height;
 
+        const radius = particle.radius * particle.depth * (particle.highlight ? 1.35 : 1);
+        const alpha = Math.min(particle.alpha + (particle.highlight ? 0.11 : 0), 0.34);
+
         context.beginPath();
-        context.arc(x, y, particle.radius * particle.depth, 0, Math.PI * 2);
-        context.fillStyle = `rgba(124, 224, 202, ${particle.alpha})`;
+        context.arc(x, y, radius, 0, Math.PI * 2);
+        context.fillStyle = `rgba(124, 224, 202, ${alpha})`;
         context.fill();
       });
     };
