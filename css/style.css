@@ -22,6 +22,21 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
+.particle-background{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  opacity:.72;
+}
+main,
+.site-footer{
+  position:relative;
+  z-index:1;
+}
+
 a{color:inherit;text-decoration:none}
 img{max-width:100%}
 button,input,textarea{font:inherit}
@@ -107,10 +122,10 @@ button,input,textarea{font:inherit}
 
 .section{padding:104px 0}
 .section-muted{
-  background:
-    radial-gradient(circle at 15% 10%,rgba(124,224,202,.045),transparent 24%),
-    #0e1115;
+  background-color:rgba(14,17,21,.90);
+  background-image:radial-gradient(circle at 15% 10%,rgba(124,224,202,.045),transparent 24%);
   border-block:1px solid rgba(37,44,52,.66);
+  backdrop-filter:blur(1px);
 }
 
 .hero{
@@ -929,6 +944,7 @@ h3{
 }
 
 @media(max-width:680px){
+  .particle-background{opacity:.55}
   .tech-carousel{padding:16px 0 16px}
   .tech-label{margin-bottom:9px}
   .tech-group{gap:16px;padding-inline:8px}
@@ -989,4 +1005,8 @@ h3{
   .tech-track{animation:none!important;transform:none!important}
   .tech-group[aria-hidden="true"]{display:none}
   .activity-cell{opacity:1!important;transform:none!important}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .particle-background{opacity:.42}
 }
