@@ -184,18 +184,14 @@
   const activitySummary = document.getElementById('activitySummary');
   const activitySnapshot = document.getElementById('activitySnapshot');
   const { buildActivityCalendar, formatActivitySummary } = window.ActivityCalendar;
-  const GITHUB_ACTIVITY_REPOS = [
-    'mbriciaportfolio',
-    'n8n-ai-recruitment-candidate-pipeline',
-    'n8n-ai-lead-qualification-automation',
-    'n8n-inventory-low-stock-automation',
-  ];
+  const GITHUB_USERNAME = 'mbricia';
+  const GITHUB_REPOSITORIES_API = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=updated&direction=desc`;
   const activityEndDate = new Date();
   activityEndDate.setUTCHours(23, 59, 59, 999);
   const activityStartDate = new Date(activityEndDate);
   activityStartDate.setUTCDate(activityEndDate.getUTCDate() - 364);
   activityStartDate.setUTCHours(0, 0, 0, 0);
-  const GITHUB_ACTIVITY_API = 'https://api.github.com/repos/mbricia';
+  const GITHUB_ACTIVITY_API = `https://api.github.com/repos/${GITHUB_USERNAME}`;
 
   const formatActivityDate = (date) => new Intl.DateTimeFormat('en-US', {
     month: 'short',
@@ -233,11 +229,23 @@
     activitySnapshot.textContent = `Selected public repositories · live 12-month activity through ${formatActivityDate(activityEndDate)}`;
   };
 
+  const fetchActivityRepositories = async () => {
+    const response = await fetch(GITHUB_REPOSITORIES_API, {
+      headers: { Accept: 'application/vnd.github+json' },
+    });
+    if (!response.ok) throw new Error('GitHub repository list unavailable');
+
+    const repositories = await response.json();
+    return repositories
+      .filter((repository) => !repository.fork && !repository.archived)
+      .map((repository) => repository.name);
+  };
+
   const fetchRepositoryCommits = async (repository) => {
     const commits = [];
 
     for (let page = 1; page <= 3; page += 1) {
-      const url = `${GITHUB_ACTIVITY_API}/${repository}/commits?per_page=100&page=${page}&since=${encodeURIComponent(activityStartDate.toISOString())}`;
+      const url = `${GITHUB_ACTIVITY_API}/${repository}/commits?per_page=100&page=${page}&author=${encodeURIComponent(GITHUB_USERNAME)}&since=${encodeURIComponent(activityStartDate.toISOString())}`;
       const response = await fetch(url, {
         headers: { Accept: 'application/vnd.github+json' },
       });
@@ -257,10 +265,20 @@
     renderActivity([]);
 
     try {
-      const repositories = await Promise.all(GITHUB_ACTIVITY_REPOS.map(fetchRepositoryCommits));
-      renderActivity(repositories.flat());
+      const repositories = await fetchActivityRepositories();
+      const repositoryResults = await Promise.allSettled(repositories.map(fetchRepositoryCommits));
+      const commits = repositoryResults.flatMap((result) => (
+        result.status === 'fulfilled' ? result.value : []
+      ));
+
+      renderActivity(commits);
+
+      const failedRepositoryCount = repositoryResults.filter((result) => result.status === 'rejected').length;
+      if (failedRepositoryCount > 0) {
+        activitySnapshot.textContent = `Public GitHub repositories · live 12-month activity · ${failedRepositoryCount} repo${failedRepositoryCount === 1 ? '' : 's'} temporarily unavailable`;
+      }
     } catch (_) {
-      activitySnapshot.textContent = 'Selected public repositories · live activity temporarily unavailable';
+      activitySnapshot.textContent = 'Public GitHub repositories · live activity temporarily unavailable';
       portfolioActivity.setAttribute('aria-label', 'Public GitHub build activity is temporarily unavailable');
     }
   };
