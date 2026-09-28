@@ -12,6 +12,10 @@ const {
   buildActivityCalendar,
   formatActivitySummary,
 } = require('./js/activity-calendar.js');
+const {
+  supplementalActivityByDay,
+  supplementalContributionCount,
+} = require('./js/activity-history.js');
 
 const commits = [
   { commit: { author: { date: '2025-09-29T01:00:00Z' } } },
@@ -41,8 +45,27 @@ assert.equal(futureCell.count, 0);
 
 assert.deepEqual(calendar.months[0], { label: 'Oct', weekIndex: 1 });
 assert.deepEqual(calendar.months.at(-1), { label: 'Sep', weekIndex: 49 });
-assert.equal(formatActivitySummary(1), '1 public commit in the last year');
-assert.equal(formatActivitySummary(3), '3 public commits in the last year');
+
+assert.equal(supplementalContributionCount, 35);
+const historical = buildActivityCalendar(
+  [],
+  new Date('2026-09-28T23:59:59Z'),
+  supplementalActivityByDay
+);
+assert.equal(historical.totalCommits, 35);
+assert.equal(historical.cells.find((cell) => cell.date === '2026-04-16').count, 6);
+assert.equal(historical.cells.find((cell) => cell.date === '2026-05-06').count, 2);
+assert.equal(historical.cells.find((cell) => cell.date === '2026-06-12').count, 7);
+
+const merged = buildActivityCalendar(
+  [{ commit: { author: { date: '2026-04-16T12:00:00Z' } } }],
+  new Date('2026-09-28T23:59:59Z'),
+  supplementalActivityByDay
+);
+assert.equal(merged.cells.find((cell) => cell.date === '2026-04-16').count, 7);
+
+assert.equal(formatActivitySummary(1), '1 GitHub contribution in the last year');
+assert.equal(formatActivitySummary(35), '35 GitHub contributions in the last year');
 """
 
     result = subprocess.run(
@@ -54,7 +77,7 @@ assert.equal(formatActivitySummary(3), '3 public commits in the last year');
     if result.returncode != 0:
         raise AssertionError(result.stderr or result.stdout)
 
-    print("PASS calendar-aligned public activity behavior")
+    print("PASS calendar-aligned public + supplemental GitHub activity behavior")
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@
     return 0;
   };
 
-  const buildActivityCalendar = (commits, requestedEndDate = new Date()) => {
+  const buildActivityCalendar = (commits, requestedEndDate = new Date(), supplementalActivityByDay = {}) => {
     const endDate = new Date(requestedEndDate);
     endDate.setUTCHours(23, 59, 59, 999);
 
@@ -41,6 +41,16 @@
       counts.set(key, (counts.get(key) || 0) + 1);
       return counts;
     }, new Map());
+
+    Object.entries(supplementalActivityByDay || {}).forEach(([key, rawCount]) => {
+      const count = Number(rawCount);
+      const activityDate = new Date(`${key}T00:00:00Z`);
+
+      if (!Number.isFinite(count) || count <= 0 || Number.isNaN(activityDate.getTime())) return;
+      if (activityDate < rangeStart || activityDate > endDate) return;
+
+      commitsByDay.set(key, (commitsByDay.get(key) || 0) + Math.floor(count));
+    });
 
     let totalCommits = 0;
     const cells = Array.from({ length: DAY_COUNT }, (_, index) => {
@@ -87,7 +97,7 @@
     };
   };
 
-  const formatActivitySummary = (count) => `${count} public ${count === 1 ? 'commit' : 'commits'} in the last year`;
+  const formatActivitySummary = (count) => `${count} GitHub ${count === 1 ? 'contribution' : 'contributions'} in the last year`;
 
   return { buildActivityCalendar, formatActivitySummary };
 });

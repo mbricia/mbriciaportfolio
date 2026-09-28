@@ -184,6 +184,7 @@
   const activitySummary = document.getElementById('activitySummary');
   const activitySnapshot = document.getElementById('activitySnapshot');
   const { buildActivityCalendar, formatActivitySummary } = window.ActivityCalendar;
+  const supplementalActivityByDay = window.ActivityHistory?.supplementalActivityByDay || {};
   const GITHUB_USERNAME = 'mbricia';
   const GITHUB_REPOSITORIES_API = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=updated&direction=desc`;
   const activityEndDate = new Date();
@@ -202,7 +203,7 @@
   const renderActivity = (commits) => {
     if (!portfolioActivity || !activityMonths || !activitySummary || !activitySnapshot) return;
 
-    const calendar = buildActivityCalendar(commits, activityEndDate);
+    const calendar = buildActivityCalendar(commits, activityEndDate, supplementalActivityByDay);
     const cells = calendar.cells.map((day) => {
       const cell = document.createElement('span');
       cell.className = `activity-cell level-${day.level}${day.isOutsideRange ? ' is-outside-range' : ''}`;
@@ -224,9 +225,9 @@
     activitySummary.textContent = formatActivitySummary(calendar.totalCommits);
     portfolioActivity.setAttribute(
       'aria-label',
-      `Public GitHub repository activity from ${formatActivityDate(new Date(`${calendar.rangeStartDate}T00:00:00Z`))} to ${formatActivityDate(activityEndDate)}: ${calendar.totalCommits} commits loaded.`
+      `GitHub contribution activity from ${formatActivityDate(new Date(`${calendar.rangeStartDate}T00:00:00Z`))} to ${formatActivityDate(activityEndDate)}: ${calendar.totalCommits} contributions loaded.`
     );
-    activitySnapshot.textContent = `Public GitHub repositories · live 12-month activity through ${formatActivityDate(activityEndDate)}`;
+    activitySnapshot.textContent = `GitHub contribution activity · live public updates + private history through ${formatActivityDate(activityEndDate)}`;
   };
 
   const fetchActivityRepositories = async () => {
@@ -275,11 +276,14 @@
 
       const failedRepositoryCount = repositoryResults.filter((result) => result.status === 'rejected').length;
       if (failedRepositoryCount > 0) {
-        activitySnapshot.textContent = `Public GitHub repositories · live 12-month activity · ${failedRepositoryCount} repo${failedRepositoryCount === 1 ? '' : 's'} temporarily unavailable`;
+        activitySnapshot.textContent = `GitHub contribution activity · private history + partial live public updates · ${failedRepositoryCount} public repo${failedRepositoryCount === 1 ? '' : 's'} temporarily unavailable`;
       }
     } catch (_) {
-      activitySnapshot.textContent = 'Public GitHub repositories · live activity temporarily unavailable';
-      portfolioActivity.setAttribute('aria-label', 'Public GitHub build activity is temporarily unavailable');
+      activitySnapshot.textContent = 'GitHub contribution activity · historical activity loaded · live public updates temporarily unavailable';
+      portfolioActivity.setAttribute(
+        'aria-label',
+        'GitHub contribution activity: historical activity loaded; live public updates are temporarily unavailable.'
+      );
     }
   };
 
