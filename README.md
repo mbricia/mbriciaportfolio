@@ -10,7 +10,7 @@ Personal developer and IT portfolio showcasing selected software projects, AI an
 - C# and Java
 - MySQL
 - Git / GitHub
-- n8n, Webhooks, OpenAI, Google Sheets, Gmail
+- n8n, Make, Docker, Webhooks, OpenAI, Google Sheets, Gmail
 - Windows and basic IT support / networking
 
 ## Featured Work
@@ -46,9 +46,9 @@ Responsive static web products built with HTML, CSS, and JavaScript.
 ## Portfolio Features
 
 - Responsive desktop and mobile layout
-- Dark and light themes with saved preference
-- Project and application case studies
-- Command palette navigation
+- Consistent project overview cards grouped by work type
+- Accessible glassmorphism case-study dialog with repository and live-demo links
+- Real n8n certificate assets and three Make Academy badge records
 - Downloadable CV
 - GitHub, LinkedIn, and email contact links
 

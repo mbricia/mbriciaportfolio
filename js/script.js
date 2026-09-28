@@ -33,6 +33,152 @@
 
   cvLinks.forEach((link) => link.addEventListener('click', downloadCv));
 
+  const projectDetails = {
+    recruitment: {
+      category: 'AI Automation · 2026',
+      title: 'AI Recruitment & Candidate Pipeline',
+      status: 'Repository available',
+      summary: 'A connected recruitment workflow that turns candidate emails into structured records, supports recruiter decisions, and keeps follow-ups visible.',
+      points: [
+        'Connects four workflows for candidate intake, recruiter actions, reminders, and technical error handling.',
+        'Prevents duplicate records and keeps key hiring decisions under human control.',
+        'Uses AI for interpretation and message drafting, with structured records for review and follow-up.',
+      ],
+      stack: ['n8n', 'OpenAI', 'Gmail', 'Google Sheets'],
+      links: [
+        { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-ai-recruitment-candidate-pipeline' },
+      ],
+    },
+    'lead-qualification': {
+      category: 'AI Automation · 2026',
+      title: 'AI Client Inquiry & Lead Qualification',
+      status: 'Repository available',
+      summary: 'An inquiry pipeline that validates submissions, extracts useful information, scores leads with clear business rules, and routes the next action.',
+      points: [
+        'Validates and deduplicates incoming submissions before processing.',
+        'Uses AI for extraction and drafting while keeping business scoring rule-based.',
+        'Routes Hot, Warm, and Cold leads into appropriate records and follow-up paths.',
+      ],
+      stack: ['n8n', 'OpenAI', 'APIs', 'JavaScript'],
+      links: [
+        { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-ai-lead-qualification-automation' },
+      ],
+    },
+    inventory: {
+      category: 'Business Automation · 2026',
+      title: 'Inventory & Low-Stock Automation',
+      status: 'Repository available',
+      summary: 'A scheduled inventory workflow that checks thresholds, consolidates low-stock items, and produces clear alerts and status summaries.',
+      points: [
+        'Checks current stock against reorder thresholds on a schedule.',
+        'Combines low-stock items into one readable reorder report.',
+        'Handles the zero-low-stock case so it does not send a misleading alert.',
+      ],
+      stack: ['n8n', 'Google Sheets', 'Gmail', 'JavaScript'],
+      links: [
+        { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-inventory-low-stock-automation' },
+      ],
+    },
+    'kopi-brews': {
+      category: 'Mobile App',
+      title: 'Kopi Brews Operations App',
+      status: 'Private prototype',
+      summary: 'A multi-user café operations prototype that brings ordering, inventory, sales insights, loyalty, rewards, and customer history into one application.',
+      points: [
+        'Supports administrator, cashier, and customer workflows in one application.',
+        'Uses Firestore for operational records and real-time updates.',
+        'Built as a private prototype and not publicly released.',
+      ],
+      stack: ['React Native', 'Firebase', 'Firestore'],
+      links: [],
+    },
+    eleventh28: {
+      category: 'Software Engineering · 2018–2019',
+      title: 'Eleventh28 POS + Kitchen Display',
+      status: 'Team capstone',
+      summary: 'A restaurant desktop system built as a team capstone, covering cashier transactions, kitchen status, ingredient inventory, reporting, and database utilities.',
+      points: [
+        'Provides role-based access for Administrator, Cashier, and Cook users.',
+        'Moves POS orders into a kitchen queue with status tracking.',
+        'Links products to ingredients for costing and automatic stock deduction.',
+      ],
+      stack: ['C#', 'WinForms', 'MySQL', 'Crystal Reports'],
+      links: [],
+    },
+    avenlo: {
+      category: 'Web Products',
+      title: 'AVENLO Web Products',
+      status: 'Live demos',
+      summary: 'A family of three responsive static websites built, documented, and deployed as independent product concepts.',
+      points: [
+        'AVENLO SaaS presents a focused software product landing experience.',
+        'AVENLO Café explores a hospitality-focused brand and customer journey.',
+        'AVENLO Portfolio provides a separate personal portfolio presentation.',
+      ],
+      stack: ['HTML', 'CSS', 'JavaScript'],
+      links: [
+        { label: 'Open AVENLO SaaS ↗', url: 'https://avenlo-saas.netlify.app/' },
+        { label: 'Open AVENLO Café ↗', url: 'https://avenlo-cafe.netlify.app/' },
+        { label: 'Open AVENLO Portfolio ↗', url: 'https://avenlo-portfolio.netlify.app/' },
+      ],
+    },
+  };
+
+  const projectDialog = document.getElementById('projectDialog');
+  const projectDialogClose = document.getElementById('projectDialogClose');
+  let lastProjectTrigger = null;
+
+  const setProjectDialogContent = (project) => {
+    document.getElementById('projectDialogCategory').textContent = project.category;
+    document.getElementById('projectDialogTitle').textContent = project.title;
+    document.getElementById('projectDialogStatus').textContent = project.status;
+    document.getElementById('projectDialogSummary').textContent = project.summary;
+
+    const points = document.getElementById('projectDialogPoints');
+    points.replaceChildren(...project.points.map((point) => {
+      const item = document.createElement('li');
+      item.textContent = point;
+      return item;
+    }));
+
+    const stack = document.getElementById('projectDialogStack');
+    stack.replaceChildren(...project.stack.map((technology) => {
+      const item = document.createElement('span');
+      item.textContent = technology;
+      return item;
+    }));
+
+    const links = document.getElementById('projectDialogLinks');
+    links.replaceChildren(...project.links.map(({ label, url }) => {
+      const link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noreferrer';
+      link.textContent = label;
+      return link;
+    }));
+  };
+
+  document.querySelectorAll('.project-open').forEach((button) => {
+    button.addEventListener('click', () => {
+      const project = projectDetails[button.dataset.project];
+      if (!projectDialog || !project) return;
+      lastProjectTrigger = button;
+      setProjectDialogContent(project);
+      projectDialog.showModal();
+      document.body.classList.add('dialog-open');
+    });
+  });
+
+  projectDialogClose?.addEventListener('click', () => projectDialog.close());
+  projectDialog?.addEventListener('click', (event) => {
+    if (event.target === projectDialog) projectDialog.close();
+  });
+  projectDialog?.addEventListener('close', () => {
+    document.body.classList.remove('dialog-open');
+    lastProjectTrigger?.focus();
+  });
+
   requestAnimationFrame(() => {
     document.documentElement.classList.add('page-loaded');
   });

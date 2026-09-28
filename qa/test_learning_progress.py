@@ -22,7 +22,8 @@ def run():
     require("n8n Foundations Professional Certificate" in TEXT, "n8n credential summary is missing")
     require("4 course certificates completed" in TEXT, "Completed course count is missing")
     require("AI Automation and API Integration" in TEXT, "Broader automation positioning is missing")
-    require("n8n is one of the tools I use, not the whole skill set." in TEXT, "n8n should be framed as a tool, not the whole role")
+    require("3 Make Academy badges completed" in TEXT, "Completed Make Academy badge count is missing")
+    require("completed Make Foundation and Intermediate coursework" in TEXT, "Current focus should reflect completed Make coursework")
 
     for certificate in CERTIFICATES:
         require(certificate.exists(), f"Missing certificate asset: {certificate.name}")

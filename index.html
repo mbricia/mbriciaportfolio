@@ -273,7 +273,7 @@
 
           <article class="bento-stat bento-stat-accent"><span>Selected work</span><strong>6</strong><p>Software, automation, and web projects.</p></article>
           <article class="bento-stat"><span>Automation proof</span><strong>3</strong><p>Tested business workflows.</p></article>
-          <article class="bento-stat"><span>Credentials</span><strong>6</strong><p>4 n8n certificates + 2 Make Academy badges.</p></article>
+          <article class="bento-stat"><span>Credentials</span><strong>7</strong><p>4 n8n certificates + 3 Make Academy badges.</p></article>
           <article class="bento-stat bento-stat-open"><span>Status</span><strong>Open</strong><p>Available for remote opportunities.</p></article>
         </div>
       </div>
@@ -287,8 +287,13 @@
           <p>Software, automation, and web projects I have built, tested, or shipped.</p>
         </div>
 
-        <div class="projects-bento">
-          <article class="project-card project-featured project-feature-large">
+        <div class="project-group">
+          <div class="project-group-heading">
+            <span>01</span>
+            <div><h3>Automation Systems</h3><p>Business workflows built with validation, human review, and practical failure handling.</p></div>
+          </div>
+          <div class="projects-bento">
+          <article class="project-card">
             <div class="project-meta"><span>AI Automation</span><span>2026</span></div>
             <div class="project-visual workflow-visual" aria-hidden="true">
               <div class="flow-node">Inbox</div><span>→</span><div class="flow-node">AI Parse</div><span>→</span><div class="flow-node">Review</div><span>→</span><div class="flow-node">Follow-up</div>
@@ -296,17 +301,10 @@
             <h3>AI Recruitment &amp; Candidate Pipeline</h3>
             <p>Processes candidate emails, prevents duplicate records, supports recruiter actions, drafts messages, and schedules follow-ups.</p>
             <div class="project-tags"><span>n8n</span><span>OpenAI</span><span>Gmail</span><span>Google Sheets</span></div>
-            <details>
-              <summary>Project details</summary>
-              <ul>
-                <li>Four connected workflows for candidate intake, recruiter actions, reminders, and technical errors.</li>
-                <li>Keeps important decisions human-controlled while AI assists with interpretation and drafting.</li>
-                <li>Includes duplicate prevention, audit-friendly records, and centralized error handling.</li>
-              </ul>
-            </details>
+            <button class="project-open" type="button" data-project="recruitment">View case study <span aria-hidden="true">↗</span></button>
           </article>
 
-          <article class="project-card project-featured project-feature-large">
+          <article class="project-card">
             <div class="project-meta"><span>AI Automation</span><span>2026</span></div>
             <figure class="project-visual project-media">
               <img src="assets/projects/ai-lead-workflow-architecture.svg" alt="Workflow architecture preview for the AI Client Inquiry and Lead Qualification automation" />
@@ -314,17 +312,10 @@
             <h3>AI Client Inquiry &amp; Lead Qualification</h3>
             <p>Turns incoming inquiries into structured leads, applies clear scoring rules, stores records, and routes follow-up actions.</p>
             <div class="project-tags"><span>n8n</span><span>APIs</span><span>JavaScript</span><span>OpenAI</span></div>
-            <details>
-              <summary>Project details</summary>
-              <ul>
-                <li>Validates and deduplicates incoming submissions before processing.</li>
-                <li>Uses AI for extraction and drafting while business scoring remains rule-based.</li>
-                <li>Routes Hot, Warm, and Cold leads to different actions and follow-ups.</li>
-              </ul>
-            </details>
+            <button class="project-open" type="button" data-project="lead-qualification">View case study <span aria-hidden="true">↗</span></button>
           </article>
 
-          <article class="project-card project-feature-medium">
+          <article class="project-card">
             <div class="project-meta"><span>Business Automation</span><span>2026</span></div>
             <div class="project-visual inventory-visual" aria-hidden="true">
               <div><span>Stock</span><strong>Check</strong></div>
@@ -336,17 +327,18 @@
             <h3>Inventory &amp; Low-Stock Automation</h3>
             <p>Monitors stock levels, creates one reorder list, calculates inventory health, and sends scheduled alerts and summaries.</p>
             <div class="project-tags"><span>n8n</span><span>Google Sheets</span><span>Gmail</span><span>JavaScript</span></div>
-            <details>
-              <summary>Project details</summary>
-              <ul>
-                <li>Checks stock against reorder thresholds on a schedule.</li>
-                <li>Consolidates low-stock items into a single readable report.</li>
-                <li>Handles the zero-low-stock case without sending misleading alerts.</li>
-              </ul>
-            </details>
+            <button class="project-open" type="button" data-project="inventory">View case study <span aria-hidden="true">↗</span></button>
           </article>
+          </div>
+        </div>
 
-          <article class="project-card project-feature-medium">
+        <div class="project-group">
+          <div class="project-group-heading">
+            <span>02</span>
+            <div><h3>Software &amp; Web Products</h3><p>Application and website work across mobile, desktop, databases, and responsive front-end delivery.</p></div>
+          </div>
+          <div class="projects-bento">
+          <article class="project-card">
             <div class="project-meta"><span>Mobile App</span><span>Private prototype</span></div>
             <figure class="project-visual project-media project-media-app">
               <img src="assets/projects/kopi-admin.png" alt="Kopi Brews operations app administrator dashboard preview" />
@@ -354,17 +346,10 @@
             <h3>Kopi Brews Operations App</h3>
             <p>Multi-user café operations prototype for orders, inventory, sales insights, loyalty, rewards, and customer history.</p>
             <div class="project-tags"><span>React Native</span><span>Firebase</span><span>Firestore</span></div>
-            <details>
-              <summary>Project details</summary>
-              <ul>
-                <li>Administrator, cashier, and customer workflows in one application.</li>
-                <li>Real-time Firestore data for operational records and updates.</li>
-                <li>Built as a private prototype and not publicly released.</li>
-              </ul>
-            </details>
+            <button class="project-open" type="button" data-project="kopi-brews">View case study <span aria-hidden="true">↗</span></button>
           </article>
 
-          <article class="project-card project-feature-compact">
+          <article class="project-card">
             <div class="project-meta"><span>Software Engineering</span><span>Team capstone · 2018–2019</span></div>
             <div class="project-visual system-visual" aria-hidden="true">
               <div><span>POS</span><small>Cashier</small></div>
@@ -376,17 +361,10 @@
             <h3>Eleventh28 POS + Kitchen Display</h3>
             <p>Restaurant desktop system covering cashier transactions, kitchen status, ingredient inventory, reporting, logs, and database utilities.</p>
             <div class="project-tags"><span>C#</span><span>WinForms</span><span>MySQL</span><span>Crystal Reports</span></div>
-            <details>
-              <summary>Project details</summary>
-              <ul>
-                <li>Role-based Administrator, Cashier, and Cook access.</li>
-                <li>POS orders flow into a kitchen queue with status tracking.</li>
-                <li>Product-to-ingredient links support costing and automatic stock deduction.</li>
-              </ul>
-            </details>
+            <button class="project-open" type="button" data-project="eleventh28">View case study <span aria-hidden="true">↗</span></button>
           </article>
 
-          <article class="project-card project-web project-feature-compact">
+          <article class="project-card">
             <div class="project-meta"><span>Web Products</span><span>Live</span></div>
             <figure class="project-image project-visual">
               <img src="assets/projects/avenlo-family.png" alt="Preview of AVENLO web products" />
@@ -394,15 +372,35 @@
             <h3>AVENLO Web Products</h3>
             <p>Three responsive static web products built, documented, and deployed as independent releases.</p>
             <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-            <div class="live-links">
-              <a href="https://avenlo-saas.netlify.app/" target="_blank" rel="noreferrer">SaaS ↗</a>
-              <a href="https://avenlo-cafe.netlify.app/" target="_blank" rel="noreferrer">Café ↗</a>
-              <a href="https://avenlo-portfolio.netlify.app/" target="_blank" rel="noreferrer">Portfolio ↗</a>
-            </div>
+            <button class="project-open" type="button" data-project="avenlo">View case study <span aria-hidden="true">↗</span></button>
           </article>
+          </div>
         </div>
       </div>
     </section>
+
+    <dialog class="project-dialog" id="projectDialog" aria-labelledby="projectDialogTitle">
+      <article class="project-dialog-panel">
+        <button class="project-dialog-close" id="projectDialogClose" type="button" aria-label="Close project case study">×</button>
+        <p class="eyebrow" id="projectDialogCategory"></p>
+        <div class="project-dialog-heading">
+          <h2 id="projectDialogTitle"></h2>
+          <span id="projectDialogStatus"></span>
+        </div>
+        <p class="project-dialog-summary" id="projectDialogSummary"></p>
+        <div class="project-dialog-grid">
+          <div>
+            <h3>What it does</h3>
+            <ul id="projectDialogPoints"></ul>
+          </div>
+          <aside>
+            <h3>Built with</h3>
+            <div class="project-tags" id="projectDialogStack"></div>
+            <div class="project-dialog-links" id="projectDialogLinks"></div>
+          </aside>
+        </div>
+      </article>
+    </dialog>
 
     <section class="section" id="about">
       <div class="container">
@@ -476,22 +474,20 @@
 
             <div class="credential-block">
               <strong>Make Academy Credentials</strong>
-              <p>Verified Make Academy badges for workflow automation and AI automation fundamentals.</p>
-              <div class="certificate-grid" aria-label="Make Academy badges">
-                <a class="certificate-card" href="https://www.credly.com/badges/5ecacfc0-7d45-4a83-aa17-06d2153d9b60/public_url" target="_blank" rel="noreferrer">
-                  <span class="certificate-thumb"><img src="https://images.credly.com/images/02e15286-d87a-45aa-9ba7-8d38307ca368/image.png" alt="Make Foundation badge" /></span>
-                  <span><strong>Make Foundation</strong><small>Verified Credly Badge · Sep 2026</small></span>
-                </a>
-                <a class="certificate-card" href="https://www.credly.com/badges/fb6ebc60-62e8-4767-b01a-6f0eee268fbb/public_url" target="_blank" rel="noreferrer">
-                  <span class="certificate-thumb"><img src="https://images.credly.com/images/484b609b-5bc3-4323-b342-d925e4aac7a0/blob" alt="AI Automation Explorer badge" /></span>
-                  <span><strong>AI Automation Explorer</strong><small>Automation to AI Agents: Foundation · Verified Credly Badge</small></span>
-                </a>
+              <p>3 Make Academy badges completed across workflow automation, AI automation, and intermediate scenario building.</p>
+              <a class="make-badge-proof" href="assets/certificates/make-academy-badges-2026.png" target="_blank" rel="noreferrer" aria-label="Open full Make Academy badge proof">
+                <img src="assets/certificates/make-academy-badges-2026.png" alt="Make Academy profile showing AI Automation Explorer, Make Foundation, and Make Intermediate badges" />
+              </a>
+              <div class="make-badge-list" aria-label="Make Academy badges">
+                <a class="make-badge-item" href="https://www.credly.com/badges/fb6ebc60-62e8-4767-b01a-6f0eee268fbb/public_url" target="_blank" rel="noreferrer"><span>AI Automation Explorer</span><small>Issued Sep 24, 2026 · Verify ↗</small></a>
+                <a class="make-badge-item" href="https://www.credly.com/badges/5ecacfc0-7d45-4a83-aa17-06d2153d9b60/public_url" target="_blank" rel="noreferrer"><span>Make Foundation</span><small>Issued Sep 25, 2026 · Verify ↗</small></a>
+                <div class="make-badge-item"><span>Make Intermediate</span><small>Issued Sep 28, 2026 · Completed</small></div>
               </div>
             </div>
 
             <div class="credential-note">
               <span>Current focus</span>
-              <p>AI Automation and API Integration — including n8n Cloud, self-hosted n8n with Docker, Make scenarios, routing and mapping, workflow migration, APIs, testing, and recovery basics.</p>
+              <p>AI Automation and API Integration — including n8n Cloud, self-hosted n8n with Docker, completed Make Foundation and Intermediate coursework, routing and mapping, iterators, HTTP/API modules, variables, testing, and recovery basics.</p>
             </div>
           </div>
         </div>

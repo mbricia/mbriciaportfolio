@@ -36,7 +36,7 @@ def run():
 
     require('Software Developer · AI Automation · IT Support' in TEXT, "Primary positioning is missing")
     require('6+ years of hands-on experience' in TEXT, "Home introduction should state the experience span accurately")
-    require(HTML.count('class="skill-pill"') <= 6, "Home should keep skill pills intentionally limited")
+    require(HTML.count('class="skill-pill"') <= 8, "Home should keep skill pills intentionally limited")
 
     for title in [
         'AI Recruitment & Candidate Pipeline',
@@ -55,7 +55,7 @@ def run():
     require('AI Automation' in TEXT, "n8n should sit under broader AI Automation positioning")
     require('class="bento-proof"' in HTML, "Home should use a bento proof layout")
     require('class="bento-activity"' in HTML, "Bento proof should include a GitHub activity card")
-    require(HTML.count('class="bento-stat"') == 4, "Bento proof should contain four compact proof points")
+    require(HTML.count('class="bento-stat') == 4, "Bento proof should contain four compact proof points")
     require('Recent portfolio repo activity' in TEXT, "GitHub-style activity section is missing")
     require(HTML.count('class="activity-cell') >= 28, "Activity heatmap should contain enough cells to read visually")
     require('Portfolio repository · activity snapshot through Sep 22, 2026' in TEXT, "Activity snapshot must explain its repository scope and capture date")
@@ -98,9 +98,10 @@ def run():
     require('is-visible' in JS, "Reveal visibility state is missing")
     require('is-active' in JS, "Active navigation state is missing")
     require('class="projects-bento"' in HTML, "Projects should use an editorial bento layout")
-    require(HTML.count('project-feature-large') == 2, "Two strongest projects should be large featured cards")
-    require(HTML.count('project-feature-medium') == 2, "Two projects should be medium featured cards")
-    require(HTML.count('project-feature-compact') == 2, "Two projects should be compact supporting cards")
+    require(HTML.count('class="project-card"') == 6, "Projects should show six consistent overview cards")
+    require(HTML.count('class="project-open"') == 6, "Every overview card should open a case study")
+    require('id="projectDialog"' in HTML, "Projects should share one accessible case study dialog")
+    require('<details>' not in HTML, "Long project details should not clutter overview cards")
     require(HTML.count('class="project-visual') >= 5, "Most project cards should have a visual layer")
     require('assets/projects/ai-lead-workflow-architecture.svg' in HTML, "Lead automation should use its existing workflow visual")
     require('assets/projects/kopi-admin.png' in HTML, "Kopi project should use an actual app screenshot")

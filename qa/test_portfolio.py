@@ -41,7 +41,7 @@ def test_home_is_simple_and_clear():
     ]:
         require(text in TEXT, f"Home is missing: {text}")
 
-    require(HTML.count('class="skill-pill"') <= 6, "Home should not overload the skill list")
+    require(HTML.count('class="skill-pill"') <= 8, "Home should keep the skill list focused")
     require('class="portrait-frame"' in HTML, "Portrait frame is missing")
     require('src="assets/profile/mark-jhollan.png"' in HTML, "Portrait asset is missing")
     require('alt="Professional portrait of Mark Jhollan Bricia"' in HTML, "Portrait alt text is missing")
@@ -61,14 +61,14 @@ def test_project_proof():
 
     require("Private prototype" in TEXT, "Kopi Brews status must remain explicit")
     require("Team capstone" in TEXT, "Eleventh28 must remain identified as a team capstone")
-    require("not publicly released" in TEXT, "Kopi Brews public-release status must remain explicit")
+    require("not publicly released" in JS, "Kopi Brews public-release status must remain explicit")
 
     for url in [
         "https://avenlo-saas.netlify.app/",
         "https://avenlo-cafe.netlify.app/",
         "https://avenlo-portfolio.netlify.app/",
     ]:
-        require(url in HTML, f"Missing AVENLO live demo: {url}")
+        require(url in JS, f"Missing AVENLO live demo: {url}")
 
 
 def test_about_and_credentials():
@@ -80,7 +80,7 @@ def test_about_and_credentials():
         "Major in Software Engineering",
         "n8n Foundations Professional Certificate",
         "4 course certificates completed",
-        "n8n is one of the tools I use, not the whole skill set.",
+        "3 Make Academy badges completed",
     ]:
         require(text in TEXT, f"About section is missing: {text}")
 
