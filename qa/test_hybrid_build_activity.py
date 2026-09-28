@@ -11,7 +11,9 @@ JS = (ROOT / "js" / "script.js").read_text(encoding="utf-8")
 
 def run():
     assert 'class="build-activity-layout"' in HTML
-    assert "Recent Public Build Activity" in TEXT
+    assert 'id="activitySummary"' in HTML
+    assert 'id="activityMonths"' in HTML
+    assert 'class="activity-weekdays"' in HTML
     assert "Code, documentation, and automation repository updates." in TEXT
     assert 'class="automation-milestones"' in HTML
     assert "Automation Milestones" in TEXT
@@ -19,7 +21,8 @@ def run():
     assert 'class="proof-stats"' in HTML
     assert HTML.count('class="bento-stat') == 4
 
-    assert "ACTIVITY_DAY_COUNT = 365" in JS
+    assert "buildActivityCalendar" in JS
+    assert "formatActivitySummary" in JS
     assert "GITHUB_ACTIVITY_REPOS" in JS
     for repository in [
         "mbriciaportfolio",
@@ -30,6 +33,7 @@ def run():
         assert repository in JS
     assert "api.github.com/repos/mbricia" in JS
     assert "grid-template-rows:repeat(7,1fr)" in CSS.replace(" ", "")
+    assert "grid-template-columns:28pxminmax(610px,1fr)" in CSS.replace(" ", "")
     assert ".automation-milestones{" in CSS
     print("PASS hybrid build activity and automation milestone checks")
 

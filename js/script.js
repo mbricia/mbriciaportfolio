@@ -180,8 +180,10 @@
   });
 
   const portfolioActivity = document.getElementById('portfolioActivity');
+  const activityMonths = document.getElementById('activityMonths');
+  const activitySummary = document.getElementById('activitySummary');
   const activitySnapshot = document.getElementById('activitySnapshot');
-  const ACTIVITY_DAY_COUNT = 365;
+  const { buildActivityCalendar, formatActivitySummary } = window.ActivityCalendar;
   const GITHUB_ACTIVITY_REPOS = [
     'mbriciaportfolio',
     'n8n-ai-recruitment-candidate-pipeline',
@@ -191,54 +193,42 @@
   const activityEndDate = new Date();
   activityEndDate.setUTCHours(23, 59, 59, 999);
   const activityStartDate = new Date(activityEndDate);
-  activityStartDate.setUTCDate(activityEndDate.getUTCDate() - (ACTIVITY_DAY_COUNT - 1));
+  activityStartDate.setUTCDate(activityEndDate.getUTCDate() - 364);
   activityStartDate.setUTCHours(0, 0, 0, 0);
   const GITHUB_ACTIVITY_API = 'https://api.github.com/repos/mbricia';
 
-  const activityDateKey = (date) => date.toISOString().slice(0, 10);
   const formatActivityDate = (date) => new Intl.DateTimeFormat('en-US', {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
     timeZone: 'UTC',
   }).format(date);
-  const getActivityLevel = (count) => {
-    if (count >= 8) return 4;
-    if (count >= 4) return 3;
-    if (count >= 2) return 2;
-    if (count >= 1) return 1;
-    return 0;
-  };
-
   const renderActivity = (commits) => {
-    if (!portfolioActivity || !activitySnapshot) return;
+    if (!portfolioActivity || !activityMonths || !activitySummary || !activitySnapshot) return;
 
-    const commitsByDay = commits.reduce((counts, commit) => {
-      const timestamp = commit?.commit?.author?.date || commit?.commit?.committer?.date;
-      if (!timestamp) return counts;
-      const key = activityDateKey(new Date(timestamp));
-      counts.set(key, (counts.get(key) || 0) + 1);
-      return counts;
-    }, new Map());
-
-    let totalCommits = 0;
-    const cells = Array.from({ length: ACTIVITY_DAY_COUNT }, (_, index) => {
-      const date = new Date(activityStartDate);
-      date.setUTCDate(activityStartDate.getUTCDate() + index);
-      const count = commitsByDay.get(activityDateKey(date)) || 0;
-      totalCommits += count;
-
+    const calendar = buildActivityCalendar(commits, activityEndDate);
+    const cells = calendar.cells.map((day) => {
       const cell = document.createElement('span');
-      cell.className = `activity-cell level-${getActivityLevel(count)}`;
-      cell.title = `${formatActivityDate(date)} · ${count} ${count === 1 ? 'commit' : 'commits'}`;
-      cell.style.setProperty('--i', Math.floor(index / 7));
+      cell.className = `activity-cell level-${day.level}${day.isOutsideRange ? ' is-outside-range' : ''}`;
+      cell.title = `${formatActivityDate(new Date(`${day.date}T00:00:00Z`))} · ${day.count} ${day.count === 1 ? 'commit' : 'commits'}`;
+      cell.style.setProperty('--i', day.weekIndex);
       return cell;
     });
 
+    const monthLabels = calendar.months.map((month) => {
+      const label = document.createElement('span');
+      label.className = 'activity-month';
+      label.textContent = month.label;
+      label.style.gridColumnStart = month.weekIndex + 1;
+      return label;
+    });
+
     portfolioActivity.replaceChildren(...cells);
+    activityMonths.replaceChildren(...monthLabels);
+    activitySummary.textContent = formatActivitySummary(calendar.totalCommits);
     portfolioActivity.setAttribute(
       'aria-label',
-      `Selected public repository activity from ${formatActivityDate(activityStartDate)} to ${formatActivityDate(activityEndDate)}: ${totalCommits} commits loaded.`
+      `Selected public repository activity from ${formatActivityDate(new Date(`${calendar.rangeStartDate}T00:00:00Z`))} to ${formatActivityDate(activityEndDate)}: ${calendar.totalCommits} commits loaded.`
     );
     activitySnapshot.textContent = `Selected public repositories · live 12-month activity through ${formatActivityDate(activityEndDate)}`;
   };

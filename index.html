@@ -248,14 +248,18 @@
               <div class="activity-copy">
                 <div>
                   <p class="eyebrow">Development Activity</p>
-                  <h2>Recent Public Build Activity</h2>
+                  <h2 id="activitySummary">Public build activity</h2>
                   <p class="activity-description">Code, documentation, and automation repository updates.</p>
                   <p id="activitySnapshot">Public GitHub activity · loading recent updates…</p>
                 </div>
                 <a href="https://github.com/mbricia" target="_blank" rel="noreferrer">Full GitHub profile ↗</a>
               </div>
               <div class="activity-visual">
-                <div class="activity-heatmap" id="portfolioActivity" role="img" aria-label="Loading recent public GitHub activity"></div>
+                <div class="activity-calendar">
+                  <div class="activity-months" id="activityMonths" aria-hidden="true"></div>
+                  <div class="activity-weekdays" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div>
+                  <div class="activity-heatmap" id="portfolioActivity" role="img" aria-label="Loading recent public GitHub activity"></div>
+                </div>
                 <div class="activity-legend"><span>Less</span><i class="level-0"></i><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i><i class="level-4"></i><span>More</span></div>
               </div>
             </article>
@@ -521,6 +525,7 @@
     </div>
   </footer>
 
+  <script src="js/activity-calendar.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
