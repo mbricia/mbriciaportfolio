@@ -181,13 +181,19 @@
 
   const portfolioActivity = document.getElementById('portfolioActivity');
   const activitySnapshot = document.getElementById('activitySnapshot');
-  const ACTIVITY_DAY_COUNT = 28;
+  const ACTIVITY_DAY_COUNT = 365;
+  const GITHUB_ACTIVITY_REPOS = [
+    'mbriciaportfolio',
+    'n8n-ai-recruitment-candidate-pipeline',
+    'n8n-ai-lead-qualification-automation',
+    'n8n-inventory-low-stock-automation',
+  ];
   const activityEndDate = new Date();
   activityEndDate.setUTCHours(23, 59, 59, 999);
   const activityStartDate = new Date(activityEndDate);
   activityStartDate.setUTCDate(activityEndDate.getUTCDate() - (ACTIVITY_DAY_COUNT - 1));
   activityStartDate.setUTCHours(0, 0, 0, 0);
-  const GITHUB_ACTIVITY_API = `https://api.github.com/repos/mbricia/mbriciaportfolio/commits?per_page=100&since=${encodeURIComponent(activityStartDate.toISOString())}`;
+  const GITHUB_ACTIVITY_API = 'https://api.github.com/repos/mbricia';
 
   const activityDateKey = (date) => date.toISOString().slice(0, 10);
   const formatActivityDate = (date) => new Intl.DateTimeFormat('en-US', {
@@ -225,31 +231,47 @@
       const cell = document.createElement('span');
       cell.className = `activity-cell level-${getActivityLevel(count)}`;
       cell.title = `${formatActivityDate(date)} · ${count} ${count === 1 ? 'commit' : 'commits'}`;
-      cell.style.setProperty('--i', index);
+      cell.style.setProperty('--i', Math.floor(index / 7));
       return cell;
     });
 
     portfolioActivity.replaceChildren(...cells);
     portfolioActivity.setAttribute(
       'aria-label',
-      `Portfolio repository activity from ${formatActivityDate(activityStartDate)} to ${formatActivityDate(activityEndDate)}: ${totalCommits} commits.`
+      `Selected public repository activity from ${formatActivityDate(activityStartDate)} to ${formatActivityDate(activityEndDate)}: ${totalCommits} commits loaded.`
     );
-    activitySnapshot.textContent = `Portfolio repository · live 28-day activity through ${formatActivityDate(activityEndDate)}`;
+    activitySnapshot.textContent = `Selected public repositories · live 12-month activity through ${formatActivityDate(activityEndDate)}`;
+  };
+
+  const fetchRepositoryCommits = async (repository) => {
+    const commits = [];
+
+    for (let page = 1; page <= 3; page += 1) {
+      const url = `${GITHUB_ACTIVITY_API}/${repository}/commits?per_page=100&page=${page}&since=${encodeURIComponent(activityStartDate.toISOString())}`;
+      const response = await fetch(url, {
+        headers: { Accept: 'application/vnd.github+json' },
+      });
+      if (!response.ok) throw new Error(`GitHub activity unavailable for ${repository}`);
+
+      const pageCommits = await response.json();
+      commits.push(...pageCommits);
+      if (pageCommits.length < 100) break;
+    }
+
+    return commits;
   };
 
   const loadPortfolioActivity = async () => {
     if (!portfolioActivity || !activitySnapshot) return;
 
+    renderActivity([]);
+
     try {
-      const response = await fetch(GITHUB_ACTIVITY_API, {
-        headers: { Accept: 'application/vnd.github+json' },
-        cache: 'no-store',
-      });
-      if (!response.ok) throw new Error('GitHub activity unavailable');
-      renderActivity(await response.json());
+      const repositories = await Promise.all(GITHUB_ACTIVITY_REPOS.map(fetchRepositoryCommits));
+      renderActivity(repositories.flat());
     } catch (_) {
-      activitySnapshot.textContent = 'Portfolio repository · live activity temporarily unavailable';
-      portfolioActivity.setAttribute('aria-label', 'Portfolio repository activity is temporarily unavailable');
+      activitySnapshot.textContent = 'Selected public repositories · live activity temporarily unavailable';
+      portfolioActivity.setAttribute('aria-label', 'Public GitHub build activity is temporarily unavailable');
     }
   };
 
@@ -409,7 +431,7 @@
   initParticleBackground();
   const revealTargets = [
     ...document.querySelectorAll(
-      '.bento-proof > *, .project-card, .section-heading, .about-card, .contact-card'
+      '.bento-activity, .automation-milestones, .proof-stats, .project-card, .section-heading, .about-card, .contact-card'
     ),
   ];
 
@@ -419,7 +441,7 @@
   });
 
   document.querySelectorAll('.activity-cell').forEach((cell, index) => {
-    cell.style.setProperty('--i', index);
+    cell.style.setProperty('--i', Math.floor(index / 7));
   });
 
   if (reduceMotion || !('IntersectionObserver' in window)) {

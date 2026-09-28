@@ -56,7 +56,7 @@ def run():
     require('class="bento-proof"' in HTML, "Home should use a bento proof layout")
     require('class="bento-activity"' in HTML, "Bento proof should include a GitHub activity card")
     require(HTML.count('class="bento-stat') == 4, "Bento proof should contain four compact proof points")
-    require('Recent portfolio repo activity' in TEXT, "GitHub-style activity section is missing")
+    require('Recent Public Build Activity' in TEXT, "GitHub-style activity section is missing")
     require('id="portfolioActivity"' in HTML, "Activity heatmap should provide a live render target")
     require('GITHUB_ACTIVITY_API' in JS, "Portfolio activity should refresh from the GitHub commits API")
     require('class="tech-carousel"' in HTML, "Home should include a tech stack carousel")

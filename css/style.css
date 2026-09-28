@@ -351,13 +351,20 @@ h3{
 }
 .bento-proof{
   display:grid;
-  grid-template-columns:1.35fr .65fr .65fr;
-  grid-template-areas:
-    "activity stat1 stat2"
-    "activity stat3 stat4";
+  gap:14px;
+}
+.build-activity-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(280px,.75fr);
+  gap:14px;
+}
+.proof-stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:14px;
 }
 .bento-activity,
+.automation-milestones,
 .bento-stat{
   border:1px solid var(--glass-border);
   border-radius:20px;
@@ -367,8 +374,8 @@ h3{
   backdrop-filter:blur(18px) saturate(120%);
 }
 .bento-activity{
-  grid-area:activity;
-  min-height:286px;
+  min-width:0;
+  min-height:340px;
   padding:26px;
   display:flex;
   flex-direction:column;
@@ -385,10 +392,15 @@ h3{
 }
 .activity-copy .eyebrow{margin-bottom:9px}
 .activity-copy h2{
-  margin-bottom:8px;
+  margin-bottom:7px;
   font-size:clamp(1.65rem,3vw,2.45rem);
 }
-.activity-copy p:last-child{
+.activity-description{
+  margin:0 0 5px;
+  color:var(--muted);
+  font-size:.82rem;
+}
+#activitySnapshot{
   margin:0;
   color:var(--soft);
   font-size:.78rem;
@@ -399,21 +411,25 @@ h3{
   font-size:.76rem;
   font-weight:700;
 }
-.activity-visual{min-width:0;margin-top:24px}
+.activity-visual{min-width:0;margin-top:26px;overflow-x:auto}
 .activity-heatmap{
   display:grid;
-  grid-template-columns:repeat(14,1fr);
-  gap:6px;
+  grid-template-rows:repeat(7,1fr);
+  grid-template-columns:repeat(53,minmax(0,1fr));
+  grid-auto-flow:column;
+  gap:3px;
   width:100%;
+  min-width:610px;
 }
 .activity-cell{
   display:block;
   aspect-ratio:1;
   min-width:0;
   border:1px solid #202831;
-  border-radius:4px;
+  border-radius:3px;
   background:#151a20;
 }
+.activity-cell.is-future{opacity:.3}
 .activity-cell.level-1,.activity-legend .level-1{background:#17392f;border-color:#245343}
 .activity-cell.level-2,.activity-legend .level-2{background:#1e5a49;border-color:#2d715d}
 .activity-cell.level-3,.activity-legend .level-3{background:#2a8069;border-color:#3b947d}
@@ -434,6 +450,49 @@ h3{
   border-radius:3px;
   background:#151a20;
 }
+.automation-milestones{
+  min-width:0;
+  padding:26px;
+  background:
+    radial-gradient(circle at 86% 8%,rgba(124,224,202,.10),transparent 30%),
+    var(--glass);
+}
+.automation-milestones .eyebrow{margin-bottom:9px}
+.automation-milestones h2{
+  margin-bottom:10px;
+  font-size:clamp(1.55rem,2.6vw,2.15rem);
+}
+.automation-milestones>p:not(.eyebrow){
+  margin:0;
+  color:var(--muted);
+  font-size:.8rem;
+}
+.milestone-list{
+  display:grid;
+  gap:0;
+  margin-top:18px;
+  border-top:1px solid var(--line);
+}
+.milestone-item{
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr);
+  gap:11px;
+  align-items:start;
+  padding:10px 0;
+  border-bottom:1px solid var(--line);
+}
+.milestone-item time{
+  color:var(--accent);
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.milestone-item strong{
+  color:#d7dde2;
+  font-size:.76rem;
+  line-height:1.35;
+}
 .bento-stat{
   min-height:136px;
   padding:20px;
@@ -443,10 +502,6 @@ h3{
   overflow:hidden;
   position:relative;
 }
-.bento-stat:nth-of-type(2){grid-area:stat1}
-.bento-stat:nth-of-type(3){grid-area:stat2}
-.bento-stat:nth-of-type(4){grid-area:stat3}
-.bento-stat:nth-of-type(5){grid-area:stat4}
 .bento-stat span{
   color:var(--soft);
   font-size:.68rem;
@@ -1208,13 +1263,8 @@ a.make-badge-item:hover{border-color:#3f665d}
   .portrait-frame img{min-height:380px}
   .projects-bento{grid-template-columns:1fr 1fr}
   .about-grid{grid-template-columns:1fr}
-  .bento-proof{
-    grid-template-columns:1fr 1fr;
-    grid-template-areas:
-      "activity activity"
-      "stat1 stat2"
-      "stat3 stat4";
-  }
+  .build-activity-layout{grid-template-columns:1fr}
+  .proof-stats{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:680px){
@@ -1244,13 +1294,6 @@ a.make-badge-item:hover{border-color:#3f665d}
   .projects-bento{grid-template-columns:1fr}
   .project-card{min-height:0}
   .project-group+.project-group{margin-top:42px}
-  .bento-proof{
-    grid-template-columns:1fr 1fr;
-    grid-template-areas:
-      "activity activity"
-      "stat1 stat2"
-      "stat3 stat4";
-  }
   .project-card,.about-card{padding:22px}
   .project-dialog-panel{padding:34px 22px 26px}
   .project-dialog-heading{display:block}
@@ -1259,7 +1302,6 @@ a.make-badge-item:hover{border-color:#3f665d}
   .make-badge-item{align-items:flex-start;flex-direction:column;gap:3px}
   .make-badge-item small{text-align:left}
   .certificate-grid{grid-template-columns:1fr 1fr}
-  .activity-heatmap{grid-template-columns:repeat(7,1fr)}
   .activity-copy{flex-direction:column}
   .workflow-visual,.inventory-visual,.system-visual{overflow-x:auto;justify-content:flex-start}
   .experience-item{grid-template-columns:1fr;gap:5px}
@@ -1271,6 +1313,7 @@ a.make-badge-item:hover{border-color:#3f665d}
 @media(max-width:480px){
   .main-nav{gap:9px}
   .main-nav a{font-size:.74rem}
+  .proof-stats{grid-template-columns:1fr}
   .project-meta{flex-direction:column;gap:5px}
 }
 

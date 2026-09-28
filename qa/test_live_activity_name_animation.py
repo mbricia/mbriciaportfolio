@@ -21,8 +21,9 @@ def run():
     assert 'id="activitySnapshot"' in HTML
     assert "activity snapshot through Sep 22, 2026" not in TEXT
     assert "GITHUB_ACTIVITY_API" in JS
-    assert "api.github.com/repos/mbricia/mbriciaportfolio/commits" in JS
-    assert "fetch(GITHUB_ACTIVITY_API" in JS
+    assert "GITHUB_ACTIVITY_REPOS" in JS
+    assert "fetchRepositoryCommits" in JS
+    assert "Promise.all(GITHUB_ACTIVITY_REPOS.map(fetchRepositoryCommits))" in JS
     assert "renderActivity" in JS
     assert "activitySnapshot" in JS
     print("PASS live repository activity and name animation checks")
