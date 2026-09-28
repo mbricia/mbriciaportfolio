@@ -1291,7 +1291,7 @@ a.make-badge-item:hover{border-color:#3f665d}
   .hero-copy{text-align:center;margin-inline:auto}
   .hero-topline{justify-content:center}
   .hero-actions,.skills{justify-content:center}
-  .portrait-stage{order:-1;width:min(100%,410px)}
+  .portrait-stage{width:min(100%,410px)}
   .portrait-wrap{width:min(100%,350px)}
   .portrait-frame{width:100%;min-height:380px}
   .portrait-frame img{min-height:380px}
