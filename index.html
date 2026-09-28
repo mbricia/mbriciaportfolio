@@ -261,6 +261,7 @@
             </div>
             <h3>AI Recruitment &amp; Candidate Pipeline</h3>
             <p>Processes candidate emails, prevents duplicate records, supports recruiter actions, drafts messages, and schedules follow-ups.</p>
+            <div class="project-proof-line"><span>Proof</span><strong>4 workflows · 4/4 sanitized exports</strong></div>
             <div class="project-tags"><span>n8n</span><span>OpenAI</span><span>Gmail</span><span>Google Sheets</span></div>
             <button class="project-open" type="button" data-project="recruitment">View case study <span aria-hidden="true">↗</span></button>
           </article>
@@ -272,6 +273,7 @@
             </figure>
             <h3>AI Client Inquiry &amp; Lead Qualification</h3>
             <p>Turns incoming inquiries into structured leads, applies clear scoring rules, stores records, and routes follow-up actions.</p>
+            <div class="project-proof-line"><span>Proof</span><strong>0–100 rule-based scoring · tested routes</strong></div>
             <div class="project-tags"><span>n8n</span><span>APIs</span><span>JavaScript</span><span>OpenAI</span></div>
             <button class="project-open" type="button" data-project="lead-qualification">View case study <span aria-hidden="true">↗</span></button>
           </article>
@@ -287,6 +289,7 @@
             </div>
             <h3>Inventory &amp; Low-Stock Automation</h3>
             <p>Monitors stock levels, creates one reorder list, calculates inventory health, and sends scheduled alerts and summaries.</p>
+            <div class="project-proof-line"><span>Proof</span><strong>2 tested stock states · consolidated alerts</strong></div>
             <div class="project-tags"><span>n8n</span><span>Google Sheets</span><span>Gmail</span><span>JavaScript</span></div>
             <button class="project-open" type="button" data-project="inventory">View case study <span aria-hidden="true">↗</span></button>
           </article>
@@ -306,6 +309,7 @@
             </figure>
             <h3>Kopi Brews Operations App</h3>
             <p>Multi-user café operations prototype for orders, inventory, sales insights, loyalty, rewards, and customer history.</p>
+            <div class="project-proof-line"><span>Proof</span><strong>Private prototype · multi-role operations</strong></div>
             <div class="project-tags"><span>React Native</span><span>Firebase</span><span>Firestore</span></div>
             <button class="project-open" type="button" data-project="kopi-brews">View case study <span aria-hidden="true">↗</span></button>
           </article>
@@ -321,6 +325,7 @@
             </div>
             <h3>Eleventh28 POS + Kitchen Display</h3>
             <p>Restaurant desktop system covering cashier transactions, kitchen status, ingredient inventory, reporting, logs, and database utilities.</p>
+            <div class="project-proof-line"><span>Proof</span><strong>Team capstone · POS → kitchen → inventory</strong></div>
             <div class="project-tags"><span>C#</span><span>WinForms</span><span>MySQL</span><span>Crystal Reports</span></div>
             <button class="project-open" type="button" data-project="eleventh28">View case study <span aria-hidden="true">↗</span></button>
           </article>
@@ -332,6 +337,7 @@
             </figure>
             <h3>AVENLO Web Products</h3>
             <p>Three responsive static web products built, documented, and deployed as independent releases.</p>
+            <div class="project-proof-line"><span>Proof</span><strong>3 live demos · responsive static builds</strong></div>
             <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
             <button class="project-open" type="button" data-project="avenlo">View case study <span aria-hidden="true">↗</span></button>
           </article>
@@ -399,11 +405,30 @@
         </div>
         <p class="project-dialog-summary" id="projectDialogSummary"></p>
         <div class="project-dialog-grid">
-          <div>
-            <h3>What it does</h3>
-            <ul id="projectDialogPoints"></ul>
+          <div class="project-dialog-proof">
+            <section class="project-dialog-proof-block">
+              <span class="project-dialog-proof-index" aria-hidden="true">01</span>
+              <div>
+                <h3>Problem</h3>
+                <p id="projectDialogProblem"></p>
+              </div>
+            </section>
+            <section class="project-dialog-proof-block">
+              <span class="project-dialog-proof-index" aria-hidden="true">02</span>
+              <div>
+                <h3>Build</h3>
+                <ul id="projectDialogBuild"></ul>
+              </div>
+            </section>
+            <section class="project-dialog-proof-block">
+              <span class="project-dialog-proof-index" aria-hidden="true">03</span>
+              <div>
+                <h3>Proof</h3>
+                <ul id="projectDialogProof"></ul>
+              </div>
+            </section>
           </div>
-          <aside>
+          <aside class="project-dialog-meta">
             <h3>Built with</h3>
             <div class="project-tags" id="projectDialogStack"></div>
             <div class="project-dialog-links" id="projectDialogLinks"></div>

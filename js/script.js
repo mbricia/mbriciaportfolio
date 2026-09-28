@@ -38,11 +38,16 @@
       category: 'AI Automation · 2026',
       title: 'AI Recruitment & Candidate Pipeline',
       status: 'Repository available',
-      summary: 'A connected recruitment workflow that turns candidate emails into structured records, supports recruiter decisions, and keeps follow-ups visible.',
-      points: [
-        'Connects four workflows for candidate intake, recruiter actions, reminders, and technical error handling.',
-        'Prevents duplicate records and keeps key hiring decisions under human control.',
-        'Uses AI for interpretation and message drafting, with structured records for review and follow-up.',
+      summary: 'A connected recruitment operations system that keeps AI interpretation separate from controlled hiring decisions.',
+      problem: 'Recruitment work can scatter candidate intake, recruiter actions, follow-ups, and technical failures across separate manual steps.',
+      build: [
+        'Four cooperating n8n workflows share one recruitment datastore for intake, recruiter actions, reminders, and technical errors.',
+        'AI handles email interpretation and candidate-facing draft generation; deterministic rules control deduplication, stage transitions, reminders, and logs.',
+        'Recruiter decisions stay human-controlled, and communication is created as reviewable Gmail drafts rather than automatically sent.',
+      ],
+      proof: [
+        'Tested candidate intake, duplicate blocking, existing-candidate/application handling, recruiter lifecycle actions, due/overdue reminders, and automatic error capture.',
+        'Public workflow package includes 4 / 4 sanitized exports with synthetic evidence and no production candidate data.',
       ],
       stack: ['n8n', 'OpenAI', 'Gmail', 'Google Sheets'],
       links: [
@@ -52,14 +57,19 @@
     'lead-qualification': {
       category: 'AI Automation · 2026',
       title: 'AI Client Inquiry & Lead Qualification',
-      status: 'Repository available',
-      summary: 'An inquiry pipeline that validates submissions, extracts useful information, scores leads with clear business rules, and routes the next action.',
-      points: [
-        'Validates and deduplicates incoming submissions before processing.',
-        'Uses AI for extraction and drafting while keeping business scoring rule-based.',
-        'Routes Hot, Warm, and Cold leads into appropriate records and follow-up paths.',
+      status: 'Complete and tested',
+      summary: 'An inquiry pipeline that validates submissions, extracts useful information, scores leads with explainable rules, and routes the next action.',
+      problem: 'Manually reviewing every client inquiry takes time and can make high-value leads easier to miss.',
+      build: [
+        'Validates required fields and email format, then blocks duplicate inquiries before any AI call.',
+        'AI extracts structured inquiry details and drafts replies; JavaScript applies deterministic 0–100 scoring and Hot / Warm / Cold routing.',
+        'Returns explicit HTTP responses for valid, invalid, and duplicate submissions and uses a separate failure-alert workflow.',
       ],
-      stack: ['n8n', 'OpenAI', 'APIs', 'JavaScript'],
+      proof: [
+        'Tested Hot, Warm, Cold, invalid-input, duplicate, HTTP-response, workflow-failure, and client-reply scenarios with controlled sample data.',
+        'Version 1 is documented as complete and tested; the public repository uses sanitized exports and synthetic demo data.',
+      ],
+      stack: ['n8n', 'OpenAI', 'Webhooks', 'JavaScript'],
       links: [
         { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-ai-lead-qualification-automation' },
       ],
@@ -68,11 +78,16 @@
       category: 'Business Automation · 2026',
       title: 'Inventory & Low-Stock Automation',
       status: 'Repository available',
-      summary: 'A scheduled inventory workflow that checks thresholds, consolidates low-stock items, and produces clear alerts and status summaries.',
-      points: [
-        'Checks current stock against reorder thresholds on a schedule.',
-        'Combines low-stock items into one readable reorder report.',
-        'Handles the zero-low-stock case so it does not send a misleading alert.',
+      summary: 'A scheduled inventory monitoring workflow that checks thresholds, consolidates low-stock items, and produces clear alerts and status summaries.',
+      problem: 'Spreadsheet-based inventory still requires someone to manually scan rows for items that need replenishment.',
+      build: [
+        'A scheduled n8n workflow reads Google Sheets and checks current stock against each item\'s reorder level.',
+        'Low-stock items are combined into one reorder list, while management receives one HTML alert plus a separate daily inventory summary.',
+        'A zero-low-stock path suppresses unnecessary low-stock alerts while keeping the daily summary running.',
+      ],
+      proof: [
+        'Tested a 10-item sample with 7 low-stock / 3 healthy items and a separate 0 low-stock / 10 healthy case.',
+        'The public workflow is a sanitized monitoring automation and is explicitly not presented as a full POS or stock-transaction system.',
       ],
       stack: ['n8n', 'Google Sheets', 'Gmail', 'JavaScript'],
       links: [
@@ -84,10 +99,15 @@
       title: 'Kopi Brews Operations App',
       status: 'Private prototype',
       summary: 'A multi-user café operations prototype that brings ordering, inventory, sales insights, loyalty, rewards, and customer history into one application.',
-      points: [
-        'Supports administrator, cashier, and customer workflows in one application.',
-        'Uses Firestore for operational records and real-time updates.',
-        'Built as a private prototype and not publicly released.',
+      problem: 'A small café needs orders, inventory, customer history, loyalty, and operational views to stay usable across different roles.',
+      build: [
+        'React Native prototype supports administrator, cashier, and customer workflows.',
+        'Firebase and Firestore provide the application datastore and real-time operational updates.',
+        'The scope combines café ordering, inventory, sales insight, loyalty, rewards, and customer-history features in one prototype.',
+      ],
+      proof: [
+        'The project is intentionally labeled as a private prototype and is not presented as a public production release.',
+        'Portfolio evidence includes real prototype screens for administrator, cashier, and loyalty flows.',
       ],
       stack: ['React Native', 'Firebase', 'Firestore'],
       links: [],
@@ -96,34 +116,46 @@
       category: 'Software Engineering · 2018–2019',
       title: 'Eleventh28 POS + Kitchen Display',
       status: 'Team capstone',
-      summary: 'A restaurant desktop system built as a team capstone, covering cashier transactions, kitchen status, ingredient inventory, reporting, and database utilities.',
-      points: [
-        'Provides role-based access for Administrator, Cashier, and Cook users.',
-        'Moves POS orders into a kitchen queue with status tracking.',
-        'Links products to ingredients for costing and automatic stock deduction.',
+      summary: 'A restaurant desktop system built as a team capstone, connecting cashier transactions, kitchen status, ingredient inventory, and reporting.',
+      problem: 'Restaurant operations need cashier transactions, kitchen order status, ingredient inventory, and reporting to stay connected.',
+      build: [
+        'C# WinForms desktop system supports Administrator, Cashier, and Cook roles.',
+        'POS orders move into a kitchen queue with status tracking.',
+        'Products link to ingredients for costing and automatic stock deduction, backed by MySQL and Crystal Reports.',
+      ],
+      proof: [
+        'Built as a team capstone during 2018–2019, with the team ownership kept explicit in the portfolio.',
+        'A public source repository is available for the original system code.',
       ],
       stack: ['C#', 'WinForms', 'MySQL', 'Crystal Reports'],
-      links: [],
+      links: [
+        { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/Point-of-Sale-With-Kitchen-Display-and-Queue-System' },
+      ],
     },
     avenlo: {
       category: 'Web Products',
       title: 'AVENLO Web Products',
-      status: 'Live demos',
-      summary: 'A family of three responsive static websites built, documented, and deployed as independent product concepts.',
-      points: [
-        'AVENLO SaaS presents a focused software product landing experience.',
-        'AVENLO Café explores a hospitality-focused brand and customer journey.',
-        'AVENLO Portfolio provides a separate personal portfolio presentation.',
+      status: '3 live demos',
+      summary: 'A family of responsive static web products built, documented, and deployed as independent concepts.',
+      problem: 'Reusable web products need to stay responsive and easy to customize without unnecessary framework or build complexity.',
+      build: [
+        'Three independent responsive concepts cover SaaS, café, and portfolio use cases using HTML, CSS, and JavaScript.',
+        'The SaaS template is documented for desktop, tablet, and mobile layouts and uses CSS custom properties for straightforward theming.',
+        'The products are designed to run without a JavaScript framework or required build system.',
+      ],
+      proof: [
+        'Three live demos are linked directly from the case study.',
+        'The public AVENLO SaaS source and documentation show the static, responsive implementation and customization structure.',
       ],
       stack: ['HTML', 'CSS', 'JavaScript'],
       links: [
         { label: 'Open AVENLO SaaS ↗', url: 'https://avenlo-saas.netlify.app/' },
         { label: 'Open AVENLO Café ↗', url: 'https://avenlo-cafe.netlify.app/' },
         { label: 'Open AVENLO Portfolio ↗', url: 'https://avenlo-portfolio.netlify.app/' },
+        { label: 'View SaaS source ↗', url: 'https://github.com/mbricia/Avenlo' },
       ],
     },
   };
-
   const projectDialog = document.getElementById('projectDialog');
   const projectDialogClose = document.getElementById('projectDialogClose');
   let lastProjectTrigger = null;
@@ -134,8 +166,17 @@
     document.getElementById('projectDialogStatus').textContent = project.status;
     document.getElementById('projectDialogSummary').textContent = project.summary;
 
-    const points = document.getElementById('projectDialogPoints');
-    points.replaceChildren(...project.points.map((point) => {
+    document.getElementById('projectDialogProblem').textContent = project.problem;
+
+    const build = document.getElementById('projectDialogBuild');
+    build.replaceChildren(...project.build.map((point) => {
+      const item = document.createElement('li');
+      item.textContent = point;
+      return item;
+    }));
+
+    const proof = document.getElementById('projectDialogProof');
+    proof.replaceChildren(...project.proof.map((point) => {
       const item = document.createElement('li');
       item.textContent = point;
       return item;
