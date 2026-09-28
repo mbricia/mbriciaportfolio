@@ -224,9 +224,9 @@
     activitySummary.textContent = formatActivitySummary(calendar.totalCommits);
     portfolioActivity.setAttribute(
       'aria-label',
-      `Selected public repository activity from ${formatActivityDate(new Date(`${calendar.rangeStartDate}T00:00:00Z`))} to ${formatActivityDate(activityEndDate)}: ${calendar.totalCommits} commits loaded.`
+      `Public GitHub repository activity from ${formatActivityDate(new Date(`${calendar.rangeStartDate}T00:00:00Z`))} to ${formatActivityDate(activityEndDate)}: ${calendar.totalCommits} commits loaded.`
     );
-    activitySnapshot.textContent = `Selected public repositories · live 12-month activity through ${formatActivityDate(activityEndDate)}`;
+    activitySnapshot.textContent = `Public GitHub repositories · live 12-month activity through ${formatActivityDate(activityEndDate)}`;
   };
 
   const fetchActivityRepositories = async () => {
