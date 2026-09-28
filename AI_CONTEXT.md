@@ -80,15 +80,21 @@ Owns most browser behavior:
 - reveal animations
 - active navigation state
 
-The GitHub activity implementation currently discovers the user's public owner repositories dynamically through:
+The GitHub activity implementation discovers the user's public owner repositories dynamically through:
 
 `https://api.github.com/users/mbricia/repos?per_page=100&type=owner&sort=updated&direction=desc`
 
-It filters out forks and archived repositories, then requests the authenticated author's commits for the rolling 12-month range. Repository requests use `Promise.allSettled` so one unavailable repository does not discard all activity.
+It filters out forks and archived repositories, then requests the author's public commits for the rolling 12-month range. Repository requests use `Promise.allSettled` so one unavailable repository does not discard all activity.
+
+Because an unauthenticated static site cannot safely fetch private repository history, live public activity is supplemented with sanitized historical date/count data from `js/activity-history.js`.
+
+### `js/activity-history.js`
+
+Stores sanitized historical contribution counts by date. It intentionally contains no private repository names, commit messages, branch names, URLs, credentials, or source content.
 
 ### `js/activity-calendar.js`
 
-Owns activity-calendar calculations separately from DOM rendering.
+Owns activity-calendar calculations separately from DOM rendering and merges live commit data with supplemental date/count history.
 
 Important behavior:
 
@@ -121,9 +127,15 @@ Tests protect things such as:
 
 ## GitHub activity note
 
-The current implementation dynamically fetches public owner repositories with `fetchActivityRepositories()`.
+The current implementation is hybrid:
 
-At least two existing QA files still contain expectations for an older fixed-array implementation named `GITHUB_ACTIVITY_REPOS`. If those checks fail, do not automatically revert the current dynamic repository discovery. First determine whether the approved behavior or the test is stale, then update the stale side intentionally.
+- live public owner repositories are discovered dynamically with `fetchActivityRepositories()`
+- public commits are fetched client-side
+- sanitized historical private activity is merged by date/count only from `js/activity-history.js`
+- no GitHub token or private repository identity is exposed in the frontend
+- the QA checks are aligned to this dynamic + supplemental model
+
+If a future change needs fully automatic private activity, use a server-side authenticated integration rather than placing a GitHub token in this static frontend.
 
 ## Editing conventions
 
