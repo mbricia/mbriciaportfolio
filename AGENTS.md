@@ -18,6 +18,7 @@ Read `AI_CONTEXT.md` and `AI_WORKFLOW.md` before making a non-trivial change.
 - `index.html`: page structure and portfolio content.
 - `css/style.css`: all styling, responsive rules, animation, and design tokens.
 - `js/script.js`: interactions, project case-study dialog, CV download, GitHub activity loading/rendering, particle background, reveal animations, and navigation state.
+- `js/activity-history.js`: sanitized date/count-only historical contribution data used to supplement private activity without exposing private repository identities.
 - `js/activity-calendar.js`: isolated GitHub-style activity calendar calculation shared by the browser and Node-based QA.
 - `qa/`: Python regression checks; several invoke Node for JavaScript behavior.
 - `assets/`: profile, project, certificate, technology, metadata, and CV assets.
