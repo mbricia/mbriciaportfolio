@@ -37,7 +37,6 @@ def test_home_is_simple_and_clear():
         "Software Developer · AI Automation · IT Support",
         "View Projects",
         "Download CV",
-        "Open to remote opportunities",
     ]:
         require(text in TEXT, f"Home is missing: {text}")
 

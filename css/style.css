@@ -154,12 +154,10 @@ button,input,textarea{font:inherit}
 .hero-topline{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  justify-content:flex-start;
   margin-bottom:18px;
 }
-.hero-topline .eyebrow,
-.hero-topline .availability{margin:0}
+.hero-topline .eyebrow{margin:0}
 .eyebrow{
   margin:0 0 18px;
   color:var(--accent);
@@ -190,6 +188,20 @@ h1{
   transform-origin:left;
   animation:accentDraw .8s .72s cubic-bezier(.22,.8,.2,1) both;
 }
+.name-line,
+.name-accent,
+.name-letter{display:inline-block}
+.name-accent{animation:nameGlow 6s 1.8s ease-in-out infinite}
+.name-letter{
+  transform-origin:50% 100%;
+  animation:letterLift .68s cubic-bezier(.22,.8,.2,1) both;
+}
+.name-letter:nth-child(1){animation-delay:.34s}
+.name-letter:nth-child(2){animation-delay:.40s}
+.name-letter:nth-child(3){animation-delay:.46s}
+.name-letter:nth-child(4){animation-delay:.52s}
+.name-letter:nth-child(5){animation-delay:.58s}
+.name-letter:nth-child(6){animation-delay:.64s}
 h2{
   margin-bottom:16px;
   font-size:clamp(2.2rem,5vw,4rem);
@@ -250,26 +262,10 @@ h3{
   font-size:.78rem;
   font-weight:600;
 }
-.availability{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  margin:0;
-  color:var(--soft);
-  font-size:.82rem;
-}
 .hero-location{
   margin:18px 0 0;
   color:var(--soft);
   font-size:.78rem;
-}
-.availability span{
-  width:8px;
-  height:8px;
-  flex:0 0 8px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 16px rgba(124,224,202,.45);
 }
 
 .tech-carousel{
@@ -1121,6 +1117,14 @@ a.make-badge-item:hover{border-color:#3f665d}
   from{opacity:0;transform:scaleX(0)}
   to{opacity:1;transform:scaleX(1)}
 }
+@keyframes letterLift{
+  from{opacity:0;transform:translateY(.42em) rotateX(70deg)}
+  to{opacity:1;transform:translateY(0) rotateX(0)}
+}
+@keyframes nameGlow{
+  0%,72%,100%{color:var(--text);text-shadow:none}
+  84%{color:#e8fff9;text-shadow:0 0 24px rgba(124,224,202,.34)}
+}
 @keyframes dialogEnter{
   from{opacity:0;transform:translateY(16px) scale(.98)}
   to{opacity:1;transform:translateY(0) scale(1)}
@@ -1131,7 +1135,7 @@ a.make-badge-item:hover{border-color:#3f665d}
 .hero-intro{animation:heroRise .68s .2s cubic-bezier(.22,.8,.2,1) both}
 .hero-actions{animation:heroRise .68s .28s cubic-bezier(.22,.8,.2,1) both}
 .hero .skills{animation:heroRise .68s .36s cubic-bezier(.22,.8,.2,1) both}
-.hero .availability{animation:heroRise .68s .44s cubic-bezier(.22,.8,.2,1) both}
+.hero-location{animation:heroRise .68s .44s cubic-bezier(.22,.8,.2,1) both}
 .portrait-stage{animation:portraitEnter .8s .16s cubic-bezier(.22,.8,.2,1) both}
 .portrait-principle{animation:heroRise .62s .62s cubic-bezier(.22,.8,.2,1) both}
 
@@ -1197,7 +1201,7 @@ a.make-badge-item:hover{border-color:#3f665d}
   .hero-grid{grid-template-columns:1fr;gap:42px}
   .hero-copy{text-align:center;margin-inline:auto}
   .hero-topline{justify-content:center}
-  .hero-actions,.skills,.availability{justify-content:center}
+  .hero-actions,.skills{justify-content:center}
   .portrait-stage{order:-1;width:min(100%,410px)}
   .portrait-wrap{width:min(100%,350px)}
   .portrait-frame{width:100%;min-height:380px}

@@ -179,6 +179,82 @@
     lastProjectTrigger?.focus();
   });
 
+  const portfolioActivity = document.getElementById('portfolioActivity');
+  const activitySnapshot = document.getElementById('activitySnapshot');
+  const ACTIVITY_DAY_COUNT = 28;
+  const activityEndDate = new Date();
+  activityEndDate.setUTCHours(23, 59, 59, 999);
+  const activityStartDate = new Date(activityEndDate);
+  activityStartDate.setUTCDate(activityEndDate.getUTCDate() - (ACTIVITY_DAY_COUNT - 1));
+  activityStartDate.setUTCHours(0, 0, 0, 0);
+  const GITHUB_ACTIVITY_API = `https://api.github.com/repos/mbricia/mbriciaportfolio/commits?per_page=100&since=${encodeURIComponent(activityStartDate.toISOString())}`;
+
+  const activityDateKey = (date) => date.toISOString().slice(0, 10);
+  const formatActivityDate = (date) => new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+  const getActivityLevel = (count) => {
+    if (count >= 8) return 4;
+    if (count >= 4) return 3;
+    if (count >= 2) return 2;
+    if (count >= 1) return 1;
+    return 0;
+  };
+
+  const renderActivity = (commits) => {
+    if (!portfolioActivity || !activitySnapshot) return;
+
+    const commitsByDay = commits.reduce((counts, commit) => {
+      const timestamp = commit?.commit?.author?.date || commit?.commit?.committer?.date;
+      if (!timestamp) return counts;
+      const key = activityDateKey(new Date(timestamp));
+      counts.set(key, (counts.get(key) || 0) + 1);
+      return counts;
+    }, new Map());
+
+    let totalCommits = 0;
+    const cells = Array.from({ length: ACTIVITY_DAY_COUNT }, (_, index) => {
+      const date = new Date(activityStartDate);
+      date.setUTCDate(activityStartDate.getUTCDate() + index);
+      const count = commitsByDay.get(activityDateKey(date)) || 0;
+      totalCommits += count;
+
+      const cell = document.createElement('span');
+      cell.className = `activity-cell level-${getActivityLevel(count)}`;
+      cell.title = `${formatActivityDate(date)} · ${count} ${count === 1 ? 'commit' : 'commits'}`;
+      cell.style.setProperty('--i', index);
+      return cell;
+    });
+
+    portfolioActivity.replaceChildren(...cells);
+    portfolioActivity.setAttribute(
+      'aria-label',
+      `Portfolio repository activity from ${formatActivityDate(activityStartDate)} to ${formatActivityDate(activityEndDate)}: ${totalCommits} commits.`
+    );
+    activitySnapshot.textContent = `Portfolio repository · live 28-day activity through ${formatActivityDate(activityEndDate)}`;
+  };
+
+  const loadPortfolioActivity = async () => {
+    if (!portfolioActivity || !activitySnapshot) return;
+
+    try {
+      const response = await fetch(GITHUB_ACTIVITY_API, {
+        headers: { Accept: 'application/vnd.github+json' },
+        cache: 'no-store',
+      });
+      if (!response.ok) throw new Error('GitHub activity unavailable');
+      renderActivity(await response.json());
+    } catch (_) {
+      activitySnapshot.textContent = 'Portfolio repository · live activity temporarily unavailable';
+      portfolioActivity.setAttribute('aria-label', 'Portfolio repository activity is temporarily unavailable');
+    }
+  };
+
+  loadPortfolioActivity();
+
   requestAnimationFrame(() => {
     document.documentElement.classList.add('page-loaded');
   });
