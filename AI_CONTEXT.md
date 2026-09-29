@@ -172,3 +172,18 @@ When changing GitHub activity:
 - Do not rewrite unrelated sections during a focused task.
 - Do not replace working static architecture with a framework solely for convenience.
 - Do not change public claims or project status without explicit user intent.
+
+
+## SEO and social metadata
+
+The portfolio uses `https://mbriciaportfolio.vercel.app/` as its canonical public URL.
+
+`index.html` includes:
+
+- canonical URL metadata
+- index/follow robots metadata
+- Open Graph title, description, URL, locale, site name, and absolute preview image metadata
+- Twitter/X large-card title, description, and absolute preview image metadata
+- JSON-LD `ProfilePage` structured data with a `Person` main entity and public GitHub/LinkedIn profile links
+
+Keep these values factual and synchronized if the canonical portfolio domain changes.
