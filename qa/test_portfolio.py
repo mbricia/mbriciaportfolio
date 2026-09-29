@@ -74,7 +74,7 @@ def test_about_and_credentials():
     for text in [
         "Rate Programmer · Quadrant Information Services",
         "Freelance Technical & Development Work",
-        "STKR Maniac Printing Services",
+        "STKR Manila Printing Services",
         "BS Information Technology",
         "Major in Software Engineering",
         "n8n Foundations Professional Certificate",

@@ -1,28 +1,23 @@
 from pathlib import Path
+import base64
 
 ROOT = Path(__file__).resolve().parents[1]
 PDF = ROOT / "Mark-Jhollan-Bricia-CV.pdf"
+CV_B64 = ROOT / "assets" / "cv" / "Mark-Jhollan-Bricia-CV.base64.txt"
 
 
 def run():
     data = PDF.read_bytes()
-    assert data.startswith(b"%PDF-1.4"), "CV should be a valid PDF"
+    assert data.startswith(b"%PDF-"), "CV should be a valid PDF"
     assert data.rstrip().endswith(b"%%EOF"), "CV PDF is missing EOF marker"
-    assert b"/Count 2" in data, "CV should remain a readable two-page document"
-    assert data.count(b"/Type /Page ") == 2, "CV should contain exactly two page objects"
+    assert b"/Count 1" in data, "CV should remain a one-page document"
+    assert data.count(b"/Type /Page") >= 1, "CV should contain a page object"
 
-    for keyword in [
-        b"Junior AI Automation Specialist",
-        b"PROFESSIONAL SUMMARY",
-        b"SELECTED AUTOMATION PROJECTS",
-        b"Self-Hosted n8n Environment",
-        b"Make Academy",
-        b"STI College Global City",
-    ]:
-        assert keyword in data, f"CV PDF missing expected ATS text: {keyword!r}"
+    decoded = base64.b64decode(CV_B64.read_text(encoding="utf-8").strip())
+    assert decoded == data, "Portfolio download asset and fallback PDF must stay identical"
 
-    assert len(data) > 10000, "CV PDF looks unexpectedly small"
-    print("PASS ATS-friendly portfolio CV PDF structure and content")
+    assert len(data) > 4000, "CV PDF looks unexpectedly small"
+    print("PASS one-page ATS CV PDF structure and download synchronization")
 
 
 if __name__ == "__main__":

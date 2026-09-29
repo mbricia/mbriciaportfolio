@@ -17,17 +17,23 @@ def run():
         "Rate Programmer · Quadrant Information Services",
         "2023–Present",
         "Freelance Technical & Development Work",
-        "STKR Maniac Printing Services",
+        "STKR Manila Printing Services",
         "application logic",
         "debugging",
         "troubleshooting",
+        "n8n, APIs, webhooks, Google Sheets, Gmail, and AI integrations",
     ]
     for text in expected:
         require(text in TEXT, f"Missing experience content: {text}")
 
+    freelance = TEXT.index("Freelance Technical & Development Work")
+    stkr = TEXT.index("STKR Manila Printing Services")
+    quadrant = TEXT.index("Rate Programmer · Quadrant Information Services")
+    require(freelance < stkr < quadrant, "Experience should be reverse chronological: freelance → STKR → Quadrant")
+
     require('id="about"' in HTML, "About section is missing")
     require('class="experience-list"' in HTML, "Experience list is missing")
-    print("PASS simplified experience section checks")
+    print("PASS current-work-first experience timeline and automation continuity")
 
 
 if __name__ == "__main__":
