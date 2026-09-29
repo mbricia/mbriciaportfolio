@@ -42,7 +42,7 @@ def test_home_is_simple_and_clear():
 
     require(HTML.count('class="skill-pill"') <= 8, "Home should keep the skill list focused")
     require('class="portrait-frame"' in HTML, "Portrait frame is missing")
-    require('src="assets/profile/mark-jhollan.png"' in HTML, "Portrait asset is missing")
+    require('src="assets/profile/mark-jhollan-720.png"' in HTML, "Portrait asset is missing")
     require('alt="Professional portrait of Mark Jhollan Bricia"' in HTML, "Portrait alt text is missing")
 
 

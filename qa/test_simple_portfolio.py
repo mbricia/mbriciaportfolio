@@ -29,7 +29,7 @@ def run():
         require(obsolete not in HTML, f"Old crowded UI remains in HTML: {obsolete}")
 
     require('class="portrait-frame"' in HTML, "Large centered portrait frame is missing")
-    require('assets/profile/mark-jhollan.png' in HTML, "Profile portrait asset is missing")
+    require('assets/profile/mark-jhollan-720.png' in HTML, "Profile portrait asset is missing")
     compact_css = CSS.replace(" ", "")
     require('width:min(100%,360px)' in compact_css, "Portrait should be visually larger")
     require('margin-inline:auto' in compact_css, "Portrait should be centered in its frame")
