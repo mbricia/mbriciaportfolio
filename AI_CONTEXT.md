@@ -113,6 +113,10 @@ Keep date/grid logic here rather than duplicating it inside `script.js`.
 
 Contains lightweight regression checks written in Python. Some tests inspect HTML/CSS/JS strings; `test_activity_calendar.py` runs Node to test calendar behavior.
 
+### `.github/workflows/qa.yml`
+
+Runs the complete `qa/test_*.py` regression suite automatically on pushes to `main` and pull requests targeting `main`, with manual dispatch available. The CI job provisions Python and Node only; the current test suite has no pip or npm dependency-install step.
+
 Tests protect things such as:
 
 - information architecture
@@ -124,6 +128,7 @@ Tests protect things such as:
 - animation/UI expectations
 - CV behavior
 - credentials and project-dialog content
+- CI workflow configuration
 
 ## GitHub activity note
 

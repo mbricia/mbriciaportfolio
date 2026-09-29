@@ -21,6 +21,7 @@ Read `AI_CONTEXT.md` and `AI_WORKFLOW.md` before making a non-trivial change.
 - `js/activity-history.js`: sanitized date/count-only historical contribution data used to supplement private activity without exposing private repository identities.
 - `js/activity-calendar.js`: isolated GitHub-style activity calendar calculation shared by the browser and Node-based QA.
 - `qa/`: Python regression checks; several invoke Node for JavaScript behavior.
+- `.github/workflows/qa.yml`: automatically runs every `qa/test_*.py` regression check on pushes and pull requests targeting `main`, with manual dispatch available.
 - `assets/`: profile, project, certificate, technology, metadata, and CV assets.
 
 ## Validation
@@ -34,4 +35,4 @@ Run the tests relevant to the files or behavior changed. For broad portfolio cha
 
 Do not weaken or delete a regression test merely to make it pass. Some tests can lag behind an intentionally changed implementation; when a test and current approved behavior conflict, identify the mismatch and update the stale side deliberately.
 
-After UI changes, also check desktop and mobile behavior manually when a browser is available.
+GitHub Actions also runs the full `qa/test_*.py` suite automatically on pushes and pull requests targeting `main`. After UI changes, also check desktop and mobile behavior manually when a browser is available.

@@ -58,6 +58,20 @@ No framework or build step is required.
 
 Open `index.html` directly in a browser, or serve the folder with any local static server.
 
+## Quality Checks
+
+The repository includes lightweight regression checks under `qa/`. GitHub Actions automatically runs the full suite on pushes and pull requests targeting `main`.
+
+Run the same checks locally from the repository root:
+
+```bash
+for test_file in qa/test_*.py; do
+  python "$test_file"
+done
+```
+
+Node.js is also required because the activity-calendar regression test executes the shared JavaScript calendar module.
+
 ## Contact
 
 **Mark Jhollan Bricia**
