@@ -60,7 +60,7 @@ def test_project_proof():
 
     require("Private prototype" in TEXT, "Kopi Brews status must remain explicit")
     require("Team capstone" in TEXT, "Eleventh28 must remain identified as a team capstone")
-    require("not publicly released" in JS, "Kopi Brews public-release status must remain explicit")
+    require("not presented as a public production release" in JS, "Kopi Brews public-release status must remain explicit")
 
     for url in [
         "https://avenlo-saas.netlify.app/",
