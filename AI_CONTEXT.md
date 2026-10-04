@@ -1,6 +1,6 @@
 # AI Project Context — Mark Jhollan Bricia Portfolio
 
-_Last reviewed against the repository on September 28, 2026._
+_Last reviewed against the repository on October 4, 2026._
 
 ## Purpose
 
@@ -27,6 +27,16 @@ External/public runtime dependencies currently include:
 - Public GitHub REST API calls for live repository activity
 
 Do not add a new framework, build tool, or runtime dependency unless the user explicitly approves it.
+
+## Workflow posture
+
+Use the profiles defined in `AI_WORKFLOW.md`:
+
+- **Lite** for a clearly bounded copy, documentation, styling, configuration, or asset-reference edit.
+- **Standard** by default for portfolio behavior, UI flows, GitHub API handling, responsive changes, refactors, or work spanning multiple files.
+- **Production** for secrets, privacy-sensitive data, destructive operations, CI/release changes, or deployment.
+
+The repository's existing `qa/` scripts are the primary automated regression evidence. Browser checks remain important for visible or interactive changes.
 
 ## Repository map
 

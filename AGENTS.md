@@ -6,7 +6,10 @@ Read `AI_CONTEXT.md` and `AI_WORKFLOW.md` before making a non-trivial change.
 
 - This repository is a static HTML/CSS/JavaScript portfolio. Do not introduce a framework, package manager, bundler, or build system unless the user explicitly approves that architectural change.
 - Inspect the relevant existing files before proposing or implementing a change. Do not guess file ownership or behavior.
+- Choose one workflow profile from `AI_WORKFLOW.md` before editing: Lite for tiny low-risk changes, Standard for normal feature/bug/refactor work, or Production for security-, privacy-, migration-, destructive-, or deployment-sensitive work. A task may be escalated, but risky work must not be downgraded for convenience.
 - For non-trivial feature, design, refactor, integration, or bug-fix requests, use the plan-first workflow in `AI_WORKFLOW.md` and stop at the approval gate before editing application files.
+- For meaningful behavior changes, add or run a failing check first when practical, then make the smallest change that turns it green. Documentation-only and purely visual changes may use explicit content or manual checks instead.
+- Work in small, reviewable pieces. If the same issue survives three focused attempts, stop, summarize the evidence, and re-plan instead of looping indefinitely.
 - Preserve the current visual language unless the task explicitly changes it: dark interface, teal accent, glass/surface treatment, responsive layout, and restrained motion.
 - Preserve accessibility behavior: semantic structure, image alt text, unique IDs, keyboard/focus behavior, skip link, dialog behavior, and `prefers-reduced-motion` support.
 - Keep portfolio claims accurate. Do not inflate experience, project ownership, release status, credentials, or skill levels. Existing labels such as "Private prototype" and "Team capstone" are intentional.
@@ -34,5 +37,7 @@ Run the tests relevant to the files or behavior changed. For broad portfolio cha
 - `python qa/test_hybrid_build_activity.py`
 
 Do not weaken or delete a regression test merely to make it pass. Some tests can lag behind an intentionally changed implementation; when a test and current approved behavior conflict, identify the mismatch and update the stale side deliberately.
+
+Before claiming completion, report concrete evidence: commands/checks run, their result, and any validation that could not be completed. Never describe a change as passing based only on inspection or expectation.
 
 GitHub Actions also runs the full `qa/test_*.py` suite automatically on pushes and pull requests targeting `main`. After UI changes, also check desktop and mobile behavior manually when a browser is available.
