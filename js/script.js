@@ -178,12 +178,69 @@
     },
   };
   const projectDialog = document.getElementById('projectDialog');
+  const projectDialogPanel = document.getElementById('projectDialogPanel');
   const projectDialogClose = document.getElementById('projectDialogClose');
   const projectDialogFlow = document.getElementById('projectDialogFlow');
+  const projectDialogFlowShell = document.getElementById('projectDialogFlowShell');
+  const projectDialogFlowStatus = document.getElementById('projectDialogFlowStatus');
   const projectDialogFlowStages = document.getElementById('projectDialogFlowStages');
   let lastProjectTrigger = null;
 
+  const clampProjectFlowProgress = (value) => Math.min(1, Math.max(0, value));
+
+  const setProjectFlowProgress = (progress) => {
+    const stages = Array.from(projectDialogFlowStages?.children || []);
+    if (!stages.length || !projectDialogFlowShell || !projectDialogFlowStatus) return;
+
+    const normalizedProgress = clampProjectFlowProgress(progress);
+    const progressPosition = normalizedProgress * (stages.length - 1);
+    const activeIndex = Math.round(progressPosition);
+
+    projectDialogFlowShell.style.setProperty('--flow-progress', normalizedProgress);
+
+    stages.forEach((stage, index) => {
+      const isActive = index === activeIndex;
+      stage.classList.toggle('is-active', isActive);
+      stage.classList.toggle('is-complete', index < activeIndex);
+
+      if (isActive) stage.setAttribute('aria-current', 'step');
+      else stage.removeAttribute('aria-current');
+
+      if (index < stages.length - 1) {
+        const connector = stage.children[3];
+        connector?.style.setProperty(
+          '--connector-progress',
+          clampProjectFlowProgress(progressPosition - index)
+        );
+      }
+    });
+
+    const activeTitle = stages[activeIndex].children[1].textContent;
+    const statusText = `Stage ${activeIndex + 1} of ${stages.length} · ${activeTitle}`;
+    if (projectDialogFlowStatus.textContent !== statusText) {
+      projectDialogFlowStatus.textContent = statusText;
+    }
+  };
+
+  const updateProjectFlowProgress = () => {
+    if (!projectDialogPanel || !projectDialogFlow || !projectDialogFlowShell || projectDialogFlow.hidden) return;
+
+    const isMobileFlow = window.matchMedia('(max-width: 680px)').matches;
+    let start = projectDialogFlow.offsetTop;
+    let distance = projectDialogFlow.offsetHeight - projectDialogFlowShell.offsetHeight;
+
+    if (isMobileFlow) {
+      start -= projectDialogPanel.clientHeight * .3;
+      distance = projectDialogFlow.offsetHeight - (projectDialogPanel.clientHeight * .4);
+    }
+
+    setProjectFlowProgress((projectDialogPanel.scrollTop - start) / Math.max(distance, 1));
+  };
+
+  projectDialogPanel?.addEventListener('scroll', updateProjectFlowProgress, { passive: true });
+
   const setProjectDialogContent = (project) => {
+    projectDialog.classList.toggle('has-automation-flow', Boolean(project.flow));
     document.getElementById('projectDialogCategory').textContent = project.category;
     document.getElementById('projectDialogTitle').textContent = project.title;
     document.getElementById('projectDialogStatus').textContent = project.status;
@@ -232,6 +289,9 @@
 
       return stage;
     }));
+    projectDialogFlowStatus.textContent = '';
+    projectDialogFlowShell.style.setProperty('--flow-progress', 0);
+    if (project.flow) setProjectFlowProgress(0);
 
     const stack = document.getElementById('projectDialogStack');
     stack.replaceChildren(...project.stack.map((technology) => {
@@ -256,6 +316,7 @@
       const project = projectDetails[button.dataset.project];
       if (!projectDialog || !project) return;
       lastProjectTrigger = button;
+      projectDialogPanel.scrollTop = 0;
       setProjectDialogContent(project);
       projectDialog.showModal();
       document.body.classList.add('dialog-open');

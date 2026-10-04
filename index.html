@@ -430,7 +430,7 @@
     </section>
 
     <dialog class="project-dialog" id="projectDialog" aria-labelledby="projectDialogTitle">
-      <article class="project-dialog-panel">
+      <article class="project-dialog-panel" id="projectDialogPanel">
         <button class="project-dialog-close" id="projectDialogClose" type="button" aria-label="Close project case study">×</button>
         <p class="eyebrow" id="projectDialogCategory"></p>
         <div class="project-dialog-heading">
@@ -439,11 +439,18 @@
         </div>
         <p class="project-dialog-summary" id="projectDialogSummary"></p>
         <section class="project-dialog-flow" id="projectDialogFlow" aria-labelledby="projectDialogFlowTitle" hidden>
-          <div class="project-dialog-flow-heading">
-            <p>Automation flow</p>
-            <h3 id="projectDialogFlowTitle">Input → Logic → Action</h3>
+          <div class="project-dialog-flow-shell" id="projectDialogFlowShell">
+            <div class="project-dialog-flow-heading">
+              <div>
+                <p>Automation flow</p>
+                <h3 id="projectDialogFlowTitle">Input → Logic → Action</h3>
+              </div>
+              <p class="project-flow-status" id="projectDialogFlowStatus" aria-live="polite"></p>
+            </div>
+            <div class="project-flow-progress-track" aria-hidden="true"><span></span></div>
+            <ol class="project-flow-stages" id="projectDialogFlowStages"></ol>
+            <p class="project-flow-hint"><span aria-hidden="true">↓</span> Scroll to run the workflow</p>
           </div>
-          <ol class="project-flow-stages" id="projectDialogFlowStages"></ol>
         </section>
         <div class="project-dialog-grid">
           <div class="project-dialog-proof">
