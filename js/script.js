@@ -49,6 +49,13 @@
         'Tested candidate intake, duplicate blocking, existing-candidate/application handling, recruiter lifecycle actions, due/overdue reminders, and automatic error capture.',
         'Public workflow package includes 4 / 4 sanitized exports with synthetic evidence and no production candidate data.',
       ],
+      flow: [
+        { title: 'Candidate Intake', detail: 'Captures candidate and application details from incoming email.' },
+        { title: 'Duplicate Check', detail: 'Blocks repeated candidate or application records.' },
+        { title: 'AI Interpretation', detail: 'Extracts email intent and prepares a response draft.' },
+        { title: 'Recruiter Review', detail: 'Keeps hiring decisions and stage changes human-controlled.' },
+        { title: 'Follow-up & Logs', detail: 'Schedules reminders and records errors for review.' },
+      ],
       stack: ['n8n', 'OpenAI', 'Gmail', 'Google Sheets'],
       links: [
         { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-ai-recruitment-candidate-pipeline' },
@@ -69,6 +76,13 @@
         'Tested Hot, Warm, Cold, invalid-input, duplicate, HTTP-response, workflow-failure, and client-reply scenarios with controlled sample data.',
         'Version 1 is documented as complete and tested; the public repository uses sanitized exports and synthetic demo data.',
       ],
+      flow: [
+        { title: 'Capture Inquiry', detail: 'Receives client details through the public webhook.' },
+        { title: 'Validate & Deduplicate', detail: 'Checks required fields, email format, and existing records.' },
+        { title: 'Extract & Score', detail: 'Structures inquiry details and applies the 0–100 rules.' },
+        { title: 'Hot / Warm / Cold Route', detail: 'Sends each lead to the matching follow-up path.' },
+        { title: 'Record & Respond', detail: 'Stores the result and returns the appropriate response.' },
+      ],
       stack: ['n8n', 'OpenAI', 'Webhooks', 'JavaScript'],
       links: [
         { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-ai-lead-qualification-automation' },
@@ -88,6 +102,13 @@
       proof: [
         'Tested a 10-item sample with 7 low-stock / 3 healthy items and a separate 0 low-stock / 10 healthy case.',
         'The public workflow is a sanitized monitoring automation and is explicitly not presented as a full POS or stock-transaction system.',
+      ],
+      flow: [
+        { title: 'Read Inventory', detail: 'Loads current stock and reorder levels on schedule.' },
+        { title: 'Compare Thresholds', detail: 'Checks every item against its own reorder point.' },
+        { title: 'Consolidate Low Stock', detail: 'Combines items that need attention into one list.' },
+        { title: 'Send Alert', detail: 'Emails one reorder alert only when low stock exists.' },
+        { title: 'Daily Summary', detail: 'Reports overall inventory status for both tested states.' },
       ],
       stack: ['n8n', 'Google Sheets', 'Gmail', 'JavaScript'],
       links: [
@@ -158,6 +179,8 @@
   };
   const projectDialog = document.getElementById('projectDialog');
   const projectDialogClose = document.getElementById('projectDialogClose');
+  const projectDialogFlow = document.getElementById('projectDialogFlow');
+  const projectDialogFlowStages = document.getElementById('projectDialogFlowStages');
   let lastProjectTrigger = null;
 
   const setProjectDialogContent = (project) => {
@@ -180,6 +203,34 @@
       const item = document.createElement('li');
       item.textContent = point;
       return item;
+    }));
+
+    projectDialogFlow.hidden = !project.flow;
+    projectDialogFlowStages.replaceChildren(...(project.flow || []).map(({ title, detail }, index, stages) => {
+      const stage = document.createElement('li');
+      stage.className = 'project-flow-stage';
+
+      const stageIndex = document.createElement('span');
+      stageIndex.className = 'project-flow-index';
+      stageIndex.textContent = String(index + 1).padStart(2, '0');
+
+      const stageTitle = document.createElement('strong');
+      stageTitle.textContent = title;
+
+      const stageDetail = document.createElement('small');
+      stageDetail.textContent = detail;
+
+      stage.append(stageIndex, stageTitle, stageDetail);
+
+      if (index < stages.length - 1) {
+        const connector = document.createElement('span');
+        connector.className = 'project-flow-connector';
+        connector.setAttribute('aria-hidden', 'true');
+        connector.textContent = '→';
+        stage.append(connector);
+      }
+
+      return stage;
     }));
 
     const stack = document.getElementById('projectDialogStack');
