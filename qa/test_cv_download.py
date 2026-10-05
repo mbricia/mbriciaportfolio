@@ -18,7 +18,7 @@ def run():
     require(raw.startswith(b"%PDF-"), "Updated CV data is not a PDF")
     require('data-cv-download' in HTML, "CV download controls are missing")
     require("Mark-Jhollan-Bricia-CV.base64.txt" in JS, "CV download should use the updated CV data asset")
-    require("Mark-Jhollan-Bricia-Master-ATS-CV-v5.pdf" in JS, "CV filename should use master ATS v5")
+    require("link.download = 'Mark-Jhollan-Bricia-CV.pdf'" in JS, "CV download should use the current, version-neutral filename")
     print("PASS simplified CV download wiring checks")
 
 

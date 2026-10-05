@@ -268,6 +268,39 @@ h3{
   font-size:.78rem;
 }
 
+.skills-overview{
+  padding:28px 0 30px;
+}
+.skill-groups{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px 40px;
+  margin:0;
+}
+.skill-groups dt{
+  margin-bottom:6px;
+  color:var(--text);
+  font-size:.78rem;
+  font-weight:700;
+}
+.skill-groups dd{
+  margin:0;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.7;
+}
+.skill-groups dd span{
+  color:var(--soft);
+}
+.skill-foundation-note{
+  margin:22px 0 0;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  color:var(--soft);
+  font-size:.75rem;
+  line-height:1.7;
+}
+
 .tech-carousel{
   position:relative;
   padding:18px 0 20px;
@@ -1589,6 +1622,7 @@ a.make-badge-item:hover{border-color:#3f665d}
 
 @media(max-width:680px){
   .particle-background{opacity:.58}
+  .skill-groups{grid-template-columns:1fr;gap:18px}
   .tech-carousel{padding:16px 0 16px}
   .tech-label{margin-bottom:9px}
   .tech-group{gap:16px;padding-inline:8px}

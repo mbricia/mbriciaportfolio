@@ -25,14 +25,14 @@ def test_about_uses_current_experience_copy():
     assert HTML.index("STKR Manila Printing Services") < HTML.index("Rate Programmer · Quadrant Information Services")
 
 
-def test_portfolio_download_asset_is_master_v5_pdf():
+def test_portfolio_download_asset_is_current_pdf():
     pdf_bytes = base64.b64decode(CV_B64)
     assert pdf_bytes.startswith(b"%PDF-")
     assert b"/Count 1" in pdf_bytes
-    assert "Mark-Jhollan-Bricia-Master-ATS-CV-v5.pdf" in SCRIPT
+    assert "link.download = 'Mark-Jhollan-Bricia-CV.pdf'" in SCRIPT
 
 
 if __name__ == "__main__":
     test_about_uses_current_experience_copy()
-    test_portfolio_download_asset_is_master_v5_pdf()
+    test_portfolio_download_asset_is_current_pdf()
     print("PASS portfolio experience continuity and one-page CV checks")

@@ -4,14 +4,13 @@ Personal developer and IT portfolio showcasing selected software projects, AI an
 
 ## Tech
 
-- HTML, CSS, JavaScript
-- React / React Native
-- Firebase / Firestore
-- C# and Java
-- MySQL
-- Git / GitHub
-- n8n, Make, Docker, Webhooks, OpenAI, Google Sheets, Gmail
-- Windows and basic IT support / networking
+- Development: JavaScript, HTML, CSS, React, React Native, C#, Java, PHP (programming foundations)
+- Database: SQL (query fundamentals), MySQL (relational DBMS), Firebase, Firestore
+- Automation & Integration: n8n, Make, APIs, Webhooks, JSON, OAuth, OpenAI, Google Sheets, Gmail
+- Tools / Deployment: Docker, Git, GitHub, Vercel, Netlify
+- IT Support: Windows, PC troubleshooting, and basic networking
+
+SQL/MySQL and PHP foundations come from college and previous software projects. SQL practice includes SELECT, INSERT, UPDATE, DELETE, filtering, and joins; MySQL is the database management system used in the Eleventh28 capstone.
 
 ## Featured Work
 
@@ -34,7 +33,7 @@ Four-workflow n8n recruitment operations system covering candidate email interpr
 Private React Native and Firebase prototype designed around administrator, cashier, inventory, ordering, sales visibility, and customer loyalty workflows.
 
 ### Eleventh28 POS + Kitchen Display
-Team academic software engineering capstone built with C# Windows Forms, MySQL, and SAP Crystal Reports.
+Team academic software engineering capstone built with C# Windows Forms, MySQL, and SAP Crystal Reports. SQL queries read and manage data in the MySQL relational database, supporting the connected POS, kitchen, and inventory system.
 
 ### AVENLO Web Products
 Responsive static web products built with HTML, CSS, and JavaScript.

@@ -20,7 +20,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'Mark-Jhollan-Bricia-Master-ATS-CV-v5.pdf';
+      link.download = 'Mark-Jhollan-Bricia-CV.pdf';
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -246,18 +246,19 @@
       category: 'Software Engineering · 2018–2019',
       title: 'Eleventh28 POS + Kitchen Display',
       status: 'Team capstone',
-      summary: 'A restaurant desktop system built as a team capstone, connecting cashier transactions, kitchen status, ingredient inventory, and reporting.',
+      summary: 'A C#/WinForms restaurant system built as a team capstone, using MySQL and SQL queries to connect cashier transactions, kitchen status, inventory, and reporting.',
       problem: 'Restaurant operations need cashier transactions, kitchen order status, ingredient inventory, and reporting to stay connected.',
       build: [
         'C# WinForms desktop system supports Administrator, Cashier, and Cook roles.',
         'POS orders move into a kitchen queue with status tracking.',
+        'MySQL provides the relational database, with SQL queries used to read and manage application data.',
         'Products link to ingredients for costing and automatic stock deduction, backed by MySQL and Crystal Reports.',
       ],
       proof: [
         'Built as a team capstone during 2018–2019, with the team ownership kept explicit in the portfolio.',
         'A public source repository is available for the original system code.',
       ],
-      stack: ['C#', 'WinForms', 'MySQL', 'Crystal Reports'],
+      stack: ['C#', 'WinForms', 'SQL', 'MySQL', 'Crystal Reports'],
       links: [
         { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/Point-of-Sale-With-Kitchen-Display-and-Queue-System' },
       ],
