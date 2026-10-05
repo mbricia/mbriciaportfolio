@@ -14,12 +14,12 @@ def run():
     assert HTML.count('class="project-proof-line"') == 6
 
     for proof_line in [
-        "4 workflows · 4/4 sanitized exports",
-        "0–100 rule-based scoring · tested routes",
-        "2 tested stock states · consolidated alerts",
-        "Private prototype · multi-role operations",
-        "Team capstone · POS → kitchen → inventory",
-        "3 live demos · responsive static builds",
+        "4 workflows · Tested",
+        "0–100 scoring · Tested",
+        "2 stock states · Tested",
+        "Private prototype",
+        "Team capstone · 2018–2019",
+        "3 live demos",
     ]:
         assert proof_line in TEXT, f"Missing project proof line: {proof_line}"
 
@@ -58,6 +58,7 @@ def run():
         assert url in JS, f"Missing project proof link: {url}"
 
     assert ".project-proof-line{" in CSS
+    assert ".project-tags{" in CSS, "Case-study tech tags should keep their compact pill styling"
     assert ".project-dialog-proof-block{" in CSS
     assert ".project-dialog-meta{" in CSS
 

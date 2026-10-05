@@ -91,7 +91,8 @@ def run():
     require('opacity:.88' in CSS, "Desktop particle canvas should be strongly visible through the glass UI")
     require('--glass:' in CSS and '--glass-strong:' in CSS, "Glass surface tokens are missing")
     require('backdrop-filter:blur(18px)' in CSS.replace(" ", ""), "Primary glass blur treatment is missing")
-    require('.project-card{' in CSS and 'background:var(--glass-strong)' in CSS, "Project cards should use stronger glass surfaces")
+    project_card_rule = CSS.split('.project-card{', 1)[1].split('}', 1)[0]
+    require('background:linear-gradient(155deg' in project_card_rule, "Project cards should use the polished dark gradient surface")
     require('.about-card{' in CSS and 'background:var(--glass)' in CSS, "About cards should use glass surfaces")
     require('.contact-card{' in CSS and 'background:var(--glass-strong)' in CSS, "Contact card should use a strong glass surface")
     require('.tech-carousel{' in CSS and 'backdrop-filter:blur(14px)' in CSS.replace(" ", ""), "Tech carousel should use a frosted glass strip")
@@ -105,7 +106,7 @@ def run():
     require('id="projectDialog"' in HTML, "Projects should share one accessible case study dialog")
     require('<details>' not in HTML, "Long project details should not clutter overview cards")
     require(HTML.count('class="project-visual') >= 5, "Most project cards should have a visual layer")
-    require('assets/projects/ai-lead-workflow-architecture.svg' in HTML, "Lead automation should use its existing workflow visual")
+    require(HTML.count('class="project-visual automation-preview"') == 3, "Automation cards should share one restrained preview style")
     require('assets/projects/kopi-admin.png' in HTML, "Kopi project should use an actual app screenshot")
     require('assets/projects/avenlo-family.png' in HTML, "AVENLO project should keep its visual preview")
     require('\\n' not in CSS, "CSS must not contain literal escaped newline sequences")
