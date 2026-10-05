@@ -49,13 +49,51 @@
         'Tested candidate intake, duplicate blocking, existing-candidate/application handling, recruiter lifecycle actions, due/overdue reminders, and automatic error capture.',
         'Public workflow package includes 4 / 4 sanitized exports with synthetic evidence and no production candidate data.',
       ],
-      flow: [
-        { title: 'Candidate Intake', detail: 'Captures candidate and application details from incoming email.' },
-        { title: 'Duplicate Check', detail: 'Blocks repeated candidate or application records.' },
-        { title: 'AI Interpretation', detail: 'Extracts email intent and prepares a response draft.' },
-        { title: 'Recruiter Review', detail: 'Keeps hiring decisions and stage changes human-controlled.' },
-        { title: 'Follow-up & Logs', detail: 'Schedules reminders and records errors for review.' },
-      ],
+      flow: {
+        steps: [
+          'Candidate Email',
+          'Parse application',
+          'Duplicate check',
+          'AI interpretation',
+          'Recruiter review',
+          'Route hiring decision',
+          'Hiring branches',
+          'Drafts and reminders',
+          'Activity and error log',
+        ],
+        nodes: [
+          { id: 'candidate-email', title: 'Candidate Email', detail: 'Receives the candidate message and attached application.', x: 1, y: 4, step: 0 },
+          { id: 'parse-application', title: 'Parse Application', detail: 'Normalizes the candidate and role details for processing.', x: 18, y: 4, step: 1 },
+          { id: 'duplicate-check', title: 'Duplicate Check', detail: 'Blocks repeated candidate or application records.', x: 35, y: 4, step: 2 },
+          { id: 'ai-interpretation', title: 'AI Interpretation', detail: 'Extracts intent and prepares a candidate-facing draft.', x: 52, y: 4, step: 3 },
+          { id: 'recruiter-review', title: 'Recruiter Review', detail: 'Keeps hiring decisions and stage changes human-controlled.', x: 69, y: 4, step: 4 },
+          { id: 'decision-router', title: 'Decision Router', detail: 'Routes the recruiter decision to the correct next action.', x: 86, y: 4, step: 5, kind: 'decision' },
+          { id: 'shortlisted', title: 'Shortlisted', detail: 'Prepares the qualified-candidate communication path.', x: 1, y: 56, step: 6, kind: 'branch' },
+          { id: 'on-hold', title: 'On Hold', detail: 'Keeps the candidate available for a later decision.', x: 18, y: 56, step: 6, kind: 'branch' },
+          { id: 'rejected', title: 'Rejected', detail: 'Prepares a controlled rejection communication draft.', x: 35, y: 56, step: 6, kind: 'branch' },
+          { id: 'gmail-draft', title: 'Gmail Draft', detail: 'Creates a reviewable message instead of auto-sending it.', x: 52, y: 56, step: 7 },
+          { id: 'follow-up-reminder', title: 'Follow-up Reminder', detail: 'Schedules due and overdue recruiter follow-ups.', x: 69, y: 56, step: 7 },
+          { id: 'activity-error-log', title: 'Activity & Error Log', detail: 'Records lifecycle actions and technical failures.', x: 86, y: 56, step: 8 },
+        ],
+        routes: [
+          { from: 'candidate-email', to: 'parse-application', step: 0 },
+          { from: 'parse-application', to: 'duplicate-check', step: 1 },
+          { from: 'duplicate-check', to: 'ai-interpretation', step: 2 },
+          { from: 'ai-interpretation', to: 'recruiter-review', step: 3 },
+          { from: 'recruiter-review', to: 'decision-router', step: 4 },
+          { from: 'decision-router', to: 'shortlisted', step: 5, lane: -2 },
+          { from: 'decision-router', to: 'on-hold', step: 5, lane: -1 },
+          { from: 'decision-router', to: 'rejected', step: 5 },
+          { from: 'shortlisted', to: 'gmail-draft', step: 6, via: 'bottom', lane: 2 },
+          { from: 'on-hold', to: 'gmail-draft', step: 6, via: 'bottom', lane: 1 },
+          { from: 'rejected', to: 'gmail-draft', step: 6 },
+          { from: 'shortlisted', to: 'follow-up-reminder', step: 6, via: 'bottom', lane: 4 },
+          { from: 'on-hold', to: 'follow-up-reminder', step: 6, via: 'bottom', lane: 3 },
+          { from: 'gmail-draft', to: 'activity-error-log', step: 7, via: 'bottom', lane: 1 },
+          { from: 'follow-up-reminder', to: 'activity-error-log', step: 7 },
+          { from: 'ai-interpretation', to: 'activity-error-log', step: 7, kind: 'exception', lane: 2 },
+        ],
+      },
       stack: ['n8n', 'OpenAI', 'Gmail', 'Google Sheets'],
       links: [
         { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-ai-recruitment-candidate-pipeline' },
@@ -76,13 +114,49 @@
         'Tested Hot, Warm, Cold, invalid-input, duplicate, HTTP-response, workflow-failure, and client-reply scenarios with controlled sample data.',
         'Version 1 is documented as complete and tested; the public repository uses sanitized exports and synthetic demo data.',
       ],
-      flow: [
-        { title: 'Capture Inquiry', detail: 'Receives client details through the public webhook.' },
-        { title: 'Validate & Deduplicate', detail: 'Checks required fields, email format, and existing records.' },
-        { title: 'Extract & Score', detail: 'Structures inquiry details and applies the 0–100 rules.' },
-        { title: 'Hot / Warm / Cold Route', detail: 'Sends each lead to the matching follow-up path.' },
-        { title: 'Record & Respond', detail: 'Stores the result and returns the appropriate response.' },
-      ],
+      flow: {
+        steps: [
+          'Capture Inquiry',
+          'Validate fields',
+          'Check duplicates',
+          'Extract with AI',
+          'Apply rule-based score',
+          'Route by temperature',
+          'Lead branches',
+          'Record result',
+          'Respond and monitor',
+        ],
+        nodes: [
+          { id: 'capture-inquiry', title: 'Capture Inquiry', detail: 'Receives client details through the public webhook.', x: 1, y: 4, step: 0 },
+          { id: 'validate-fields', title: 'Validate Fields', detail: 'Checks required fields and the submitted email format.', x: 18, y: 4, step: 1 },
+          { id: 'duplicate-check', title: 'Duplicate Check', detail: 'Stops an existing inquiry before an unnecessary AI call.', x: 35, y: 4, step: 2 },
+          { id: 'ai-extraction', title: 'AI Extraction', detail: 'Structures the inquiry and drafts a useful response.', x: 52, y: 4, step: 3 },
+          { id: 'rule-score', title: 'Rule-Based Score', detail: 'Applies the deterministic and explainable 0–100 score.', x: 69, y: 4, step: 4 },
+          { id: 'temperature-router', title: 'Temperature Router', detail: 'Splits the lead into Hot, Warm, or Cold follow-up.', x: 86, y: 4, step: 5, kind: 'decision' },
+          { id: 'failure-alert', title: 'Failure Alert', detail: 'Reports invalid input or workflow failures for review.', x: 1, y: 56, step: 8, kind: 'exception' },
+          { id: 'hot-lead', title: 'Hot Lead', detail: 'Prioritizes the high-intent lead for immediate action.', x: 18, y: 56, step: 6, kind: 'branch' },
+          { id: 'warm-lead', title: 'Warm Lead', detail: 'Routes the lead into a measured follow-up sequence.', x: 35, y: 56, step: 6, kind: 'branch' },
+          { id: 'cold-lead', title: 'Cold Lead', detail: 'Keeps the low-intent lead in a lighter nurture path.', x: 52, y: 56, step: 6, kind: 'branch' },
+          { id: 'record-sheets', title: 'Record in Sheets', detail: 'Stores the structured result, score, and route.', x: 69, y: 56, step: 7 },
+          { id: 'client-response', title: 'Client Response', detail: 'Returns the correct HTTP response and reply action.', x: 86, y: 56, step: 8 },
+        ],
+        routes: [
+          { from: 'capture-inquiry', to: 'validate-fields', step: 0 },
+          { from: 'validate-fields', to: 'duplicate-check', step: 1 },
+          { from: 'duplicate-check', to: 'ai-extraction', step: 2 },
+          { from: 'ai-extraction', to: 'rule-score', step: 3 },
+          { from: 'rule-score', to: 'temperature-router', step: 4 },
+          { from: 'temperature-router', to: 'hot-lead', step: 5, lane: -2 },
+          { from: 'temperature-router', to: 'warm-lead', step: 5, lane: -1 },
+          { from: 'temperature-router', to: 'cold-lead', step: 5 },
+          { from: 'hot-lead', to: 'record-sheets', step: 6, via: 'bottom', lane: 2 },
+          { from: 'warm-lead', to: 'record-sheets', step: 6, via: 'bottom', lane: 1 },
+          { from: 'cold-lead', to: 'record-sheets', step: 6 },
+          { from: 'record-sheets', to: 'client-response', step: 7 },
+          { from: 'validate-fields', to: 'failure-alert', step: 7, kind: 'exception', lane: 1 },
+          { from: 'ai-extraction', to: 'failure-alert', step: 7, kind: 'exception', lane: 2 },
+        ],
+      },
       stack: ['n8n', 'OpenAI', 'Webhooks', 'JavaScript'],
       links: [
         { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-ai-lead-qualification-automation' },
@@ -103,13 +177,48 @@
         'Tested a 10-item sample with 7 low-stock / 3 healthy items and a separate 0 low-stock / 10 healthy case.',
         'The public workflow is a sanitized monitoring automation and is explicitly not presented as a full POS or stock-transaction system.',
       ],
-      flow: [
-        { title: 'Read Inventory', detail: 'Loads current stock and reorder levels on schedule.' },
-        { title: 'Compare Thresholds', detail: 'Checks every item against its own reorder point.' },
-        { title: 'Consolidate Low Stock', detail: 'Combines items that need attention into one list.' },
-        { title: 'Send Alert', detail: 'Emails one reorder alert only when low stock exists.' },
-        { title: 'Daily Summary', detail: 'Reports overall inventory status for both tested states.' },
-      ],
+      flow: {
+        steps: [
+          'Daily Schedule',
+          'Read inventory',
+          'Inspect each item',
+          'Compare thresholds',
+          'Route stock state',
+          'Stock branches',
+          'Consolidate and count',
+          'Alert decision',
+          'Daily management summary',
+        ],
+        nodes: [
+          { id: 'daily-schedule', title: 'Daily Schedule', detail: 'Starts the monitoring workflow at the configured time.', x: 1, y: 4, step: 0 },
+          { id: 'read-inventory', title: 'Read Inventory', detail: 'Loads stock counts and reorder levels from Google Sheets.', x: 18, y: 4, step: 1 },
+          { id: 'inspect-item', title: 'Inspect Each Item', detail: 'Processes every inventory row using the same checks.', x: 35, y: 4, step: 2 },
+          { id: 'compare-thresholds', title: 'Compare Thresholds', detail: 'Compares current stock with the item reorder point.', x: 52, y: 4, step: 3 },
+          { id: 'stock-router', title: 'Stock Router', detail: 'Separates low-stock items from healthy inventory.', x: 69, y: 4, step: 4, kind: 'decision' },
+          { id: 'daily-summary', title: 'Daily Summary', detail: 'Reports the overall inventory state to management.', x: 86, y: 4, step: 8 },
+          { id: 'low-stock', title: 'Low Stock', detail: 'Collects items at or below their reorder level.', x: 1, y: 56, step: 5, kind: 'branch' },
+          { id: 'healthy-stock', title: 'Healthy Stock', detail: 'Keeps in-stock items in the daily status totals.', x: 18, y: 56, step: 5, kind: 'branch' },
+          { id: 'consolidate-items', title: 'Consolidate Items', detail: 'Combines all low-stock rows into one reorder list.', x: 35, y: 56, step: 6 },
+          { id: 'low-count-decision', title: 'Low-Count Decision', detail: 'Checks whether the consolidated list contains any item.', x: 52, y: 56, step: 6, kind: 'decision' },
+          { id: 'send-alert', title: 'Send Reorder Alert', detail: 'Emails one HTML reorder alert when low stock exists.', x: 69, y: 56, step: 7 },
+          { id: 'suppress-alert', title: 'Suppress Alert', detail: 'Skips the reorder email when every item is healthy.', x: 86, y: 56, step: 7 },
+        ],
+        routes: [
+          { from: 'daily-schedule', to: 'read-inventory', step: 0 },
+          { from: 'read-inventory', to: 'inspect-item', step: 1 },
+          { from: 'inspect-item', to: 'compare-thresholds', step: 2 },
+          { from: 'compare-thresholds', to: 'stock-router', step: 3 },
+          { from: 'stock-router', to: 'low-stock', step: 4, lane: -1 },
+          { from: 'stock-router', to: 'healthy-stock', step: 4 },
+          { from: 'low-stock', to: 'consolidate-items', step: 5, via: 'bottom', lane: 1 },
+          { from: 'consolidate-items', to: 'low-count-decision', step: 6 },
+          { from: 'low-count-decision', to: 'send-alert', step: 6 },
+          { from: 'low-count-decision', to: 'suppress-alert', step: 6, via: 'bottom', lane: 1 },
+          { from: 'send-alert', to: 'daily-summary', step: 7, lane: -1 },
+          { from: 'suppress-alert', to: 'daily-summary', step: 7 },
+          { from: 'healthy-stock', to: 'daily-summary', step: 7, kind: 'alternate', lane: 2 },
+        ],
+      },
       stack: ['n8n', 'Google Sheets', 'Gmail', 'JavaScript'],
       links: [
         { label: 'View GitHub repository ↗', url: 'https://github.com/mbricia/n8n-inventory-low-stock-automation' },
@@ -184,39 +293,122 @@
   const projectDialogFlowShell = document.getElementById('projectDialogFlowShell');
   const projectDialogFlowStatus = document.getElementById('projectDialogFlowStatus');
   const projectDialogFlowStages = document.getElementById('projectDialogFlowStages');
+  const projectDialogFlowRouteLayer = document.getElementById('projectDialogFlowRouteLayer');
   let lastProjectTrigger = null;
+  let activeProjectFlow = null;
+
+  const FLOW_VIEWBOX_WIDTH = 1000;
+  const FLOW_VIEWBOX_HEIGHT = 500;
+  const FLOW_NODE_WIDTH = 135;
+  const FLOW_NODE_HEIGHT = 160;
+  const FLOW_SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
 
   const clampProjectFlowProgress = (value) => Math.min(1, Math.max(0, value));
 
+  const getProjectFlowNodeBox = (node) => ({
+    left: node.x * (FLOW_VIEWBOX_WIDTH / 100),
+    top: node.y * (FLOW_VIEWBOX_HEIGHT / 100),
+    right: node.x * (FLOW_VIEWBOX_WIDTH / 100) + FLOW_NODE_WIDTH,
+    bottom: node.y * (FLOW_VIEWBOX_HEIGHT / 100) + FLOW_NODE_HEIGHT,
+    centerX: node.x * (FLOW_VIEWBOX_WIDTH / 100) + (FLOW_NODE_WIDTH / 2),
+    centerY: node.y * (FLOW_VIEWBOX_HEIGHT / 100) + (FLOW_NODE_HEIGHT / 2),
+  });
+
+  const buildProjectFlowRoutePath = (fromNode, toNode, route) => {
+    const from = getProjectFlowNodeBox(fromNode);
+    const to = getProjectFlowNodeBox(toNode);
+    const sameRow = Math.abs(fromNode.y - toNode.y) < 2;
+
+    if (sameRow && route.via !== 'bottom') {
+      const movingRight = to.centerX > from.centerX;
+      const startX = movingRight ? from.right : from.left;
+      const endX = movingRight ? to.left : to.right;
+      return `M ${startX} ${from.centerY} H ${endX}`;
+    }
+
+    if (sameRow) {
+      const laneY = Math.min(
+        FLOW_VIEWBOX_HEIGHT - 6,
+        Math.max(from.bottom, to.bottom) + 14 + ((route.lane || 0) * 7)
+      );
+      return `M ${from.centerX} ${from.bottom} V ${laneY} H ${to.centerX} V ${to.bottom}`;
+    }
+
+    const movingDown = to.centerY > from.centerY;
+    const startY = movingDown ? from.bottom : from.top;
+    const endY = movingDown ? to.top : to.bottom;
+    const laneY = ((startY + endY) / 2) + ((route.lane || 0) * 8);
+    return `M ${from.centerX} ${startY} V ${laneY} H ${to.centerX} V ${endY}`;
+  };
+
+  const renderProjectFlowRoutes = (flow) => {
+    if (!projectDialogFlowRouteLayer) return;
+
+    const nodesById = Object.fromEntries(flow.nodes.map((node) => [node.id, node]));
+    const routeElements = flow.routes.map((route) => {
+      const fromNode = nodesById[route.from];
+      const toNode = nodesById[route.to];
+      const routeGroup = document.createElementNS(FLOW_SVG_NAMESPACE, 'g');
+      routeGroup.setAttribute('class', 'project-flow-route');
+      routeGroup.dataset.step = String(route.step);
+
+      if (route.kind) routeGroup.classList.add(`is-${route.kind}`);
+
+      const pathData = buildProjectFlowRoutePath(fromNode, toNode, route);
+      const basePath = document.createElementNS(FLOW_SVG_NAMESPACE, 'path');
+      basePath.setAttribute('class', 'project-flow-route-base');
+      basePath.setAttribute('d', pathData);
+      basePath.setAttribute('pathLength', '1');
+      basePath.setAttribute('marker-end', 'url(#projectFlowArrow)');
+
+      const progressPath = document.createElementNS(FLOW_SVG_NAMESPACE, 'path');
+      progressPath.setAttribute('class', 'project-flow-route-progress');
+      progressPath.setAttribute('d', pathData);
+      progressPath.setAttribute('pathLength', '1');
+
+      routeGroup.append(basePath, progressPath);
+      return routeGroup;
+    });
+
+    projectDialogFlowRouteLayer.replaceChildren(...routeElements);
+  };
+
   const setProjectFlowProgress = (progress) => {
     const stages = Array.from(projectDialogFlowStages?.children || []);
-    if (!stages.length || !projectDialogFlowShell || !projectDialogFlowStatus) return;
+    const routes = Array.from(projectDialogFlowRouteLayer?.children || []);
+    if (!stages.length || !activeProjectFlow || !projectDialogFlowShell || !projectDialogFlowStatus) return;
 
     const normalizedProgress = clampProjectFlowProgress(progress);
-    const progressPosition = normalizedProgress * (stages.length - 1);
+    const progressPosition = normalizedProgress * (activeProjectFlow.steps.length - 1);
     const activeIndex = Math.round(progressPosition);
 
     projectDialogFlowShell.style.setProperty('--flow-progress', normalizedProgress);
 
+    let currentStageAnnounced = false;
     stages.forEach((stage, index) => {
-      const isActive = index === activeIndex;
+      const stageStep = Number(stage.dataset.step);
+      const isActive = stageStep === activeIndex;
       stage.classList.toggle('is-active', isActive);
-      stage.classList.toggle('is-complete', index < activeIndex);
+      stage.classList.toggle('is-complete', stageStep < activeIndex);
 
-      if (isActive) stage.setAttribute('aria-current', 'step');
-      else stage.removeAttribute('aria-current');
-
-      if (index < stages.length - 1) {
-        const connector = stage.children[3];
-        connector?.style.setProperty(
-          '--connector-progress',
-          clampProjectFlowProgress(progressPosition - index)
-        );
+      if (isActive && !currentStageAnnounced) {
+        stage.setAttribute('aria-current', 'step');
+        currentStageAnnounced = true;
+      } else {
+        stage.removeAttribute('aria-current');
       }
     });
 
-    const activeTitle = stages[activeIndex].children[1].textContent;
-    const statusText = `Stage ${activeIndex + 1} of ${stages.length} · ${activeTitle}`;
+    routes.forEach((route) => {
+      const routeStep = Number(route.dataset.step);
+      const routeProgress = clampProjectFlowProgress(progressPosition - routeStep);
+      route.style.setProperty('--route-progress', routeProgress);
+      route.classList.toggle('is-active', routeStep === activeIndex);
+      route.classList.toggle('is-complete', routeProgress >= .999);
+    });
+
+    const activeTitle = activeProjectFlow.steps[activeIndex];
+    const statusText = `Stage ${activeIndex + 1} of ${activeProjectFlow.steps.length} · ${activeTitle}`;
     if (projectDialogFlowStatus.textContent !== statusText) {
       projectDialogFlowStatus.textContent = statusText;
     }
@@ -225,7 +417,7 @@
   const updateProjectFlowProgress = () => {
     if (!projectDialogPanel || !projectDialogFlow || !projectDialogFlowShell || projectDialogFlow.hidden) return;
 
-    const isMobileFlow = window.matchMedia('(max-width: 680px)').matches;
+    const isMobileFlow = window.matchMedia('(max-width: 900px)').matches;
     let start = projectDialogFlow.offsetTop;
     let distance = projectDialogFlow.offsetHeight - projectDialogFlowShell.offsetHeight;
 
@@ -263,9 +455,16 @@
     }));
 
     projectDialogFlow.hidden = !project.flow;
-    projectDialogFlowStages.replaceChildren(...(project.flow || []).map(({ title, detail }, index, stages) => {
+    activeProjectFlow = project.flow || null;
+    const orderedFlowNodes = [...(project.flow?.nodes || [])]
+      .sort((first, second) => first.step - second.step || first.y - second.y || first.x - second.x);
+    projectDialogFlowStages.replaceChildren(...orderedFlowNodes.map(({ title, detail, x, y, step, kind }, index) => {
       const stage = document.createElement('li');
       stage.className = 'project-flow-stage';
+      stage.dataset.step = String(step);
+      stage.style.setProperty('--flow-x', x);
+      stage.style.setProperty('--flow-y', y);
+      if (kind) stage.classList.add(`is-${kind}`);
 
       const stageIndex = document.createElement('span');
       stageIndex.className = 'project-flow-index';
@@ -278,19 +477,13 @@
       stageDetail.textContent = detail;
 
       stage.append(stageIndex, stageTitle, stageDetail);
-
-      if (index < stages.length - 1) {
-        const connector = document.createElement('span');
-        connector.className = 'project-flow-connector';
-        connector.setAttribute('aria-hidden', 'true');
-        connector.textContent = '→';
-        stage.append(connector);
-      }
-
       return stage;
     }));
+    if (project.flow) renderProjectFlowRoutes(project.flow);
+    else projectDialogFlowRouteLayer.replaceChildren();
     projectDialogFlowStatus.textContent = '';
     projectDialogFlowShell.style.setProperty('--flow-progress', 0);
+    projectDialogFlow.style.setProperty('--flow-step-count', project.flow?.steps.length || 0);
     if (project.flow) setProjectFlowProgress(0);
 
     const stack = document.getElementById('projectDialogStack');
