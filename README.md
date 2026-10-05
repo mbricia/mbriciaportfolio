@@ -6,7 +6,7 @@ Personal developer and IT portfolio showcasing selected software projects, AI an
 
 - Development: JavaScript, HTML, CSS, React, React Native, C#, Java, PHP (programming foundations)
 - Database: SQL, MySQL, SQLite, Firebase, Firestore
-- Automation & Integration: n8n, Make, APIs, Webhooks, JSON, OAuth, OpenAI, Google Sheets, Gmail
+- Automation & Integration: n8n, Make, Airtable, CRM-style lead management, APIs, Webhooks, JSON, OAuth, OpenAI, Google Sheets, Gmail
 - Tools / Deployment: Docker, Git, GitHub, Vercel, Netlify
 - IT Support: Windows, PC troubleshooting, and basic networking
 
