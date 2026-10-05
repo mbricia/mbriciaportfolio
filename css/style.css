@@ -435,7 +435,14 @@ h3{
   font-size:.76rem;
   font-weight:700;
 }
-.activity-visual{min-width:0;margin-top:26px;overflow-x:auto}
+.activity-visual{
+  min-width:0;
+  margin-top:26px;
+  overflow-x:auto;
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+.activity-visual::-webkit-scrollbar{display:none;width:0;height:0}
 .activity-calendar{
   display:grid;
   grid-template-columns:28px minmax(610px,1fr);
@@ -585,18 +592,6 @@ h3{
   background:linear-gradient(145deg,rgba(29,62,53,.56),rgba(11,17,19,.68));
   border-color:rgba(124,224,202,.24);
 }
-.bento-stat-open:after{
-  content:"";
-  position:absolute;
-  width:9px;
-  height:9px;
-  top:18px;
-  right:18px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 18px rgba(124,224,202,.5);
-}
-
 .project-visual{
   margin:0 0 20px;
 }
