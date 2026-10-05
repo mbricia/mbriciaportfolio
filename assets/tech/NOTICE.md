@@ -1,5 +1,7 @@
 # Icon attribution
 
+`airtable.svg` uses the Airtable glyph from [Simple Icons](https://simpleicons.org/), licensed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+
 `sqlite.svg` is from [Devicon](https://github.com/devicons/devicon/blob/master/icons/sqlite/sqlite-original.svg).
 
 The MIT License (MIT)
